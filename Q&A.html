@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ for International Students - University Careers Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #004d71; /* University Primary Blue */
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .page-header h1 i {
+            margin-right: 15px;
+        }
+
+        .page-header .intro {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* Main Layout: Flexbox for Sidebar and Main Content */
+        .main-layout {
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar {
+            flex: 1;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+        }
+
+        .content-main {
+            flex: 3;
+        }
+
+        /* FAQ Card Styling */
+        .faq-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #00788a;
+        }
+        
+        .faq-card h2 {
+            font-size: 1.5rem;
+            color: #004d71;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eef2f5;
+        }
+
+        .faq-card p {
+            margin: 0;
+        }
+
+        /* Sidebar Widgets */
+        .sidebar-widget {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-widget h3 {
+            margin-top: 0;
+            color: #004d71;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .checklist i {
+            margin-right: 10px;
+            color: #00788a;
+        }
+
+        /* Action Buttons */
+        .action-button {
+            display: block;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: static;
+                top: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .page-header .intro {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-globe"></i> International Student FAQs</h1>
+            <p class="intro">Find answers to common questions about visas, working in the UK, and how our Careers Service can support you.</p>
+        </header>
+
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Quick Actions</h3>
+                    <a href="#" class="action-button"><i class="fa-solid fa-calendar-plus"></i> Book an Appointment</a>
+                    <a href="#" class="action-button"><i class="fa-solid fa-file-pdf"></i> Visa Guidance Docs</a>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>Key Visa Points</h3>
+                    <ul class="checklist">
+                        <li><i class="fa-solid fa-check"></i> Check work hours on your BRP</li>
+                        <li><i class="fa-solid fa-check"></i> Understand the Graduate Route</li>
+                        <li><i class="fa-solid fa-check"></i> Identify Skilled Worker sponsors</li>
+                        <li><i class="fa-solid fa-check"></i> Never work over your limit</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="content-main">
+                <!-- FAQ Item 1 -->
+                <div class="faq-card">
+                    <h2>Can I work in the UK after I graduate?</h2>
+                    <p>Yes, many international students can. The main route is the <strong>Graduate Route visa</strong>, which allows you to stay in the UK for 2 years (3 for PhDs) to work or look for work. You don't need a job offer to apply. Another option is the <strong>Skilled Worker visa</strong>, which requires a job offer from a licensed sponsor. Our advisors can provide detailed information on eligibility.</p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-card">
+                    <h2>How many hours can I work during my studies?</h2>
+                    <p>For degree-level courses, you can typically work up to <strong>20 hours per week during term time</strong> and full-time during official vacations. It is crucial to check the specific conditions on your visa (BRP) as restrictions vary. Working over your permitted hours is a serious breach of visa conditions.</p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-card">
+                    <h2>How do I find companies that sponsor visas?</h2>
+                    <p>The UK Home Office has a public <strong>register of licensed sponsors</strong> online. Many large graduate employers are also on this list. Our Careers Service provides workshops and resources to help you identify these employers. We also host careers fairs where you can speak directly with companies that hire international graduates.</p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-card">
+                    <h2>Are CVs different in the UK?</h2>
+                    <p>Yes. In the UK, a CV is usually a maximum of two pages. It's standard practice <strong>not to include a photograph, date of birth, or marital status</strong>. The focus is on your skills, experience, and achievements. A tailored cover letter is also highly recommended. We offer CV review services to help you adapt your documents to UK standards.</p>
+                </div>
+            </main>
+        </div>
+        
+        <footer style="text-align: center; margin-top: 40px; color: #777;">
+            <p>University Careers and Employability Service</p>
+        </footer>
+    </div>
+
+    <!-- Script removed as it is no longer needed for the accordion functionality -->
+
+</body>
+</html>
