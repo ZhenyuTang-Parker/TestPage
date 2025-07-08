@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Timeline & Key Programs - University Careers Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        
+        /* Universal Box Sizing */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #004d71; /* University Primary Blue */
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .page-header h1 i {
+            margin-right: 15px;
+        }
+
+        .page-header .intro {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #00788a;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-container {
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left {
+            left: 0;
+            padding-right: 30px; /* Pushes content away from the center line */
+        }
+
+        .timeline-container.right {
+            left: 50%;
+            padding-left: 30px; /* Pushes content away from the center line */
+        }
+        
+        /* The circle on the timeline */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -14.5px; /* Adjusted for perfect centering */
+            background-color: #ffffff;
+            border: 4px solid #004d71;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .right::after {
+            left: -14.5px; /* Adjusted for perfect centering */
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 5px solid #00788a;
+            margin-bottom: 20px; /* Adds vertical space between cards */
+        }
+        
+        .timeline-content h2 {
+            margin-top: 0;
+            color: #004d71;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: #004d71;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .timeline-content ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content ul li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #00788a;
+        }
+
+        /* Responsive Design for Mobile */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            /* On mobile, both left and right containers behave the same */
+            .timeline-container.left, .timeline-container.right {
+                left: 0%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-container::after {
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-calendar-alt"></i> Your Career Journey Timeline</h1>
+            <p class="intro">Navigate your academic year with our guide to key career events, application windows, and development opportunities. Don't miss a chance to build your future.</p>
+        </header>
+
+        <div class="timeline">
+            <!-- Autumn Term -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h2>Autumn Term (Sept - Dec)</h2>
+                    <h3><i class="fa-solid fa-flag-checkered"></i> The Race for Graduate Schemes Begins!</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-briefcase"></i> <strong>Graduate Schemes & Jobs:</strong> Many large employers open applications now for roles starting next summer. This is the peak application season!</li>
+                        <li><i class="fa-solid fa-handshake"></i> <strong>Autumn Careers Fairs:</strong> Your biggest chance to meet top employers from various sectors on campus. Prepare your CV and elevator pitch.</li>
+                        <li><i class="fa-solid fa-lightbulb"></i> <strong>Skill Workshops:</strong> Look out for workshops on CV writing, interview skills, and assessment centres to get you ready for applications.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Spring Term -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h2>Spring Term (Jan - Apr)</h2>
+                    <h3><i class="fa-solid fa-magnifying-glass"></i> Focus on Internships & Experience</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-user-tie"></i> <strong>Summer Internships:</strong> Application windows for summer internships are wide open. This is crucial for 1st and 2nd-year students.</li>
+                        <li><i class="fa-solid fa-network-wired"></i> <strong>Networking Events:</strong> Smaller, sector-specific events are common. A great way to make meaningful connections.</li>
+                        <li><i class="fa-solid fa-building"></i> <strong>Spring Careers Fairs:</strong> Another opportunity to meet employers, often with a focus on internships and smaller companies.</li>
+                         <li><i class="fa-solid fa-graduation-cap"></i> <strong>Finalist Focus:</strong> Final year students should be attending interviews and assessment centres from their autumn applications.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Summer Term & Vacation -->
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h2>Summer (May - Aug)</h2>
+                    <h3><i class="fa-solid fa-sun"></i> Gain Experience & Prepare</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-person-digging"></i> <strong>Work Experience:</strong> Time for your summer internship or other work experience. Make the most of it!</li>
+                        <li><i class="fa-solid-fa-seedling"></i> <strong>Volunteering:</strong> A great way to build skills and experience if you didn't secure an internship.</li>
+                        <li><i class="fa-solid fa-book-open-reader"></i> <strong>Career Planning:</strong> Reflect on the year. Update your CV with new experiences and start researching companies for the next application cycle.</li>
+                         <li><i class="fa-solid fa-rocket"></i> <strong>Prepare for Autumn:</strong> Get a head start! Many graduate scheme applications for the *following* year open as early as August.</li>
+                    </ul>
+                </div>
+            </div>
+             <!-- Year-Round Activities -->
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h2>All Year Round</h2>
+                    <h3><i class="fa-solid fa-star"></i> Continuous Development</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-hand-holding-hand"></i> <strong>Careers Service Appointments:</strong> Book one-to-one appointments for CV checks, mock interviews, and personalized career advice anytime.</li>
+                        <li><i class="fa-solid fa-chart-line"></i> <strong>Employer-led Events:</strong> Keep an eye on the careers portal for presentations and drop-in sessions from companies throughout the year.</li>
+                        <li><i class="fa-solid fa-link"></i> <strong>LinkedIn & Networking:</strong> Build your professional online presence and connect with alumni and professionals in your field of interest.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer style="text-align: center; margin-top: 40px; color: #777;">
+            <p>University Careers and Employability Service</p>
+        </footer>
+    </div>
+
+</body>
+</html>

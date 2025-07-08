@@ -1,240 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVs, Applications & Interviews - University of Southampton</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* General Body & Font Styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f9;
-            color: #333;
-        }
+    /* General Body & Font Styles */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f9;
+        color: #333;
+    }
 
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    /* Main Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-        /* Page Header */
-        .page-header {
-            background-color: #004d71; /* University of Southampton Primary Blue */
-            color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
+    /* Page Header */
+    .page-header {
+        background-color: #004d71;
+        /* University of Southampton Primary Blue */
+        color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
 
-        .page-header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+    .page-header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
 
-        .page-header h1 i {
-            margin-right: 15px;
-        }
+    .page-header h1 i {
+        margin-right: 15px;
+    }
 
-        .page-header .intro {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
+    .page-header .intro {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-top: 10px;
+    }
 
-        /* Main Layout: Flexbox for Sidebar and Main Content */
+    /* Main Layout: Flexbox for Sidebar and Main Content */
+    .main-layout {
+        display: flex;
+        gap: 30px;
+    }
+
+    .sidebar {
+        flex: 1;
+        /* Sidebar takes up less space */
+        position: sticky;
+        top: 20px;
+        align-self: flex-start;
+    }
+
+    .content-main {
+        flex: 3;
+        /* Main content takes up more space */
+    }
+
+    /* Information Cards */
+    .info-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid #00788a;
+        /* A complementary accent color */
+    }
+
+    .info-card h2 {
+        font-size: 1.8rem;
+        color: #004d71;
+        margin-top: 0;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+        font-size: 1.3rem;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .info-card h3 i {
+        margin-right: 8px;
+        color: #00788a;
+    }
+
+    /* Resource List Styling */
+    .resource-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .resource-list li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .resource-list li::before {
+        content: '\f105';
+        /* Font Awesome right chevron */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        color: #00788a;
+    }
+
+    .resource-list a {
+        text-decoration: none;
+        color: #005a9c;
+        font-weight: 500;
+    }
+
+    .resource-list a:hover {
+        text-decoration: underline;
+    }
+
+    .resource-list i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    /* Download Button Styling */
+    .download-button {
+        display: inline-block;
+        background-color: #00788a;
+        color: #ffffff;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.2s ease-in-out;
+        margin-left: 10px;
+    }
+
+    .download-button:hover {
+        background-color: #005a6a;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .download-button i {
+        margin-right: 8px;
+    }
+
+    /* Sidebar Widgets */
+    .sidebar-widget {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-widget h3 {
+        margin-top: 0;
+        color: #004d71;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+    }
+
+    .checklist {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .checklist li {
+        margin-bottom: 10px;
+    }
+
+    .checklist i {
+        margin-right: 10px;
+        color: #00788a;
+    }
+
+    /* Action Buttons */
+    .action-button {
+        display: block;
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .action-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-button.primary-button {
+        background-color: #d9534f;
+        /* A standout color for important actions */
+        color: #ffffff;
+    }
+
+    .action-button.primary-button:hover {
+        background-color: #c9302c;
+    }
+
+    /* Special FAQ Card */
+    .faq-card {
+        background-color: #fffaf0;
+        /* A light yellow to draw attention */
+        border-left-color: #d9534f;
+        /* A red accent for problems */
+    }
+
+    .faq-card p {
+        margin-bottom: 15px;
+    }
+
+    /* Highlight Box Style */
+    .highlight {
+        background-color: #fffbe6;
+        /* A soft, light yellow */
+        border-left: 5px solid #f0ad4e;
+        /* A complementary amber/yellow border */
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        /* Space below the highlight box */
+        border-radius: 8px;
+    }
+
+    .highlight p {
+        margin-bottom: 10px;
+    }
+
+    .highlight p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Carousel (轮播图) Styles */
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .carousel-slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .carousel-caption p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    .carousel-caption .author {
+        margin-top: 10px;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+        /* Allows clicks to go through to image if needed */
+    }
+
+    .carousel-nav button {
+        pointer-events: all;
+        /* Make buttons clickable */
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 0 15px;
+    }
+
+    .carousel-nav button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
         .main-layout {
-            display: flex;
-            gap: 30px;
+            flex-direction: column-reverse;
+            /* Puts main content above sidebar on mobile */
         }
 
         .sidebar {
-            flex: 1; /* Sidebar takes up less space */
-            position: sticky;
-            top: 20px;
-            align-self: flex-start;
+            position: static;
+            top: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2rem;
         }
 
-        .content-main {
-            flex: 3; /* Main content takes up more space */
+        .page-header .intro {
+            font-size: 1rem;
         }
-
-        /* Information Cards */
-        .info-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid #00788a; /* A complementary accent color */
-        }
-
-        .info-card h2 {
-            font-size: 1.8rem;
-            color: #004d71;
-            margin-top: 0;
-            border-bottom: 2px solid #eef2f5;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .info-card h3 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        .info-card h3 i {
-            margin-right: 8px;
-            color: #00788a;
-        }
-
-        /* Resource List Styling */
-        .resource-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .resource-list li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .resource-list li::before {
-            content: '\f105'; /* Font Awesome right chevron */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 3px;
-            color: #00788a;
-        }
-
-        .resource-list a {
-            text-decoration: none;
-            color: #005a9c;
-            font-weight: 500;
-        }
-
-        .resource-list a:hover {
-            text-decoration: underline;
-        }
-        
-        .resource-list i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        /* Sidebar Widgets */
-        .sidebar-widget {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .sidebar-widget h3 {
-            margin-top: 0;
-            color: #004d71;
-            border-bottom: 2px solid #eef2f5;
-            padding-bottom: 10px;
-        }
-
-        .checklist {
-            list-style: none;
-            padding-left: 0;
-        }
-        .checklist li {
-            margin-bottom: 10px;
-        }
-        .checklist i {
-            margin-right: 10px;
-            color: #00788a;
-        }
-
-        /* Action Buttons */
-        .action-button {
-            display: block;
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 12px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .action-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .action-button.primary-button {
-            background-color: #d9534f; /* A standout color for important actions */
-            color: #ffffff;
-        }
-        
-        .action-button.primary-button:hover {
-             background-color: #c9302c;
-        }
-
-        /* Special FAQ Card */
-        .faq-card {
-            background-color: #fffaf0; /* A light yellow to draw attention */
-            border-left-color: #d9534f; /* A red accent for problems */
-        }
-        
-        .faq-card p {
-            margin-bottom: 15px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .main-layout {
-                flex-direction: column-reverse; /* Puts main content above sidebar on mobile */
-            }
-            .sidebar {
-                position: static;
-                top: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2rem;
-            }
-            .page-header .intro {
-                font-size: 1rem;
-            }
-        }
+    }
     </style>
 </head>
-<body>
 
+<body>
     <div class="container">
         <header class="page-header">
             <h1><i class="fa-solid fa-file-signature"></i> CVs, Applications & Interviews</h1>
             <p class="intro">From crafting a standout CV to excelling in your interviews, here are the resources you need to secure your next role. Follow these steps to build your confidence and skills.</p>
         </header>
-
         <div class="main-layout">
-            
             <aside class="sidebar">
                 <div class="sidebar-widget">
                     <h3>Quick Actions</h3>
                     <a href="https://mycareer.soton.ac.uk/leap/appointments.html" class="action-button"><i class="fa-solid fa-calendar-plus"></i> Book Appointment</a>
                     <a href="#" class="action-button"><i class="fa-solid fa-person-chalkboard"></i> Find a Workshop</a>
-                    <a href="#" class="action-button"><i class="fa-brands fa-linkedin"></i> Join LinkedIn Group</a>
+                    <a href="https://www.linkedin.com/groups/13009479/" class="action-button" target="_blank"><i class="fa-brands fa-linkedin"></i> Join LinkedIn Group</a>
                 </div>
                 <div class="sidebar-widget">
                     <h3>Your Checklist</h3>
@@ -247,20 +378,37 @@
                     </ul>
                 </div>
             </aside>
-
             <main class="content-main">
-                
-                <section class="info-card">
-                    <h2>Step 1: UK Job Search</h2>
-                    <p>Before you write your application, you need to find the right opportunities. Explore these popular UK graduate job boards.</p>
-                    <ul class="resource-list">
-                        <li><a href="#" target="_blank"><i class="fa-solid fa-briefcase"></i> MyCareer Jobs Board</a> - Exclusive jobs for UoS students.</li>
-                        <li><a href="https://www.brightnetwork.co.uk/" target="_blank"><i class="fa-solid fa-briefcase"></i> Bright Network</a></li>
-                        <li><a href="https://targetjobs.co.uk/" target="_blank"><i class="fa-solid fa-briefcase"></i> TARGETjobs</a></li>
-                        <li><a href="https://www.gradcracker.com/" target="_blank"><i class="fa-solid fa-briefcase"></i> Gradcracker (STEM roles)</a></li>
-                        <li><a href="https://www.ratemyplacement.co.uk/" target="_blank"><i class="fa-solid fa-briefcase"></i> RateMyPlacement</a></li>
-                    </ul>
-                </section>
+               <section class="info-card">
+      <h2>Your Job Search Toolkit</h2>
+      <p>Finding the right opportunity is the first step to success. Below are curated resources to help you search effectively, whether you're looking for a graduate role in the UK, a position in a specific sector, or an international opportunity.</p>
+    
+      <hr>
+    
+      <h3><i class="fa-solid fa-graduation-cap"></i> UK Graduate &amp; Placement Roles</h3>
+      <p>These job boards are specifically designed for students and recent graduates in the UK.</p>
+      <ul class="resource-list">
+        <li><i class="fa-solid fa-briefcase"></i><a href="#" target="_blank">MyCareer Jobs Board</a> - Your first stop. Features roles exclusively for University of Southampton students, often from employers actively targeting UoS talent.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://www.brightnetwork.co.uk/" target="_blank">Bright Network</a> - An excellent resource for high-calibre internships and graduate roles. They partner with top employers and provide extensive career advice and events.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://targetjobs.co.uk/" target="_blank">TARGETjobs</a> - Offers a huge range of graduate schemes and internships, with strong filtering by sector (e.g., law, engineering, finance). Also provides valuable insights into different career paths.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://www.gradcracker.com/" target="_blank">Gradcracker</a> - The leading UK job board for STEM (Science, Technology, Engineering &amp; Maths) students. If you're in a technical field, this is essential.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://www.ratemyplacement.co.uk/" target="_blank">RateMyPlacement</a> - A top site for finding placements and internships. Its key strength is the thousands of student-written reviews on employers, giving you an inside look.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://www.milkround.com/" target="_blank">Milkround</a> - One of the longest-running graduate job sites, featuring opportunities for all degree disciplines, from school leaver positions to graduate schemes.</li>
+      </ul>
+    
+      <h3><i class="fa-solid fa-globe"></i> All Levels &amp; International Roles</h3>
+      <p>For broader searches across all experience levels or beyond the UK.</p>
+      <ul class="resource-list">
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://uk.indeed.com/" target="_blank">Indeed</a> - A powerful aggregator that scrapes jobs directly from company career pages. <strong>Pro:</strong> Has the largest volume of listings. <strong>Con:</strong> Can be less curated, so use specific keywords to narrow your search.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="https://www.prospects.ac.uk/jobs-and-work-experience/working-abroad" target="_blank">Prospects Working Abroad</a> - A trusted source of information for working overseas, providing country-specific guides on job markets, visas, and application methods.</li>
+        <li><i class="fa-solid fa-briefcase"></i><a href="#" target="_blank">GoinGlobal</a> - An extensive resource (often available via university careers subscriptions) with worldwide job listings and detailed career guides for major cities.</li>
+       <li><i class="fa-solid fa-briefcase"></i><a href="#" target="_blank">LockinU</a> - A specialist platform focused on connecting UK students and graduates with job opportunities across China.</li>
+      </ul>
+    
+      <div class="highlight">
+        <p><strong>Next Step:</strong> For advanced job search strategies and learning how to leverage these platforms effectively, book the 'Advanced Job Searching' careers workshop.</p>
+      </div>
+    </section>
 
                 <section class="info-card">
                     <h2>Step 2: Prepare Your Story (CV)</h2>
@@ -270,17 +418,41 @@
                         <li><a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank"><i class="fa-solid fa-calendar-check"></i> Book a CV Support Appointment</a> - Get 1-to-1 feedback on your CV from a careers advisor.</li>
                     </ul>
                 </section>
-
+                <!-- Downloadable Templates Section -->
+                <section class="info-card">
+                    <h2>Downloadable Templates</h2>
+                    <div class="highlight">
+                        <p><strong>Note:</strong> This programme is specially designed for postgraduate students with some industry experience. We focus on building personalised and agile career strategies, like harnessing the temporary contractor market and using the right recruitment agencies.</p>
+                        <p>If you're an undergraduate or don't have industry experience, this content is still highly relevant, and you are very welcome to join! You can also access the full range of support from Careers, Employability and Student Enterprise.</p>
+                    </div>
+                    <p>Get a head start with our professionally designed templates. Remember to tailor them with your own experiences and skills!</p>
+                    <ul class="resource-list">
+                        <li>
+                            Chronological CV Template
+                            <a href="#" download="Chronological_CV_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a>
+                        </li>
+                        <li>
+                            Skills-Based CV Template
+                            <a href="#" download="Skills_Based_CV_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a>
+                        </li>
+                        <li>
+                            Cover Letter Template
+                            <a href="#" download="Cover_Letter_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a>
+                        </li>
+                        <li>
+                            Personal Statement Guide
+                            <a href="#" download="Personal_Statement_Guide.pdf" class="download-button"><i class="fa-solid fa-download"></i> Download</a>
+                        </li>
+                    </ul>
+                </section>
                 <section class="info-card">
                     <h2>Step 3: Write Your Application</h2>
                     <p>Tailor your application to each role by writing effective cover letters and personal statements. Using the STAR method is key to demonstrating your skills with evidence.</p>
-                    
                     <h3><i class="fa-solid fa-envelope-open-text"></i> Cover Letters & Personal Statements</h3>
                     <ul class="resource-list">
                         <li><a href="#" target="_blank">Access our online guide to writing impactful cover letters.</a></li>
                         <li><a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank">Book an appointment to get your draft application checked.</a></li>
                     </ul>
-
                     <h3><i class="fa-solid fa-star"></i> The STAR Framework (Situation, Task, Action, Result)</h3>
                     <p>This is the gold standard for providing evidence of your skills in applications and interviews.</p>
                     <ul class="resource-list">
@@ -288,31 +460,94 @@
                         <li><a href="#" target="_blank"><i class="fa-solid fa-book-open"></i> Indeed guide to using STAR</a></li>
                     </ul>
                 </section>
-
                 <section class="info-card">
                     <h2>Step 4: Ace Your Interview</h2>
                     <p>Proper preparation is the key to interview success. Use these tools to practice and build your confidence.</p>
-                     <ul class="resource-list">
+                    <ul class="resource-list">
                         <li><a href="#" target="_blank"><i class="fa-solid fa-video"></i> E-learning module "Interview Success"</a> - <strong>Highly Recommended!</strong> Watch videos of good and bad answer examples.</li>
                         <li><a href="#" target="_blank"><i class="fa-solid fa-users"></i> Sign up for Interviews Workshops</a> - Practice your skills in an interactive group setting.</li>
                         <li><a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank"><i class="fa-solid fa-comments"></i> Book an Ask the Adviser appointment</a> - Run through a mock interview or ask specific questions.</li>
                     </ul>
                 </section>
-
-                 <section class="info-card faq-card">
+                <!-- Carousel Section -->
+                <section class="info-card">
+                    <h2>Student Success Stories</h2>
+                    <div class="carousel-container">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide">
+                                <img src="https://placehold.co/800x400/004d71/ffffff?text=Success+Story+1" alt="Success Story 1">
+                                <div class="carousel-caption">
+                                    <p>"The CV appointment was a game-changer. I finally understood how to showcase my skills and landed my dream internship!"</p>
+                                    <p class="author">- Chloe, BEng Electronic Engineering</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://placehold.co/800x400/00788a/ffffff?text=Success+Story+2" alt="Success Story 2">
+                                <div class="carousel-caption">
+                                    <p>"Practicing the STAR method in a mock interview gave me the confidence I needed. I felt so prepared on the actual day."</p>
+                                    <p class="author">- David, BSc Economics</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://placehold.co/800x400/d9534f/ffffff?text=Success+Story+3" alt="Success Story 3">
+                                <div class="carousel-caption">
+                                    <p>"I used the cover letter template as a starting point and got three interview invitations within a week. Thank you!"</p>
+                                    <p class="author">- Aisha, MA History</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-prev">&#10094;</button>
+                            <button class="carousel-next">&#10095;</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="info-card faq-card">
                     <h2><i class="fa-solid fa-circle-question"></i> Stuck or Have Questions?</h2>
                     <p>Feeling overwhelmed or facing rejection is a normal part of the process. Personalised feedback can help you get back on track.</p>
                     <a href="https://mycareer.soton.ac.uk/leap/appointments.html" class="action-button"><i class="fa-solid fa-handshake-angle"></i> Book a 1-to-1 Appointment to Troubleshoot</a>
                     <a href="faq.html" class="action-button primary-button"><i class="fa-solid fa-list-ul"></i> See All Frequently Asked Questions</a>
                 </section>
-
             </main>
         </div>
-
         <footer style="text-align: center; margin-top: 40px; color: #777;">
             <p>University of Southampton Careers and Employability Service</p>
         </footer>
     </div>
+    <script>
+    // Carousel functionality
+    const slidesContainer = document.querySelector(".carousel-slides");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prevButton = document.querySelector(".carousel-prev");
+    const nextButton = document.querySelector(".carousel-next");
 
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        // Check for bounds
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    nextButton.addEventListener("click", () => {
+        showSlide(currentIndex + 1);
+    });
+
+    prevButton.addEventListener("click", () => {
+        showSlide(currentIndex - 1);
+    });
+
+    // Initialize to show the first slide
+    showSlide(currentIndex);
+    </script>
 </body>
+
 </html>
