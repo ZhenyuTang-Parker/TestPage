@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to China: Your Career Guide - University of Southampton</title>
+    <!-- This is a self-contained file. You can save it as an HTML file and open it in a web browser to preview. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* General Body & Font Styles */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f9;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    /* Main Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Page Header */
+    .page-header {
+        background-color: #004d71;
+        color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    .page-header h1 i {
+        margin-right: 15px;
+    }
+
+    .page-header .intro {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-top: 10px;
+    }
+
+    /* Main Layout: Flexbox for Sidebar and Main Content */
+    .main-layout {
+        display: flex;
+        gap: 30px;
+    }
+
+    .sidebar {
+        flex: 1;
+        position: sticky;
+        top: 20px;
+        align-self: flex-start;
+    }
+
+    .content-main {
+        flex: 3;
+    }
+
+    /* Information Cards */
+    .info-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid #d9534f; /* Red accent for this page theme */
+    }
+
+    .info-card h2 {
+        font-size: 1.8rem;
+        color: #004d71;
+        margin-top: 0;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+        font-size: 1.3rem;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .info-card h3 i {
+        margin-right: 8px;
+        color: #d9534f;
+    }
+
+    /* Resource List Styling */
+    .resource-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .resource-list li {
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .resource-list li::before {
+        content: '\f105';
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        color: #d9534f;
+    }
+
+    .resource-list a {
+        text-decoration: none;
+        color: #005a9c;
+        font-weight: 500;
+    }
+
+    .resource-list a:hover {
+        text-decoration: underline;
+    }
+
+    /* Sidebar Widgets */
+    .sidebar-widget {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-widget h3 {
+        margin-top: 0;
+        color: #004d71;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+    }
+
+    .checklist {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .checklist li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .checklist i {
+        margin-right: 10px;
+        color: #d9534f;
+    }
+    
+    .checklist a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 4px 8px;
+        border-radius: 5px;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .checklist a:hover {
+        color: #005a9c;
+        background-color: #f0f2f5;
+    }
+
+    .checklist a.active-nav-link {
+        background-color: #fde2e2; /* Light red to match theme */
+        color: #c9302c;
+        font-weight: bold;
+    }
+
+    /* Action Buttons */
+    .action-button {
+        display: block;
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .action-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-button.primary-button {
+        background-color: #d9534f;
+        color: #ffffff;
+    }
+
+    .action-button.primary-button:hover {
+        background-color: #c9302c;
+    }
+
+    /* Highlight Box Style (for warnings/important notes) */
+    .highlight {
+        background-color: #fffbe6;
+        border-left: 5px solid #f0ad4e;
+        padding: 12px 18px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+    .highlight p, .tip-box p {
+        margin-bottom: 10px;
+    }
+    .highlight p:last-child, .tip-box p:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Tip Box Style (for helpful tips) */
+    .tip-box {
+        background-color: #eef2ff;
+        border-left: 5px solid #4f46e5;
+        padding: 12px 18px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+    .tip-box ul {
+        list-style-position: inside;
+        padding-left: 5px;
+        margin: 10px 0 0 0;
+    }
+    .tip-box li {
+        margin-bottom: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .main-layout { flex-direction: column-reverse; }
+        .sidebar { position: static; top: auto; }
+    }
+
+    @media (max-width: 768px) {
+        .page-header h1 { font-size: 2rem; }
+        .page-header .intro { font-size: 1rem; }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-plane-departure"></i> Back to China: Your Career Guide</h1>
+            <p class="intro">Welcome! This guide is designed for Chinese international students planning to return to China after graduation. Here you'll find tailored resources to help you navigate the job market and make a successful transition.</p>
+        </header>
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Quick Actions</h3>
+                    <a href="#" class="action-button"><i class="fa-solid fa-calendar-plus"></i> Book an Appointment</a>
+                    <a href="#" class="action-button"><i class="fa-brands fa-weixin"></i> Join WeChat Group</a>
+                    <a href="#" class="action-button primary-button"><i class="fa-solid fa-magnifying-glass"></i> Explore LockinU</a>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>On this page</h3>
+                    <ul class="checklist" id="page-nav">
+                        <li><a href="#job-search-china">Job Searching in China</a></li>
+                        <li><a href="#cv-tips-china">CV & Application Tips</a></li>
+                        <li><a href="#recruitment-process">Recruitment Process</a></li>
+                        <li><a href="#networking-china">Networking & Alumni</a></li>
+                        <li><a href="#practical-steps">Practical Next Steps</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Returnee Checklist</h3>
+                    <ul class="checklist">
+                        <li><i class="fa-regular fa-square"></i> Tailor CV for Chinese market</li>
+                        <li><i class="fa-regular fa-square"></i> Research employers in my city</li>
+                        <li><i class="fa-regular fa-square"></i> Connect with alumni on LinkedIn</li>
+                        <li><i class="fa-regular fa-square"></i> Authenticate my UK degree</li>
+                        <li><i class="fa-regular fa-square"></i> Research city 'Hukou' policies</li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="content-main">
+               <section class="info-card" id="job-search-china">
+                 <h2>Step 1: Finding Opportunities in China</h2>
+                 <p>The job market in China has its own key platforms. Familiarise yourself with these to find the best opportunities for returning graduates.</p>
+                 
+                 <h3><i class="fa-solid fa-building"></i> Key Job Platforms</h3>
+                 <ul class="resource-list">
+                   <li><a href="#" target="_blank">LockinU</a> - A specialist platform designed for overseas Chinese students returning to China. A great place to start.</li>
+                   <li><a href="#" target="_blank">Liepin (猎聘)</a> - Excellent for high-end roles and connecting directly with headhunters. Good for those with some experience.</li>
+                   <li><a href="#" target="_blank">Zhaopin (智联招聘)</a> - One of the largest and most established job boards in China, with a huge number of listings.</li>
+                   <li><a href="#" target="_blank">Boss Zhipin (BOSS直聘)</a> - A very popular mobile-first platform that allows you to chat directly with hiring managers.</li>
+                 </ul>
+                 <div class="tip-box">
+                    <p><strong>Don't forget MyCareer!</strong> Multinational companies often post roles for their China offices on our university's MyCareer jobs board.
+                 </div>
+               </section>
+
+                <section class="info-card" id="cv-tips-china">
+                    <h2>Step 2: Tailoring Your Application</h2>
+                    <p>A UK-style CV may not be effective in the Chinese job market. It's crucial to adapt your CV to meet local expectations.</p>
+                    
+                    <div class="tip-box">
+                        <h3><i class="fa-solid fa-lightbulb"></i> Key Differences for a Chinese CV</h3>
+                        <ul>
+                            <li><strong>Photo is Standard:</strong> Include a professional, friendly headshot. This is a common and often expected practice.</li>
+                            <li><strong>More Personal Details:</strong> It is standard to include your date of birth, gender, and sometimes your 'hukou' (户口) location.</li>
+                            <li><strong>Language:</strong> Unless applying to a multinational company that specifies English, your CV should be written in flawless Mandarin.</li>
+                            <li><strong>Keep it Concise:</strong> Aim for a one-page CV, especially as a new graduate. Be direct and to the point.</li>
+                        </ul>
+                    </div>
+                    <p>Use our services to ensure your translated and adapted CV is professional and effective.</p>
+                     <ul class="resource-list">
+                        <li><a href="#" target="_blank">Book a CV Support Appointment for feedback.</a></li>
+                    </ul>
+                </section>
+                
+                <section class="info-card" id="recruitment-process">
+                    <h2>Step 3: Understanding the Recruitment Process</h2>
+                    <p>The hiring process in China can have different stages and timelines compared to the UK.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>Key Timeline: "Golden September, Silver October" (金九银十)</strong></p>
+                        <p>This is the peak campus recruitment season for major companies in China. Make sure you are ready to apply during this autumn period for graduate schemes starting the following year.</p>
+                    </div>
+
+                    <h3><i class="fa-solid fa-file-pen"></i> Common Recruitment Stages</h3>
+                    <ul class="resource-list">
+                        <li><strong>Online Application & CV Screen:</strong> The first step, similar to the UK.</li>
+                        <li><strong>Written Tests (笔试):</strong> Very common for large companies. These can include aptitude tests (numerical, verbal, logic) and technical tests related to the role.</li>
+                        <li><strong>Group Interviews (群面):</strong> A frequent stage where you will solve a case study or problem as part of a team, observed by assessors.</li>
+                        <li><strong>Final Interviews (终面):</strong> Usually one-on-one or with a panel of senior managers.</li>
+                    </ul>
+                </section>
+
+                <section class="info-card" id="networking-china">
+                    <h2>Step 4: Leveraging Your Network (关系)</h2>
+                    <p>Building and using your professional network is extremely valuable. Your status as a University of Southampton alumnus is a great starting point.</p>
+                    <h3><i class="fa-solid fa-users"></i> Connect with the Community</h3>
+                    <ul class="resource-list">
+                        <li><a href="#" target="_blank">Follow the University's Official WeChat Account</a> for news and events in China.</li>
+                        <li><a href="#" target="_blank">Join the University of Southampton Alumni Network on LinkedIn</a> to find graduates in your target industry and city.</li>
+                        <li>Look out for alumni networking events held in cities like Beijing, Shanghai, and Shenzhen.</li>
+                    </ul>
+                </section>
+
+                <section class="info-card" id="practical-steps">
+                    <h2>Final Step: Practical Preparations</h2>
+                    <p>Before you start work, there are some essential administrative steps you must take.</p>
+                    <div class="highlight">
+                        <h3><i class="fa-solid fa-stamp"></i> Degree Authentication is Essential</h3>
+                        <p>Your UK degree must be officially authenticated by the <strong>Chinese Service Center for Scholarly Exchange (CSCSE - 留学服务中心)</strong>. Employers will require this certificate as proof of your foreign qualification. Start this process as soon as you receive your degree certificate.</p>
+                        <a href="#" class="action-button">Visit the CSCSE Website</a>
+                    </div>
+                    <div class="tip-box">
+                        <h3><i class="fa-solid fa-house-user"></i> Research 'Hukou' (户口) Policies</h3>
+                        <p>Major cities like Beijing and Shanghai have special policies that can grant a local 'hukou' to talented returning overseas graduates. A local hukou provides access to social benefits and can be a major advantage. Research the specific requirements for your target city as soon as possible.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer style="text-align: center; margin-top: 40px; color: #777;">
+            <p>University of Southampton Careers and Employability Service</p>
+        </footer>
+    </div>
+    <script>
+    // Scroll-based highlighting for navigation panel
+    window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.content-main .info-card');
+        const navLinks = document.querySelectorAll('#page-nav a');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-link');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active-nav-link');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: "-30% 0px -70% 0px" }); // trigger when a section is in the middle 30% of the screen
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>

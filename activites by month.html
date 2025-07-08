@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers Events - University of Southampton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* General Body & Font Styles */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f9;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    /* Main Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Page Header */
+    .page-header {
+        background-color: #004d71;
+        color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    .page-header h1 i {
+        margin-right: 15px;
+    }
+
+    .page-header .intro {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-top: 10px;
+    }
+
+    /* Main Layout: Flexbox for Sidebar and Main Content */
+    .main-layout {
+        display: flex;
+        gap: 30px;
+    }
+
+    .sidebar {
+        flex: 1;
+        position: sticky;
+        top: 20px;
+        align-self: flex-start;
+    }
+
+    .content-main {
+        flex: 3;
+    }
+    
+    /* View Switcher Buttons */
+    .view-switcher {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+    .view-switcher button {
+        flex: 1;
+        padding: 10px 15px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        border: 2px solid #004d71;
+        background-color: #ffffff;
+        color: #004d71;
+        border-radius: 6px;
+        transition: all 0.2s ease-in-out;
+    }
+    .view-switcher button.active {
+        background-color: #004d71;
+        color: #ffffff;
+    }
+     .view-switcher button:not(.active):hover {
+        background-color: #eef2f5;
+    }
+    
+    /* View Container Logic */
+    .view-container {
+        display: none; /* Hidden by default */
+    }
+    .view-container.active-view {
+        display: block; /* Shown when active */
+    }
+
+    /* Main Content Section Headers */
+     .content-main h2 {
+        font-size: 1.8rem;
+        color: #004d71;
+        margin-top: 40px;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+    }
+    .content-main h2:first-child {
+        margin-top: 0;
+    }
+     .content-main h2 i {
+        margin-right: 10px;
+    }
+    
+    /* NEW --- Event Card Styling */
+    .event-card {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        border-left: 5px solid #004d71;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .event-details {
+        flex: 3; /* Take more space */
+    }
+    .event-poster {
+        flex: 2; /* Take less space */
+        max-width: 250px;
+    }
+    .event-poster img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        display: block;
+    }
+
+    .event-card .event-date {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #00788a;
+        margin-bottom: 8px;
+    }
+
+    .event-card .event-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0;
+        color: #004d71;
+    }
+    
+    .event-card .event-description {
+        font-size: 0.95rem;
+        margin-top: 8px;
+        margin-bottom: 15px;
+        color: #4a5568;
+    }
+
+    .event-card .event-button {
+        display: inline-block;
+        padding: 8px 18px;
+        background-color: #00788a;
+        color: #ffffff;
+        border: 2px solid #00788a;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    .event-card .event-button:hover {
+        background-color: #005a6a;
+    }
+
+
+    /* Sidebar Widgets */
+    .sidebar-widget {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-widget h3 {
+        margin-top: 0;
+        color: #004d71;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 10px;
+    }
+
+    .checklist {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .checklist li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .checklist i {
+        margin-right: 10px;
+        color: #00788a;
+    }
+    
+    .checklist a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 4px 8px;
+        border-radius: 5px;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .checklist a:hover {
+        color: #005a9c;
+        background-color: #f0f2f5;
+    }
+
+    .checklist a.active-nav-link {
+        background-color: #e0eafc;
+        color: #004d71;
+        font-weight: bold;
+    }
+
+    /* Action Buttons */
+    .action-button {
+        display: block;
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .action-button.primary-button {
+        background-color: #00788a;
+        color: #ffffff;
+    }
+    .action-button.primary-button:hover {
+        background-color: #005a6a;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .main-layout { flex-direction: column-reverse; }
+        .sidebar { position: static; top: auto; }
+    }
+
+    @media (max-width: 768px) {
+        .page-header h1 { font-size: 2rem; }
+        .page-header .intro { font-size: 1rem; }
+        .event-card { flex-direction: column; text-align: center; }
+        .event-poster { margin-top: 15px; max-width: 200px; }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-star"></i> Careers Events & Workshops</h1>
+            <p class="intro">Explore our upcoming events. From large-scale careers fairs to intimate skills workshops, there's something to help everyone take their next step. Choose your preferred view below.</p>
+        </header>
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Quick Actions</h3>
+                    <a href="#" class="action-button"><i class="fa-solid fa-calendar-plus"></i> Book an Appointment</a>
+                    <a href="#" class="action-button primary-button"><i class="fa-solid fa-briefcase"></i> Explore all on MyCareer</a>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>On this page</h3>
+                    <ul class="checklist" id="page-nav">
+                        <li><a href="#careers-fairs">Careers Fairs</a></li>
+                        <li><a href="#skills-workshops">Skills Workshops</a></li>
+                        <li><a href="#employer-events">Employer-Led Events</a></li>
+                    </ul>
+                    <small id="nav-note" style="display: block; margin-top: 15px; opacity: 0.7;">Navigation links work best with 'View by Category'.</small>
+                </div>
+            </aside>
+            <main class="content-main">
+                <div class="view-switcher">
+                    <button id="btn-category" class="active">View by Category</button>
+                    <button id="btn-timeline">View by Timeline</button>
+                </div>
+                
+                <div id="view-category" class="view-container active-view">
+                   <section id="careers-fairs">
+                        <h2><i class="fa-solid fa-users"></i>Careers Fairs</h2>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">15 OCTOBER 2025</p>
+                                <h3 class="event-title">All-Sector Autumn Careers Fair 2025</h3>
+                                <p class="event-description">Meet dozens of top graduate employers from a huge range of industries, all in one place.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                            <div class="event-poster"><img src="https://placehold.co/300x200/00788a/ffffff?text=Careers+Fair" alt="Careers Fair Poster"></div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">22 OCTOBER 2025</p>
+                                <h3 class="event-title">Engineering & Technology Careers Fair 2025</h3>
+                                <p class="event-description">A dedicated event for students in STEM to connect with leading engineering and tech firms.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                             <div class="event-poster"><img src="https://placehold.co/300x200/d9534f/ffffff?text=STEM+Fair" alt="STEM Fair Poster"></div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">23 OCTOBER 2025</p>
+                                <h3 class="event-title">Student Innovation Projects</h3>
+                                <p class="event-description">A unique opportunity</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                             <div class="event-poster"><img src="student.jpg" alt="STEM Fair Poster"></div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">12 FEBRUARY 2026</p>
+                                <h3 class="event-title">Spring Careers Fair 2026</h3>
+                                <p class="event-description">Discover a new range of employers, including startups and SMEs, offering graduate roles and internships.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                            <div class="event-poster"><img src="https://placehold.co/300x200/f0ad4e/ffffff?text=Spring+Fair" alt="Spring Fair Poster"></div>
+                        </div>
+                    </section>
+                    
+                    <section id="skills-workshops">
+                        <h2><i class="fa-solid fa-gears"></i>Skills Workshops</h2>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">30 SEPTEMBER 2025</p>
+                                <h3 class="event-title">CV Writing Masterclass</h3>
+                                <p class="event-description">Learn the essentials of crafting a powerful, professional CV that will get you noticed by UK employers.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                            <div class="event-poster"><img src="https://placehold.co/300x200/4f46e5/ffffff?text=CV+Workshop" alt="CV Workshop Poster"></div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">29 OCTOBER 2025</p>
+                                <h3 class="event-title">Ace Your Interview: Techniques & Practice</h3>
+                                <p class="event-description">Build confidence and learn how to answer tough questions using the STAR method in this interactive session.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                            <div class="event-poster"><img src="https://placehold.co/300x200/4f46e5/ffffff?text=Interview+Skills" alt="Interview Skills Poster"></div>
+                        </div>
+                    </section>
+
+                    <section id="employer-events">
+                        <h2><i class="fa-solid fa-building"></i>Employer-Led Events</h2>
+                        <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">20 OCTOBER 2025</p>
+                                <h3 class="event-title">Tech Talk & Networking with Google</h3>
+                                <p class="event-description">Hear directly from Google engineers about their latest projects and discover career paths at the company.</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                             <div class="event-poster"><img src="https://placehold.co/300x200/34a853/ffffff?text=Google+Event" alt="Google Event Poster"></div>
+                        </div>
+                    </section>
+                </div>
+                
+                <div id="view-timeline" class="view-container">
+                    <h2 id="autumn-term"><i class="fa-solid fa-leaf"></i>Autumn Term: Sep - Dec 2025</h2>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">30 SEPTEMBER 2025</p>
+                            <h3 class="event-title">CV Writing Masterclass</h3>
+                            <p class="event-description">Learn the essentials of crafting a powerful, professional CV that will get you noticed by UK employers.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/4f46e5/ffffff?text=CV+Workshop" alt="CV Workshop Poster"></div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">15 OCTOBER 2025</p>
+                            <h3 class="event-title">All-Sector Autumn Careers Fair 2025</h3>
+                            <p class="event-description">Meet dozens of top graduate employers from a huge range of industries, all in one place.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/00788a/ffffff?text=Careers+Fair" alt="Careers Fair Poster"></div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">20 OCTOBER 2025</p>
+                            <h3 class="event-title">Tech Talk & Networking with Google</h3>
+                            <p class="event-description">Hear directly from Google engineers about their latest projects and discover career paths at the company.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/34a853/ffffff?text=Google+Event" alt="Google Event Poster"></div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">22 OCTOBER 2025</p>
+                            <h3 class="event-title">Engineering & Technology Careers Fair 2025</h3>
+                            <p class="event-description">A dedicated event for students in STEM to connect with leading engineering and tech firms.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/d9534f/ffffff?text=STEM+Fair" alt="STEM Fair Poster"></div>
+    
+                    </div>
+                    <div class="event-card">
+                            <div class="event-details">
+                                <p class="event-date">23 OCTOBER 2025</p>
+                                <h3 class="event-title">Student Innovation Projects</h3>
+                                <p class="event-description">A unique opportunity</p>
+                                <a href="#" class="event-button">Continue Reading</a>
+                            </div>
+                             <div class="event-poster"><img src="student.jpg" alt="STEM Fair Poster"></div>
+                        </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">29 OCTOBER 2025</p>
+                            <h3 class="event-title">Ace Your Interview: Techniques & Practice</h3>
+                            <p class="event-description">Build confidence and learn how to answer tough questions using the STAR method in this interactive session.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/4f46e5/ffffff?text=Interview+Skills" alt="Interview Skills Poster"></div>
+                    </div>
+                    
+                    <h2 id="spring-term"><i class="fa-solid fa-cloud-sun"></i>Spring Term: Jan - Apr 2026</h2>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <p class="event-date">12 FEBRUARY 2026</p>
+                            <h3 class="event-title">Spring Careers Fair 2026</h3>
+                            <p class="event-description">Discover a new range of employers, including startups and SMEs, offering graduate roles and internships.</p>
+                            <a href="#" class="event-button">Continue Reading</a>
+                        </div>
+                        <div class="event-poster"><img src="https://placehold.co/300x200/f0ad4e/ffffff?text=Spring+Fair" alt="Spring Fair Poster"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer style="text-align: center; margin-top: 40px; color: #777;">
+            <p>University of Southampton Careers and Employability Service</p>
+        </footer>
+    </div>
+    <script>
+    // View Switcher functionality
+    const btnCategory = document.getElementById('btn-category');
+    const btnTimeline = document.getElementById('btn-timeline');
+    const viewCategory = document.getElementById('view-category');
+    const viewTimeline = document.getElementById('view-timeline');
+    const pageNav = document.getElementById('page-nav');
+    const navNote = document.getElementById('nav-note');
+
+    btnCategory.addEventListener('click', () => {
+        btnCategory.classList.add('active');
+        btnTimeline.classList.remove('active');
+        viewCategory.classList.add('active-view');
+        viewTimeline.classList.remove('active-view');
+        pageNav.style.display = 'block';
+        navNote.style.display = 'block';
+    });
+    
+    btnTimeline.addEventListener('click', () => {
+        btnTimeline.classList.add('active');
+        btnCategory.classList.remove('active');
+        viewTimeline.classList.add('active-view');
+        viewCategory.classList.remove('active-view');
+        pageNav.style.display = 'none';
+        navNote.style.display = 'none';
+    });
+    
+    // Scroll-based highlighting for sidebar navigation
+    window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('#view-category section');
+        const navLinks = document.querySelectorAll('#page-nav a');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-link');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active-nav-link');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: "-40% 0px -60% 0px" });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>
