@@ -64,6 +64,41 @@
             flex: 3;
         }
 
+        /* Tab Navigation Styles */
+        .tabs-container {
+            display: flex;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 1rem;
+            color: #495057;
+            position: relative;
+            bottom: -2px;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        
+        .tab-button.active {
+            border-bottom: 2px solid #004d71;
+            font-weight: 600;
+            color: #004d71;
+        }
+        
+        /* Content for each tab */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+
         /* FAQ Card Styling */
         .faq-card {
             background-color: #ffffff;
@@ -74,7 +109,7 @@
             border-left: 5px solid #00788a;
         }
         
-        .faq-card h2 {
+        .faq-card h2, .faq-card h3 {
             font-size: 1.5rem;
             color: #004d71;
             margin-top: 0;
@@ -83,9 +118,17 @@
             border-bottom: 1px solid #eef2f5;
         }
 
-        .faq-card p {
+        .faq-card p, .faq-card ul {
             margin: 0;
         }
+        
+        .faq-card ul {
+            padding-left: 20px;
+        }
+        .faq-card ul li {
+           margin-bottom: 8px;
+        }
+
 
         /* Sidebar Widgets */
         .sidebar-widget {
@@ -152,6 +195,13 @@
             .page-header .intro {
                 font-size: 1rem;
             }
+            .tabs-container {
+                flex-wrap: wrap;
+            }
+            .tab-button {
+                flex-basis: 50%; /* Adjust as needed */
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -182,28 +232,53 @@
             </aside>
 
             <main class="content-main">
-                <!-- FAQ Item 1 -->
-                <div class="faq-card">
-                    <h2>Can I work in the UK after I graduate?</h2>
-                    <p>Yes, many international students can. The main route is the <strong>Graduate Route visa</strong>, which allows you to stay in the UK for 2 years (3 for PhDs) to work or look for work. You don't need a job offer to apply. Another option is the <strong>Skilled Worker visa</strong>, which requires a job offer from a licensed sponsor. Our advisors can provide detailed information on eligibility.</p>
+                <div class="tabs-container">
+                    <button class="tab-button active" onclick="openTab(event, 'graduate-schemes')">Graduate Schemes</button>
+                    <button class="tab-button" onclick="openTab(event, 'professional-jobs')">Experienced Professional Jobs</button>
+                    <button class="tab-button" onclick="openTab(event, 'visas-resources')">Visas and additional resources</button>
                 </div>
 
-                <!-- FAQ Item 2 -->
-                <div class="faq-card">
-                    <h2>How many hours can I work during my studies?</h2>
-                    <p>For degree-level courses, you can typically work up to <strong>20 hours per week during term time</strong> and full-time during official vacations. It is crucial to check the specific conditions on your visa (BRP) as restrictions vary. Working over your permitted hours is a serious breach of visa conditions.</p>
+                <div id="graduate-schemes" class="tab-content active">
+                    <div class="faq-card">
+                         <h3>Graduate Schemes</h3>
+                         <p>In the UK, many large companies recruit graduates onto schemes with an integrated training period (usually 1–2 years). These are attractive opportunities but are extremely competitive.</p>
+                         <br>
+                         <p><strong>Key Features of Graduate Schemes:</strong></p>
+                         <ul>
+                            <li>Recruited up to 13 months before the start date (e.g., jobs advertised in August 2024 for a September 2025 start).</li>
+                            <li>Have multiple application stages, often including online tests and assessment centres.</li>
+                            <li>Usually with larger organisations hiring multiple candidates.</li>
+                         </ul>
+                    </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
-                <div class="faq-card">
-                    <h2>How do I find companies that sponsor visas?</h2>
-                    <p>The UK Home Office has a public <strong>register of licensed sponsors</strong> online. Many large graduate employers are also on this list. Our Careers Service provides workshops and resources to help you identify these employers. We also host careers fairs where you can speak directly with companies that hire international graduates.</p>
+                <div id="professional-jobs" class="tab-content">
+                     <div class="faq-card">
+                        <h3>Experienced Professional Jobs</h3>
+                        <p>This section provides information for those with previous work experience who are looking for non-entry-level roles. Information on networking, speculative applications, and leveraging your existing skills will be available here.</p>
+                     </div>
                 </div>
+                
+                <div id="visas-resources" class="tab-content">
+                    <div class="faq-card">
+                        <h2>Can I work in the UK after I graduate?</h2>
+                        <p>Yes, many international students can. The main route is the <strong>Graduate Route visa</strong>, which allows you to stay in the UK for 2 years (3 for PhDs) to work or look for work. You don't need a job offer to apply. Another option is the <strong>Skilled Worker visa</strong>, which requires a job offer from a licensed sponsor. Our advisors can provide detailed information on eligibility.</p>
+                    </div>
 
-                <!-- FAQ Item 4 -->
-                <div class="faq-card">
-                    <h2>Are CVs different in the UK?</h2>
-                    <p>Yes. In the UK, a CV is usually a maximum of two pages. It's standard practice <strong>not to include a photograph, date of birth, or marital status</strong>. The focus is on your skills, experience, and achievements. A tailored cover letter is also highly recommended. We offer CV review services to help you adapt your documents to UK standards.</p>
+                    <div class="faq-card">
+                        <h2>How many hours can I work during my studies?</h2>
+                        <p>For degree-level courses, you can typically work up to <strong>20 hours per week during term time</strong> and full-time during official vacations. It is crucial to check the specific conditions on your visa (BRP) as restrictions vary. Working over your permitted hours is a serious breach of visa conditions.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h2>How do I find companies that sponsor visas?</h2>
+                        <p>The UK Home Office has a public <strong>register of licensed sponsors</strong> online. Many large graduate employers are also on this list. Our Careers Service provides workshops and resources to help you identify these employers. We also host careers fairs where you can speak directly with companies that hire international graduates.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h2>Are CVs different in the UK?</h2>
+                        <p>Yes. In the UK, a CV is usually a maximum of two pages. It's standard practice <strong>not to include a photograph, date of birth, or marital status</strong>. The focus is on your skills, experience, and achievements. A tailored cover letter is also highly recommended. We offer CV review services to help you adapt your documents to UK standards.</p>
+                    </div>
                 </div>
             </main>
         </div>
@@ -213,7 +288,28 @@
         </footer>
     </div>
 
-    <!-- Script removed as it is no longer needed for the accordion functionality -->
+    <script>
+        function openTab(evt, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Get all elements with class="tab-button" and remove the class "active"
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
