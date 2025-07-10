@@ -15,7 +15,8 @@
         padding: 0;
         background-color: #f4f7f9;
         color: #333;
-        scroll-behavior: smooth; /* Adds smooth scrolling for anchor links */
+        scroll-behavior: smooth;
+        /* Adds smooth scrolling for anchor links */
     }
 
     /* Main Container */
@@ -194,7 +195,7 @@
         margin-right: 10px;
         color: #00788a;
     }
-    
+
     .checklist a {
         text-decoration: none;
         color: #333;
@@ -211,8 +212,10 @@
     }
 
     .checklist a.active-nav-link {
-        background-color: #e0eafc; /* A light, complementary blue */
-        color: #004d71; /* The main brand blue for text */
+        background-color: #e0eafc;
+        /* A light, complementary blue */
+        color: #004d71;
+        /* The main brand blue for text */
         font-weight: bold;
     }
 
@@ -257,32 +260,44 @@
     /* Highlight Box Style (for warnings/important notes) */
     .highlight {
         background-color: #fffbe6;
-        border-left: 5px solid #f0ad4e; /* Amber/yellow border for warnings */
-        padding: 12px 18px; /* MODIFIED: Reduced padding */
+        border-left: 5px solid #f0ad4e;
+        /* Amber/yellow border for warnings */
+        padding: 12px 18px;
+        /* MODIFIED: Reduced padding */
         margin-bottom: 20px;
         border-radius: 8px;
     }
-    .highlight p, .tip-box p {
+
+    .highlight p,
+    .tip-box p {
         margin-bottom: 10px;
     }
-    .highlight p:last-child, .tip-box p:last-child {
+
+    .highlight p:last-child,
+    .tip-box p:last-child {
         margin-bottom: 0;
     }
-    
+
     /* Tip Box Style (for helpful tips) */
     .tip-box {
-        background-color: #eef2ff; /* Light blue background */
-        border-left: 5px solid #4f46e5; /* Blue border for tips */
-        padding: 12px 18px; /* MODIFIED: Reduced padding */
-        margin-top: 20px; /* MODIFIED: Reduced top margin */
+        background-color: #eef2ff;
+        /* Light blue background */
+        border-left: 5px solid #4f46e5;
+        /* Blue border for tips */
+        padding: 12px 18px;
+        /* MODIFIED: Reduced padding */
+        margin-top: 20px;
+        /* MODIFIED: Reduced top margin */
         margin-bottom: 20px;
         border-radius: 8px;
     }
+
     .tip-box ul {
         list-style-position: inside;
         padding-left: 5px;
         margin: 10px 0 0 0;
     }
+
     .tip-box li {
         margin-bottom: 8px;
     }
@@ -324,8 +339,17 @@
         text-align: center;
     }
 
-    .carousel-caption p { margin: 0; font-size: 1.1rem; font-style: italic; }
-    .carousel-caption .author { margin-top: 10px; font-style: normal; font-weight: bold; }
+    .carousel-caption p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    .carousel-caption .author {
+        margin-top: 10px;
+        font-style: normal;
+        font-weight: bold;
+    }
 
     .carousel-nav {
         position: absolute;
@@ -349,17 +373,30 @@
         margin: 0 15px;
     }
 
-    .carousel-nav button:hover { background-color: rgba(0, 0, 0, 0.8); }
+    .carousel-nav button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 
     /* Responsive Design */
     @media (max-width: 992px) {
-        .main-layout { flex-direction: column-reverse; }
-        .sidebar { position: static; top: auto; }
+        .main-layout {
+            flex-direction: column-reverse;
+        }
+
+        .sidebar {
+            position: static;
+            top: auto;
+        }
     }
 
     @media (max-width: 768px) {
-        .page-header h1 { font-size: 2rem; }
-        .page-header .intro { font-size: 1rem; }
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .page-header .intro {
+            font-size: 1rem;
+        }
     }
     </style>
 </head>
@@ -375,10 +412,9 @@
                 <div class="sidebar-widget">
                     <h3>Quick Actions</h3>
                     <a href="https://mycareer.soton.ac.uk/leap/appointments.html" class="action-button"><i class="fa-solid fa-calendar-plus"></i> Book Appointment</a>
-                    <a href="#" class="action-button"><i class="fa-solid fa-person-chalkboard"></i> Find a Workshop</a>
+                    <a href="https://mycareer.soton.ac.uk/leap/events.html" target="_blank" class="action-button"><i class="fa-solid fa-person-chalkboard"></i> Find a Workshop</a>
                     <a href="https://www.linkedin.com/groups/13009479/" class="action-button" target="_blank"><i class="fa-brands fa-linkedin"></i> Join LinkedIn Group</a>
                 </div>
-
                 <div class="sidebar-widget">
                     <h3>On this page</h3>
                     <ul class="checklist" id="page-nav">
@@ -387,11 +423,10 @@
                         <li><a href="#application">Write Your Application</a></li>
                         <li><a href="#interview">Ace Your Interview</a></li>
                         <li><a href="#success-stories">Success Stories</a></li>
-                         <li><a href="#templates">Download Templates</a></li>
+                        <li><a href="#templates">Download Templates</a></li>
                         <li><a href="#faq">FAQ & Help</a></li>
                     </ul>
                 </div>
-
                 <div class="sidebar-widget">
                     <h3>Your Checklist</h3>
                     <ul class="checklist">
@@ -404,35 +439,31 @@
                 </div>
             </aside>
             <main class="content-main">
-               <section class="info-card" id="job-search">
-                 <h2>Your Job Search Toolkit</h2>
-                 <p>Finding the right opportunity is the first step to success. Below are curated resources to help you search effectively, whether you're looking for a graduate role in the UK, a position in a specific sector, or an international opportunity.</p>
-                 
-                 <div class="tip-box">
-                   <p><strong>Next Step:</strong> For advanced job search strategies, book the 'Workshop 1: Advanced Job Searching' to learn how to leverage these platforms effectively.</p>
-                 </div>
-
-                 <h3><i class="fa-solid fa-graduation-cap"></i> UK Graduate &amp; Placement Roles</h3>
-                 <p>These job boards are specifically designed for students and recent graduates in the UK.</p>
-                 <ul class="resource-list">
-                   <li><a href="#" target="_blank">MyCareer Jobs Board</a> - Your first stop. Features roles exclusively for University of Southampton students.</li>
-                   <li><a href="https://www.brightnetwork.co.uk/" target="_blank">Bright Network</a> - Excellent resource for high-calibre internships and graduate roles with top employers.</li>
-                   <li><a href="https://targetjobs.co.uk/" target="_blank">TARGETjobs</a> - Huge range of graduate schemes with strong filtering by sector.</li>
-                   <li><a href="https://www.gradcracker.com/" target="_blank">Gradcracker</a> - The leading UK job board for STEM (Science, Technology, Engineering &amp; Maths) students.</li>
-                   <li><a href="https://www.ratemyplacement.co.uk/" target="_blank">RateMyPlacement</a> - Top site for internships, with thousands of student-written employer reviews.</li>
-                   <li><a href="https://www.milkround.com/" target="_blank">Milkround</a> - Features opportunities for all degree disciplines and levels.</li>
-                 </ul>
-               
-                 <h3><i class="fa-solid fa-globe"></i> All Levels &amp; International Roles</h3>
-                 <p>For broader searches across all experience levels or beyond the UK.</p>
-                 <ul class="resource-list">
-                   <li><a href="https://uk.indeed.com/" target="_blank">Indeed</a> - A powerful aggregator with the largest volume of listings. Use specific keywords to narrow your search.</li>
-                   <li><a href="https://www.prospects.ac.uk/jobs-and-work-experience/working-abroad" target="_blank">Prospects Working Abroad</a> - Trusted source for working overseas, with country-specific guides.</li>
-                   <li><a href="#" target="_blank">GoinGlobal</a> - Extensive resource with worldwide job listings and detailed career guides for major cities.</li>
-                   <li><a href="#" target="_blank">LockinU</a> - A specialist platform connecting UK students with job opportunities across China.</li>
-                 </ul>
-               </section>
-
+                <section class="info-card" id="job-search">
+                    <h2>Your Job Search Toolkit</h2>
+                    <p>Finding the right opportunity is the first step to success. Below are curated resources to help you search effectively, whether you're looking for a graduate role in the UK, a position in a specific sector, or an international opportunity.</p>
+                    <div class="tip-box">
+                        <p><strong>Next Step:</strong> For advanced job search strategies, book the 'Workshop 1: Advanced Job Searching' to learn how to leverage these platforms effectively.</p>
+                    </div>
+                    <h3><i class="fa-solid fa-graduation-cap"></i> UK Graduate &amp; Placement Roles</h3>
+                    <p>These job boards are specifically designed for students and recent graduates in the UK.</p>
+                    <ul class="resource-list">
+                        <li><a href="#" target="_blank">MyCareer Jobs Board</a> - Your first stop. Features roles exclusively for University of Southampton students.</li>
+                        <li><a href="https://www.brightnetwork.co.uk/" target="_blank">Bright Network</a> - Excellent resource for high-calibre internships and graduate roles with top employers.</li>
+                        <li><a href="https://targetjobs.co.uk/" target="_blank">TARGETjobs</a> - Huge range of graduate schemes with strong filtering by sector.</li>
+                        <li><a href="https://www.gradcracker.com/" target="_blank">Gradcracker</a> - The leading UK job board for STEM (Science, Technology, Engineering &amp; Maths) students.</li>
+                        <li><a href="https://www.ratemyplacement.co.uk/" target="_blank">RateMyPlacement</a> - Top site for internships, with thousands of student-written employer reviews.</li>
+                        <li><a href="https://www.milkround.com/" target="_blank">Milkround</a> - Features opportunities for all degree disciplines and levels.</li>
+                    </ul>
+                    <h3><i class="fa-solid fa-globe"></i> All Levels &amp; International Roles</h3>
+                    <p>For broader searches across all experience levels or beyond the UK.</p>
+                    <ul class="resource-list">
+                        <li><a href="https://uk.indeed.com/" target="_blank">Indeed</a> - A powerful aggregator with the largest volume of listings. Use specific keywords to narrow your search.</li>
+                        <li><a href="https://www.prospects.ac.uk/jobs-and-work-experience/working-abroad" target="_blank">Prospects Working Abroad</a> - Trusted source for working overseas, with country-specific guides.</li>
+                        <li><a href="#" target="_blank">GoinGlobal</a> - Extensive resource with worldwide job listings and detailed career guides for major cities.</li>
+                        <li><a href="#" target="_blank">LockinU</a> - A specialist platform connecting UK students with job opportunities across China.</li>
+                    </ul>
+                </section>
                 <section class="info-card" id="cv-prep">
                     <h2>Step 2: Prepare Your Story (CV)</h2>
                     <p>Your CV is more than a document; it's your professional story. Use these resources to build a compelling CV that grabs an employer's attention.</p>
@@ -440,7 +471,6 @@
                         <li><a href="#" target="_blank"><i class="fa-solid fa-chalkboard-user"></i> CV Booster Pathway on MyCareer</a> - A step-by-step online guide to writing a professional CV.</li>
                         <li><a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank"><i class="fa-solid fa-calendar-check"></i> Book a CV Support Appointment</a> - Get 1-to-1 feedback from a careers advisor.</li>
                     </ul>
-
                     <div class="tip-box">
                         <h3><i class="fa-solid fa-lightbulb"></i> Top CV Tips</h3>
                         <ul>
@@ -450,9 +480,6 @@
                         </ul>
                     </div>
                 </section>
-                
-              
-
                 <section class="info-card" id="application">
                     <h2>Step 3: Write Your Application</h2>
                     <p>Tailor your application to each role by writing effective cover letters and personal statements. Using the STAR method is key to demonstrating your skills with evidence.</p>
@@ -468,12 +495,12 @@
                         <li><a href="#" target="_blank"><i class="fa-solid fa-book-open"></i> Indeed guide to using STAR</a></li>
                     </ul>
                 </section>
-
                 <section class="info-card" id="interview">
                     <h2>Step 4: Ace Your Interview</h2>
                     <p>Proper preparation is the key to interview success. Use these tools to practice and build your confidence.</p>
                     <ul class="resource-list">
-                        <li><a href="#" target="_blank"><i class="fa-solid fa-video"></i> E-learning module "Interview Success"</a> - <strong>Highly Recommended!</strong></li>
+                        <li><a href="https://go.soton.ac.uk/g16" target="_blank"><i class="fa-solid fa-video"></i> E-learning module "Interview Success"</a> - <strong>Highly Recommended!</strong></li>
+                        <li><a href="https://www.linkedin.com/learning/?u=35146660" target="_blank"><i class="fa-solid fa-video"></i> Linkedin Learning</a> - <strong>Highly Recommended!</strong></li>
                         <li><a href="#" target="_blank"><i class="fa-solid fa-users"></i> Sign up for Interviews Workshops</a> - Practice in an interactive group setting.</li>
                         <li><a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank"><i class="fa-solid fa-comments"></i> Book an Ask the Adviser appointment</a> - Run through a mock interview.</li>
                     </ul>
@@ -486,32 +513,45 @@
                         </ul>
                     </div>
                 </section>
-                
                 <section class="info-card" id="success-stories">
                     <h2>Student Success Stories</h2>
                     <div class="carousel-container">
                         <div class="carousel-slides">
-                            <div class="carousel-slide"><img src="https://placehold.co/800x400/004d71/ffffff?text=Success+Story+1" alt="Success Story 1"><div class="carousel-caption"><p>"The CV appointment was a game-changer. I finally understood how to showcase my skills and landed my dream internship!"</p><p class="author">- Chloe, BEng Electronic Engineering</p></div></div>
-                            <div class="carousel-slide"><img src="https://placehold.co/800x400/00788a/ffffff?text=Success+Story+2" alt="Success Story 2"><div class="carousel-caption"><p>"Practicing the STAR method in a mock interview gave me the confidence I needed. I felt so prepared on the actual day."</p><p class="author">- David, BSc Economics</p></div></div>
-                            <div class="carousel-slide"><img src="https://placehold.co/800x400/d9534f/ffffff?text=Success+Story+3" alt="Success Story 3"><div class="carousel-caption"><p>"I used the cover letter template as a starting point and got three interview invitations within a week. Thank you!"</p><p class="author">- Aisha, MA History</p></div></div>
+                            <div class="carousel-slide"><img src="https://placehold.co/800x400/004d71/ffffff?text=Success+Story+1" alt="Success Story 1">
+                                <div class="carousel-caption">
+                                    <p>"The CV appointment was a game-changer. I finally understood how to showcase my skills and landed my dream internship!"</p>
+                                    <p class="author">- Chloe, BEng Electronic Engineering</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide"><img src="https://placehold.co/800x400/00788a/ffffff?text=Success+Story+2" alt="Success Story 2">
+                                <div class="carousel-caption">
+                                    <p>"Practicing the STAR method in a mock interview gave me the confidence I needed. I felt so prepared on the actual day."</p>
+                                    <p class="author">- David, BSc Economics</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide"><img src="https://placehold.co/800x400/d9534f/ffffff?text=Success+Story+3" alt="Success Story 3">
+                                <div class="carousel-caption">
+                                    <p>"I used the cover letter template as a starting point and got three interview invitations within a week. Thank you!"</p>
+                                    <p class="author">- Aisha, MA History</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="carousel-nav"><button class="carousel-prev">&#10094;</button><button class="carousel-next">&#10095;</button></div>
                     </div>
                 </section>
-                  <section class="info-card" id="templates">
+                <section class="info-card" id="templates">
                     <h2>Downloadable Templates</h2>
                     <div class="highlight">
                         <p><strong>Audience Note:</strong> This programme is specially designed for postgraduate students with some industry experience. However, the resources are highly relevant for all students and you are very welcome to use them!</p>
                     </div>
                     <p>Get a head start with our professionally designed templates. Remember to tailor them with your own experiences and skills!</p>
                     <ul class="resource-list">
-                        <li>Chronological CV Template <a href="#" download="Chronological_CV_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a></li>
+                        <li>Chronological CV Template <a href="downloads/Chronological_CV_Template.docx" download="Chronological_CV_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a></li>
                         <li>Skills-Based CV Template <a href="#" download="Skills_Based_CV_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a></li>
                         <li>Cover Letter Template <a href="#" download="Cover_Letter_Template.docx" class="download-button"><i class="fa-solid fa-download"></i> Download</a></li>
                         <li>Personal Statement Guide <a href="#" download="Personal_Statement_Guide.pdf" class="download-button"><i class="fa-solid fa-download"></i> Download</a></li>
                     </ul>
                 </section>
-                
                 <section class="info-card faq-card" id="faq">
                     <h2><i class="fa-solid fa-circle-question"></i> Stuck or Have Questions?</h2>
                     <p>Feeling overwhelmed or facing rejection is a normal part of the process. Personalised feedback can help you get back on track.</p>
@@ -534,21 +574,19 @@
     const totalSlides = slides.length;
 
     function showSlide(index) {
-        if (index >= totalSlides) { carouselCurrentIndex = 0; } 
-        else if (index < 0) { carouselCurrentIndex = totalSlides - 1; } 
-        else { carouselCurrentIndex = index; }
+        if (index >= totalSlides) { carouselCurrentIndex = 0; } else if (index < 0) { carouselCurrentIndex = totalSlides - 1; } else { carouselCurrentIndex = index; }
         const offset = -carouselCurrentIndex * 100;
         slidesContainer.style.transform = `translateX(${offset}%)`;
     }
     nextButton.addEventListener("click", () => showSlide(carouselCurrentIndex + 1));
     prevButton.addEventListener("click", () => showSlide(carouselCurrentIndex - 1));
     showSlide(carouselCurrentIndex);
-    
+
     // Scroll-based highlighting for navigation panel
     window.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll('.content-main .info-card');
         const navLinks = document.querySelectorAll('#page-nav a');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -569,4 +607,5 @@
     });
     </script>
 </body>
+
 </html>
