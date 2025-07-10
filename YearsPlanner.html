@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Journey Planner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Career Journey Planner - University of Southampton</title> <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+
         /* Style for the active tab */
         .tab-active {
-            background-color: #3b82f6; /* blue-500 */
+            background-color: #3b82f6;
+            /* blue-500 */
             color: white;
-            border-color: #3b82f6; /* blue-500 */
+            border-color: #3b82f6;
+            /* blue-500 */
         }
+
         .content-hidden {
             display: none;
         }
+
         /* Simple mind map styling */
         .mind-map-container {
             display: flex;
@@ -27,6 +32,7 @@
             padding: 2rem;
             flex-direction: column;
         }
+
         .central-topic {
             background-color: #3b82f6;
             color: white;
@@ -38,26 +44,32 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
+
         .branches {
             display: flex;
             justify-content: space-around;
             width: 100%;
             max-width: 800px;
         }
+
         .branch {
             width: 45%;
         }
+
         .branch-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #1f2937; /* gray-800 */
+            color: #1f2937;
+            /* gray-800 */
             margin-bottom: 1rem;
             text-align: center;
             border-bottom: 2px solid #3b82f6;
             padding-bottom: 0.5rem;
         }
+
         .branch-item {
-            background-color: #f3f4f6; /* gray-100 */
+            background-color: #f3f4f6;
+            /* gray-100 */
             padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 0.75rem;
@@ -65,170 +77,180 @@
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             transition: transform 0.2s;
         }
+
         .branch-item:hover {
             transform: translateY(-3px);
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .branches {
+                flex-direction: column;
+                align-items: center;
+            }
+            .branch {
+                width: 90%; /* Take more width on smaller screens */
+                margin-bottom: 2rem; /* Add spacing between vertical branches */
+            }
+            .central-topic {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
+<body class="bg-gray-50 text-gray-800">
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4">
             <h1 class="text-3xl font-bold text-gray-800">Your Career Journey Planner</h1>
-            <p class="text-gray-600 mt-1">Guidance and resources for every step of your academic and professional path.</p>
+            <p class="text-gray-600 mt-1">Guidance and resources for every step of your academic and professional path at University of Southampton.</p>
         </div>
     </header>
-
-    <!-- Navigation Tabs -->
     <nav class="bg-white border-b border-gray-200">
         <div class="container mx-auto px-6">
             <div id="tabs" class="flex flex-wrap -mb-px">
-                <button class="tab-btn tab-active text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="year1">Undergraduate Year 1</button>
+                <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="year1">Undergraduate Year 1</button>
                 <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="year2">Undergraduate Year 2</button>
-                <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="year3">Undergraduate Year 3</button>
-                <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="masters">Master's</button>
-                <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="phd">PhD</button>
+                <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="year3">Final Year Undergrad</button> <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="masters">Master's Student</button> <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="phd">PhD</button>
                 <button class="tab-btn text-lg font-medium text-center py-4 px-6 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 focus:outline-none" data-target="alumni">Alumni</button>
             </div>
         </div>
     </nav>
-
-    <!-- Content Sections -->
     <main id="content" class="container mx-auto p-6">
-        <!-- Year 1 Content -->
-        <section id="year1" class="tab-content">
-            <div class="mind-map-container">
-                <div class="central-topic">Year 1</div>
+        <section id="year1" class="tab-content"> <div class="mind-map-container">
+                <div class="central-topic">Year 1: The Explorer</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
-                        <div class="branch-item">Explore Career Options</div>
-                        <div class="branch-item">Join a University Society</div>
-                        <div class="branch-item">Develop Study Skills</div>
-                        <div class="branch-item">Attend Welcome Week Events</div>
+                        <div class="branch-item">Explore Degree Options & Modules</div>
+                        <div class="branch-item">Join University Societies & Clubs</div>
+                        <div class="branch-item">Start Building Your CV (Skills Focus)</div>
+                        <div class="branch-item">Attend Fresher's and Welcome Events</div>
+                        <div class="branch-item">Attend Intro Career Workshops</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
-                        <div class="branch-item">Introductory Career Workshops</div>
-                        <div class="branch-item">CV & Cover Letter Basics</div>
-                        <div class="branch-item">Access to Career Fairs</div>
-                        <div class="branch-item">One-to-One Advisor Meetings</div>
+                        <div class="branch-item">Introductory Career Workshops & Webinars</div>
+                        <div class="branch-item">CV & Cover Letter Basics Guidance</div>
+                        <div class="branch-item">Access to Career Fairs & Employer Presentations</div>
+                        <div class="branch-item">First Steps One-to-One Advisor Meetings</div>
+                        <div class="branch-item">Volunteering & Part-time Job Opportunities</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Year 2 Content -->
         <section id="year2" class="tab-content content-hidden">
-             <div class="mind-map-container">
-                <div class="central-topic">Year 2</div>
+            <div class="mind-map-container">
+                <div class="central-topic">Year 2: The Specialist</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
-                        <div class="branch-item">Seek Internships & Work Experience</div>
-                        <div class="branch-item">Network with Professionals</div>
-                        <div class="branch-item">Take on a role in a Society</div>
-                        <div class="branch-item">Refine your CV and LinkedIn</div>
+                        <div class="branch-item">Seek Internships & Summer Placements</div>
+                        <div class="branch-item">Network with Professionals & Alumni</div>
+                        <div class="branch-item">Take on Leadership in a Society</div>
+                        <div class="branch-item">Refine Your CV and LinkedIn Profile</div>
+                        <div class="branch-item">Attend Skills-Specific Workshops</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
                         <div class="branch-item">Interview Preparation & Mock Interviews</div>
                         <div class="branch-item">Assessment Centre Simulations</div>
-                        <div class="branch-item">Placement Year Support</div>
-                        <div class="branch-item">Employer-led Skills Sessions</div>
+                        <div class="branch-item">Placement Year & Study Abroad Support</div>
+                        <div class="branch-item">Employer-led Skills Sessions & Bootcamps</div>
+                        <div class="branch-item">Careers Fairs Focused on Internships</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Year 3 Content -->
         <section id="year3" class="tab-content content-hidden">
             <div class="mind-map-container">
-                <div class="central-topic">Year 3</div>
+                <div class="central-topic">Final Year Undergrad: The Executor</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
-                        <div class="branch-item">Apply for Graduate Schemes</div>
-                        <div class="branch-item">Prepare for Final Exams</div>
-                        <div class="branch-item">Get References from Tutors</div>
-                        <div class="branch-item">Attend Finalist Careers Fairs</div>
+                        <div class="branch-item">Apply for Graduate Schemes & Jobs</div>
+                        <div class="branch-item">Prepare for Final Exams & Dissertations</div>
+                        <div class="branch-item">Secure Professional References from Tutors</div>
+                        <div class="branch-item">Attend Finalist Careers Fairs & Recruitment Events</div>
+                        <div class="branch-item">Practice Application & Interview Techniques</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
-                        <div class="branch-item">Graduate Job Application Support</div>
-                        <div class="branch-item">Salary Negotiation Advice</div>
-                        <div class="branch-item">Postgraduate Study Guidance</div>
-                        <div class="branch-item">Finalist Career Check-ins</div>
+                        <div class="branch-item">Graduate Job & Application Support</div>
+                        <div class="branch-item">Salary Negotiation & Offer Advice</div>
+                        <div class="branch-item">Postgraduate Study & UCAS Guidance</div>
+                        <div class="branch-item">Finalist Career Check-ins & Coaching</div>
+                        <div class="branch-item">Networking with Graduate Employers</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Master's Content -->
         <section id="masters" class="tab-content content-hidden">
             <div class="mind-map-container">
-                <div class="central-topic">Master's</div>
+                <div class="central-topic">Master's Student: The Accelerator</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
                         <div class="branch-item">Leverage your Specialised Knowledge</div>
-                        <div class="branch-item">Network with Alumni in your Field</div>
-                        <div class="branch-item">Publish your Dissertation/Project</div>
-                        <div class="branch-item">Target experienced hire roles</div>
+                        <div class="branch-item">Network with Alumni in your Specific Field</div>
+                        <div class="branch-item">Showcase your Dissertation/Project Work</div>
+                        <div class="branch-item">Target Specialist & Graduate-level Roles</div>
+                        <div class="branch-item">Attend Industry-Specific Events</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
-                        <div class="branch-item">Specialised Career Fairs (e.g., STEM, Arts)</div>
-                        <div class="branch-item">PhD Application Support</div>
-                        <div class="branch-item">Advanced CV & Interview Workshops</div>
-                        <div class="branch-item">Global Job Market Briefings</div>
+                        <div class="branch-item">Specialised Career Fairs (e.g., STEM, Arts, Business)</div>
+                        <div class="branch-item">PhD Application Support & Guidance</div>
+                        <div class="branch-item">Advanced CV, Interview & Networking Workshops</div>
+                        <div class="branch-item">Global Job Market & Visa Advice</div>
+                        <div class="branch-item">Tailored 1-to-1 Career Coaching</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- PhD Content -->
         <section id="phd" class="tab-content content-hidden">
             <div class="mind-map-container">
-                <div class="central-topic">PhD</div>
+                <div class="central-topic">PhD: The Innovator</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
-                        <div class="branch-item">Attend Academic Conferences</div>
-                        <div class="branch-item">Build your Research Portfolio</div>
-                        <div class="branch-item">Explore careers outside Academia</div>
-                        <div class="branch-item">Mentor junior students</div>
+                        <div class="branch-item">Attend Academic Conferences & Present Research</div>
+                        <div class="branch-item">Build Your Extensive Research Portfolio</div>
+                        <div class="branch-item">Explore Careers Outside Academia (Industry, Policy)</div>
+                        <div class="branch-item">Mentor Junior Students & Collaborate</div>
+                        <div class="branch-item">Develop Teaching & Communication Skills</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
-                        <div class="branch-item">Academic (Postdoc) Job Application Help</div>
-                        <div class="branch-item">Industry Transition Workshops</div>
+                        <div class="branch-item">Academic (Postdoc) & Research Job Application Help</div>
+                        <div class="branch-item">Industry Transition & Commercialisation Workshops</div>
                         <div class="branch-item">Grant and Fellowship Writing Support</div>
-                        <div class="branch-item">Commercialising Your Research</div>
+                        <div class="branch-item">Entrepreneurship & Spin-out Guidance</div>
+                        <div class="branch-item">Specialised Networking with Industry Leaders</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Alumni Content -->
         <section id="alumni" class="tab-content content-hidden">
             <div class="mind-map-container">
-                <div class="central-topic">Alumni</div>
+                <div class="central-topic">Alumni: The Leader</div>
                 <div class="branches">
                     <div class="branch">
                         <h3 class="branch-title">Actions You Can Take</h3>
-                        <div class="branch-item">Become a Mentor</div>
-                        <div class="branch-item">Share Job Opportunities</div>
-                        <div class="branch-item">Attend Alumni Networking Events</div>
-                        <div class="branch-item">Continue Professional Development</div>
+                        <div class="branch-item">Become an Alumni Mentor</div>
+                        <div class="branch-item">Share Job & Internship Opportunities</div>
+                        <div class="branch-item">Attend Alumni Networking & Social Events</div>
+                        <div class="branch-item">Continue Professional Development & Upskilling</div>
+                        <div class="branch-item">Stay Connected with the University Network</div>
                     </div>
                     <div class="branch">
                         <h3 class="branch-title">Services We Provide</h3>
-                        <div class="branch-item">Lifelong Career Support (up to 3 years post-grad)</div>
-                        <div class="branch-item">Access to Alumni Job Board</div>
-                        <div class="branch-item">Professional Networking Events</div>
-                        <div class="branch-item">Executive Career Coaching</div>
+                        <div class="branch-item">Lifelong Career Support (e.g., up to 3 years post-graduation)</div>
+                        <div class="branch-item">Exclusive Access to Alumni Job Board</div>
+                        <div class="branch-item">Professional Networking Events & Receptions</div>
+                        <div class="branch-item">Executive & Mid-Career Coaching</div>
+                        <div class="branch-item">Access to University Resources & Discounts</div>
                     </div>
                 </div>
             </div>
@@ -236,33 +258,71 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const content = document.querySelectorAll('.tab-content');
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabsContainer = document.getElementById('tabs');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Deactivate all tabs
-                    tabs.forEach(item => item.classList.remove('tab-active'));
-                    // Activate the clicked tab
-                    tab.classList.add('tab-active');
+            // Function to activate a specific tab and show its content
+            function activateTab(targetId) {
+                // Deactivate all tab buttons and hide all content sections first
+                tabButtons.forEach(button => {
+                    button.classList.remove('tab-active');
+                    // Remove specific Tailwind classes for active state
+                    button.classList.remove('border-blue-600', 'text-white');
+                    button.classList.add('border-transparent', 'hover:text-blue-600', 'hover:border-blue-300');
+                    button.style.backgroundColor = ''; // Remove inline background color
+                });
+                tabContents.forEach(content => {
+                    content.classList.add('content-hidden'); // Your CSS class to hide content
+                });
 
-                    const targetId = tab.dataset.target;
-                    
-                    // Hide all content sections
-                    content.forEach(section => {
-                        section.classList.add('content-hidden');
-                    });
+                // Activate the target tab button
+                const targetButton = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+                if (targetButton) {
+                    targetButton.classList.add('tab-active');
+                    // Add specific Tailwind classes for active state
+                    targetButton.classList.add('border-blue-600', 'text-white');
+                    targetButton.classList.remove('border-transparent', 'hover:text-blue-600', 'hover:border-blue-300');
+                    // Ensure background color is applied by tab-active CSS
+                }
 
-                    // Show the target content section
-                    const targetContent = document.getElementById(targetId);
-                    if (targetContent) {
-                        targetContent.classList.remove('content-hidden');
-                    }
+                // Show the target content section
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.remove('content-hidden'); // Your CSS class to show content
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    activateTab(targetId);
+                    // Update the URL hash without reloading the page
+                    history.pushState(null, '', `#${targetId}`);
                 });
             });
+
+            // Check URL hash on page load
+            const hash = window.location.hash.substring(1); // Get hash value without '#'
+
+            // If there's a hash and it corresponds to a tab, activate that tab
+            if (hash && document.querySelector(`.tab-btn[data-target="${hash}"]`)) {
+                activateTab(hash);
+                // Scroll to the top of the content area for better UX if navigating from another page
+                // Or scroll to the tabs themselves if the content is high up
+                if (document.getElementById('tabs')) { // Scroll to the tabs navigation
+                    document.getElementById('tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (document.getElementById(hash)) { // Fallback to content if tabs ID not found
+                    document.getElementById(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                // If no hash, or hash doesn't match a tab, activate the default (Year 1)
+                activateTab('year1'); // Always default to year1 if no valid hash
+            }
         });
     </script>
-
 </body>
+
 </html>
