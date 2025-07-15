@@ -4,6 +4,8 @@
 
 <head>
     <link href="https://www.southampton.ac.uk/assets/site/css/uos.main.0.12.1.min.css" rel="stylesheet" type="text/css">
+    <!-- D3.js library for mindmap -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
     :root {
         --primary-red: #d8292f;
@@ -55,6 +57,140 @@
         transform: translateY(0);
         /* "Press" effect */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mindmap Styles */
+    #mindmap-container {
+        background-color: #f4f7f6;
+        border-radius: 8px;
+        padding: 20px 10px 40px 10px; /* 增加左右padding，底部padding多一点 */
+        margin: 20px 0;
+        overflow: auto; /* 改为auto，支持垂直滚动 */
+        box-sizing: border-box;
+        max-width: 100%;
+        min-height: 800px; /* 设置最小高度 */
+        position: relative;
+    }
+    
+    /* 缩放控制按钮 */
+    .zoom-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        display: flex;
+        gap: 5px;
+    }
+    
+    .zoom-btn {
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    
+    .zoom-btn:hover {
+        background: #0056b3;
+    }
+    
+    .zoom-btn:disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+    }
+    
+    /* 拖拽相关样式 */
+    #mindmap-container svg {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    
+    #mindmap-container svg:active {
+        cursor: grabbing !important;
+    }
+
+    /* Mindmap node styles */
+    .mindmap-node {
+        cursor: pointer;
+    }
+
+    .mindmap-node rect {
+        fill: #ffffff;
+        stroke: #d1d9e6;
+        stroke-width: 1px;
+        rx: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .mindmap-node rect:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        fill: #e3f2fd; /* 悬停时的背景色 */
+        stroke: #2196f3; /* 悬停时的边框色 */
+    }
+
+    .mindmap-node .node-text {
+        font: 12px sans-serif;
+        fill: #495057;
+        text-anchor: middle;
+        pointer-events: none;
+    }
+
+    /* Mindmap link styles */
+    .mindmap-link {
+        fill: none;
+        stroke: #a9b4c2;
+        stroke-width: 2px;
+        transition: stroke-opacity 0.3s ease;
+    }
+    
+    .mindmap-link.overlapped {
+        stroke-opacity: 0.3;
+    }
+    
+    /* 展开时的连接线样式 - 蓝色高亮 */
+    .mindmap-link.expanded {
+        stroke: #007bff;
+        stroke-width: 2.5px;
+        stroke-opacity: 0.8;
+    }
+    
+    /* 前一层级的连接线样式 - 灰色淡化 */
+    .mindmap-link.previous-level {
+        stroke: #d1d9e6;
+        stroke-width: 1.5px;
+        stroke-opacity: 0.4;
+    }
+
+    /* Mindmap toggle button styles */
+    .mindmap-toggle-button {
+        cursor: pointer;
+    }
+    
+    .mindmap-toggle-button circle {
+        fill: #6c757d;
+        stroke: #ffffff;
+        stroke-width: 2px;
+        transition: fill 0.3s ease;
+    }
+    
+    .mindmap-toggle-button circle:hover {
+        fill: #495057;
+    }
+    
+    .mindmap-toggle-button text {
+        font-size: 20px;
+        font-weight: 500;
+        fill: white;
+        text-anchor: middle;
+        pointer-events: none;
     }
 
     /* New layout for sections with an image */
@@ -200,12 +336,15 @@
 
     .main-content section {
         background-color: #fff;
-        padding: 2em;
+        padding: 2em 3em; /* 左右增加padding */
         margin-bottom: 2em;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         scroll-margin-top: 40px;
-        /* Offset for scroll-to-id */
+        max-width: 1100px; /* 限制最大宽度 */
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
     }
 
     .main-content h2,
@@ -614,7 +753,7 @@
 </head>
 
 <body><noscript>
-        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PMMZ8Q" style="display:none;visibility:hidden" width="0"> </iframe>
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PMMZ8Q" style="display:none;visibility:hidden" width="0"> </iframe>
     </noscript>
     <!--ls:begin[body]--><a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-navigation">Skip to main navigation </a> <a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-content"> Skip to main content </a>
     <header class="uos-chrome-header" data-mobile="/assets/generated-list/sitemaps/home.json">
@@ -1100,6 +1239,7 @@
                     <li><a href="#post-grad-employment" class="nav-link">After Graduation</a></li>
                     <li><a href="#workshops" class="nav-link">Workshops</a></li>
                     <li><a href="#career-roadmap" class="nav-link">Career Roadmap</a></li>
+                    <li><a href="#research-opportunities" class="nav-link">Research Opportunities</a></li>
                     <li><a href="#linkedin-community" class="nav-link">LinkedIn Community</a></li>
                     <li><a href="#skill" class="nav-link">Build your skills</a></li>
                     <li><a href="#consultant" class="nav-link">Your Consultant</a></li>
@@ -1120,7 +1260,7 @@
                     </div>
                 </section>
                 <section id="journey-planner">
-                    <h2><span role="img" aria-label="compass">🧭</span> Your Career Journey by Year</h2>
+                    <h2><span role="img" aria-label="compass">🧭</span> Your Career Plans by Year</h2>
                     <p>No matter what stage you're at, we have a tailored plan for you. Find your year group below to see your goals and get started with a dedicated action plan.</p>
                     <div class="journey-container">
                         <div class="journey-card">
@@ -1230,8 +1370,6 @@
                         <p>The University provides <a href="#">term-time courses</a> which cover presentation skills, everyday English, and academic writing.</p>
                         <h4>National Insurance (NI) Number</h4>
                         <p>You will need a National Insurance number to work in the UK. See the <a href="https://www.gov.uk/apply-national-insurance-number" target="_blank" rel="noopener">UK Government website</a> to apply.</p>
-                        <h4>E-Mentoring</h4>
-                        <p>Join our <a href="#">E-Mentoring platform</a>, an online network to help you connect with alumni in the UK and around the world for advice and connections.</p>
                     </div>
                 </section>
                 <section id="workshops">
@@ -1253,6 +1391,19 @@
                         graph TD; A[1. Preparation Phase] --&gt; B(Develop Professional CV &amp; Cover Letter); A --&gt; C(Define Career Objectives); A --&gt; D(Research Target Sectors &amp; Companies); B &amp; C &amp; D --&gt; E[2. Application Phase]; E --&gt; F(Source roles on Job Portals &amp; University Platforms); E --&gt; G(Attend Industry &amp; University Career Fairs); E --&gt; H(Conduct Professional Networking); F &amp; G &amp; H --&gt; I{Application Submission}; I --&gt; J[3. Psychometric &amp; Technical Assessments]; J --&gt; K{Assessment Outcome}; K -- Successful --&gt; L[4. Interview Stage]; K -- Unsuccessful --&gt; E; L --&gt; M(Initial Screening / HR Interview); M --&gt; N(Technical / Case Study Interview); N --&gt; O(Final / Director-Level Interview); O --&gt; P{Offer Decision}; P -- Offer Extended --&gt; Q[5. Offer &amp; Visa Stage]; P -- No Offer --&gt; E; Q --&gt; R(Review &amp; Accept Employment Contract); Q --&gt; S(Secure Visa Sponsorship / Apply for Graduate Visa); S --&gt; T[Begin UK Employment]; click B "https://www.prospects.ac.uk/careers-advice/cvs-and-cover-letters" "CV &amp; Cover Letter Writing Guide"; click F "https://www.linkedin.com/jobs/" "Search for jobs on LinkedIn"; click H "https://www.linkedin.com/" "Build your professional network"; click S "https://www.gov.uk/graduate-visa" "Official UK Graduate Visa Information";
                     </div>
                 </section>
+                <section id="research-opportunities">
+                    <h2><span role="img" aria-label="mindmap">🧠</span> Research Opportunities Outside the UK</h2>
+                    <p>Explore different pathways for research opportunities outside the UK. This interactive mindmap helps you understand the various options and considerations for pursuing research roles internationally.</p>
+                    
+                    <!-- Mindmap container -->
+                    <div id="mindmap-container" style="width: 100%; height: 800px; margin: 20px 0;">
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" id="zoom-in">+</button>
+                            <button class="zoom-btn" id="zoom-out">-</button>
+                            <button class="zoom-btn" id="zoom-reset">Reset</button>
+                        </div>
+                    </div>
+                </section>
                 <section id="linkedin-community">
                     <h2><span role="img" aria-label="linkedin">🔗</span> International Talent Community</h2>
                     <p>International job seekers at the University can stay in touch via our <strong>University of Southampton International Talent Community LinkedIn group</strong>. This is a platform for sharing opportunities, tips, and connections.</p>
@@ -1268,7 +1419,7 @@
                         <li>Offering tips on job searching and interviews.</li>
                         <li>Building connections with employers and alumni.</li>
                     </ul>
-                    <p><strong><a href="https://www.linkedin.com/groups/13009479" target="_blank" title="Join our LinkedIn community">Join our LinkedIn Community and Start Connecting Today!</a></strong></p>
+                    
                     <p>
                         <a href="https://www.linkedin.com/groups/13009479" target="_blank" title="Join our LinkedIn community" class="linkedin-community-btn">
                             Join Our LinkedIn Community
@@ -1282,9 +1433,9 @@
                 <section id="consultant">
                     <h2><span role="img" aria-label="consultant">👩‍💼</span> Meet Your Specialist Careers Consultant</h2>
                     <div class="consultant-profile">
-                        <img src="https://via.placeholder.com/100" alt="Profile picture of Gemma O’Donoughue">
+                        <img src="https://via.placeholder.com/100" alt="Profile picture of Gemma O'Donoughue">
                         <div>
-                            <h3>Gemma O’Donoughue</h3>
+                            <h3>Gemma O'Donoughue</h3>
                             <p>Gemma leads the development of our enhanced support for international students. She is part of a team of over fifty dedicated staff in Careers, Employability and Student Enterprise, all here to help you succeed.</p>
                         </div>
                     </div>
@@ -1334,7 +1485,434 @@
         mermaid.initialize({ startOnLoad: true });
     </script>
     <script>
+    // Mindmap functionality
+    function initMindmap() {
+        // Mindmap data
+        const treeData = {
+            "name": "Research opportunities outside of the UK",
+            "url": "https://www.google.com/search?q=Research+opportunities+outside+of+the+UK",
+            "children": [
+                {
+                    "name": "Applying for permanent roles",
+                    "url": "https://www.google.com/search?q=Applying+for+permanent+roles",
+                    "children": [
+                        {
+                            "name": "Salary between £40,000 to £100,000 based on discipline/salary scales.",
+                            "url": "https://www.google.com/search?q=academic+salary+scales",
+                            "children": [
+                                {
+                                    "name": "No guaranteed government salary increase for the first 4 years",
+                                    "url": "https://www.google.com/search?q=academic+salary+progression",
+                                    "children": [
+                                        { "name": "Does this timeframe suit you? (e.g. any family/personal commitments)", "url": "#" },
+                                        { "name": "Action: Investigate permanent roles further to prevent this from happening & also look at protection under local law for similar scenarios.", "url": "#" }
+                                    ]
+                                }
+                            ]
+                        },
+                        { "name": "Advertised guaranteed salary increase to £100,000 (or relevant threshold) within 4 years.", "url": "https://www.google.com/search?q=fast+track+academic+roles" }
+                    ]
+                },
+                {
+                    "name": "Applying for contract / temporary roles (less than 4 years)",
+                    "url": "https://www.google.com/search?q=Applying+for+contract+roles",
+                    "children": [
+                        { "name": "No visa/work permit delivered?", "url": "#" },
+                        { "name": "Experience similar issues with a previous role. Not willing to go through the experience again?", "url": "#" },
+                        { "name": "Started looking elsewhere and still open to hearing about interesting opportunities", "url": "#" },
+                        { "name": "Action: Have a list of go-to figures/contacts in target countries", "url": "#" },
+                        { "name": "Action: Access IOE's application support", "url": "#" },
+                        { "name": "Action: Check if IOE have submitted a new application for you (contacted)", "url": "#" },
+                        { "name": "Unable to check except if/when it has been rejected", "url": "#" }
+                    ]
+                },
+                { "name": "Action: Include contract / temp job search", "url": "#" },
+                { "name": "Action: Start to look for contract opportunities", "url": "#" },
+                { "name": "Exploring agency-led opportunities", "url": "#" }
+            ]
+        };
+
+        // Constants
+        const boxWidth = 180;
+        const boxHeight = 100;
+        const duration = 750;
+
+        // Setup
+        const margin = {top: 50, right: 20, bottom: 50, left: 20};
+        const container = document.getElementById('mindmap-container');
+        const width = container.offsetWidth - margin.left - margin.right;
+        let height = 800 - margin.top - margin.bottom;
+        
+        // 缩放变量
+        let currentScale = 1;
+        const minScale = 0.3;
+        const maxScale = 3;
+
+        // 清空旧svg
+        d3.select('#mindmap-container').selectAll('svg').remove();
+
+        const svg = d3.select("#mindmap-container").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("cursor", "grab")
+            .on("mousedown", startDrag)
+            .on("mousemove", drag)
+            .on("mouseup", endDrag)
+            .on("mouseleave", endDrag)
+            .on("wheel", function(event) {
+                event.preventDefault();
+                const delta = event.deltaY > 0 ? 0.9 : 1.1;
+                currentScale = Math.max(minScale, Math.min(maxScale, currentScale * delta));
+                updateTransform();
+            });
+            
+        const g = svg.append("g")
+            .attr("transform", `translate(${width / 2},${margin.top}) scale(${currentScale})`);
+
+        let i = 0;
+        let root;
+
+        // 自定义tree布局，水平展开同一层级
+        function customTreeLayout(root) {
+            // 递归计算每层节点
+            const levels = [];
+            root.each(function(d) {
+                if (!levels[d.depth]) levels[d.depth] = [];
+                levels[d.depth].push(d);
+            });
+            
+            // 重新分配x/y - 水平展开同一层级
+            levels.forEach((nodes, depth) => {
+                const levelWidth = nodes.length * (boxWidth + 60); // 节点间距
+                const startX = -levelWidth / 2;
+                
+                nodes.forEach((d, idx) => {
+                    d.x = startX + idx * (boxWidth + 60);
+                    d.y = depth * (boxHeight + 100); // 层级间距
+                });
+            });
+            return root;
+        }
+
+        const treemap = d3.tree().nodeSize([boxWidth + 40, boxHeight + 80]);
+        root = d3.hierarchy(treeData, d => d.children);
+        root.x0 = 0;
+        root.y0 = 0;
+        if (root.children) {
+            root.children.forEach(collapse);
+        }
+        update(null, root);
+
+        function collapse(d) {
+            if (d.children) {
+                d._children = d.children;
+                d.children.forEach(collapse);
+                d.children = null;
+            }
+        }
+
+        function update(event, source) {
+            // 使用自定义布局
+            customTreeLayout(root);
+            let nodes = root.descendants();
+            let links = root.links();
+
+            // 动态调整高度
+            const maxY = Math.max(...nodes.map(d => d.y)) + boxHeight + margin.bottom;
+            const newHeight = Math.max(800, maxY);
+            
+            if (newHeight !== height) {
+                height = newHeight;
+                d3.select("#mindmap-container svg")
+                    .attr("height", height + margin.top + margin.bottom);
+            }
+
+            const node = g.selectAll('g.mindmap-node')
+                .data(nodes, d => d.id || (d.id = ++i));
+
+            const nodeEnter = node.enter().append('g')
+                .attr('class', 'mindmap-node')
+                .attr("transform", d => `translate(${source.x0},${source.y0})`)
+                .attr('fill-opacity', 0)
+                .attr('stroke-opacity', 0);
+
+            nodeEnter.append('rect')
+                .attr('width', boxWidth)
+                .attr('height', boxHeight)
+                .attr('x', -boxWidth / 2)
+                .attr('y', -boxHeight / 2)
+                .on('click', (event, d) => {
+                    if (d.data.url && d.data.url !== "#") {
+                        window.open(d.data.url, '_blank');
+                    }
+                });
+
+            nodeEnter.append('text')
+                .attr('class', 'node-text')
+                .text(d => d.data.name)
+                .call(wrap, boxWidth - 20);
+
+            const toggleButton = nodeEnter.append('g')
+                .attr('class', 'mindmap-toggle-button')
+                .attr('transform', `translate(0, ${boxHeight / 2})`)
+                .on('click', toggleChildren);
+
+            toggleButton.append('circle').attr('r', 12);
+            toggleButton.append('text').attr('dy', '0.32em').text('+');
+
+            const nodeUpdate = node.merge(nodeEnter).transition(d3.transition().duration(duration))
+                .attr("transform", d => `translate(${d.x},${d.y})`)
+                .attr('fill-opacity', 1)
+                .attr('stroke-opacity', 1);
+            
+            nodeUpdate.select('.mindmap-toggle-button')
+                .style('display', d => d._children || d.children ? null : 'none');
+            
+            nodeUpdate.select('.mindmap-toggle-button text')
+                .text(d => d.children ? '−' : '+');
+
+            node.exit().transition(d3.transition().duration(duration)).remove()
+                .attr("transform", d => `translate(${source.x},${source.y})`)
+                .attr('fill-opacity', 0)
+                .attr('stroke-opacity', 0);
+
+            const link = g.selectAll('path.mindmap-link')
+                .data(links, d => d.target.id);
+            
+            const linkEnter = link.enter().append('path')
+                .attr('class', 'mindmap-link')
+                .lower()
+                .attr('d', d => {
+                    const o = {x: source.x0, y: source.y0};
+                    return diagonal({source: o, target: o});
+                });
+
+            link.merge(linkEnter).transition(d3.transition().duration(duration))
+                .attr('d', diagonal)
+                .each(function(d) {
+                    // 检测重叠线条并添加淡化效果
+                    const linkElement = d3.select(this);
+                    const isOverlapped = checkLinkOverlap(d, links);
+                    const isExpanded = d.source.children && d.source.children.length > 0;
+                    
+                    // 检查是否为前一层级的连接线
+                    const isPreviousLevel = isPreviousLevelLink(d, links);
+                    
+                    if (isOverlapped) {
+                        linkElement.classed('overlapped', true);
+                    } else {
+                        linkElement.classed('overlapped', false);
+                    }
+                    
+                    // 为展开节点的连接线添加expanded类（蓝色高亮）
+                    if (isExpanded) {
+                        linkElement.classed('expanded', true);
+                    } else {
+                        linkElement.classed('expanded', false);
+                    }
+                    
+                    // 为前一层级的连接线添加previous-level类（灰色淡化）
+                    if (isPreviousLevel) {
+                        linkElement.classed('previous-level', true);
+                    } else {
+                        linkElement.classed('previous-level', false);
+                    }
+                });
+
+            link.exit().transition(d3.transition().duration(duration)).remove()
+                .attr('d', d => {
+                    const o = {x: source.x, y: source.y};
+                    return diagonal({source: o, target: o});
+                });
+
+            root.eachBefore(d => {
+                d.x0 = d.x;
+                d.y0 = d.y;
+            });
+        }
+        
+        // 检测线条重叠的函数
+        function checkLinkOverlap(currentLink, allLinks) {
+            const tolerance = 5; // 重叠检测的容差
+            let overlapCount = 0;
+            
+            allLinks.forEach(link => {
+                if (link === currentLink) return;
+                
+                // 检查两条线是否在同一层级且位置相近
+                if (Math.abs(link.source.y - currentLink.source.y) < tolerance &&
+                    Math.abs(link.target.y - currentLink.target.y) < tolerance) {
+                    
+                    // 检查x坐标是否重叠
+                    const currentXRange = [
+                        Math.min(currentLink.source.x, currentLink.target.x),
+                        Math.max(currentLink.source.x, currentLink.target.x)
+                    ];
+                    const linkXRange = [
+                        Math.min(link.source.x, link.target.x),
+                        Math.max(link.source.x, link.target.x)
+                    ];
+                    
+                    // 如果x范围有重叠，认为线条重叠
+                    if (currentXRange[0] <= linkXRange[1] && currentXRange[1] >= linkXRange[0]) {
+                        overlapCount++;
+                    }
+                }
+            });
+            
+            return overlapCount > 0;
+        }
+        
+        // 检测是否为前一层级的连接线
+        function isPreviousLevelLink(currentLink, allLinks) {
+            // 找到当前最深展开的层级（Y坐标最大的展开层级）
+            let deepestExpandedLevel = -1;
+            allLinks.forEach(link => {
+                if (link.source.children && link.source.children.length > 0) {
+                    deepestExpandedLevel = Math.max(deepestExpandedLevel, link.source.y);
+                }
+            });
+            
+            // 如果当前连接线的源节点Y坐标小于最深展开层级，则为前一层级
+            return currentLink.source.y < deepestExpandedLevel;
+        }
+        
+        function toggleChildren(event, d) {
+            event.stopPropagation();
+            if (d.children) {
+                d._children = d.children;
+                d.children = null;
+            } else {
+                d.children = d._children;
+                d._children = null;
+            }
+            update(event, d);
+        }
+
+        function diagonal(d) {
+            return `M ${d.source.x} ${d.source.y + boxHeight / 2}
+                    C ${d.source.x} ${(d.source.y + d.target.y) / 2},
+                      ${d.target.x} ${(d.source.y + d.target.y) / 2},
+                      ${d.target.x} ${d.target.y - boxHeight / 2}`;
+        }
+
+        function wrap(text, width) {
+            text.each(function() {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1,
+                    fontSize = 12,
+                    tspan = text.text(null).append("tspan").attr("x", 0);
+                
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", 0).attr("dy", lineHeight + "em").text(word);
+                        lineNumber++;
+                    }
+                }
+                const totalLines = lineNumber + 1;
+                const textBlockHeight = totalLines * fontSize * lineHeight;
+                const yOffset = -(textBlockHeight / 2) + (fontSize / 2);
+                text.attr("y", yOffset);
+            });
+        }
+        
+        // 拖拽和缩放变量
+        let isDragging = false;
+        let dragStart = { x: 0, y: 0 };
+        let currentTranslate = { x: width / 2, y: margin.top };
+        
+        // 缩放函数
+        function updateTransform() {
+            g.attr("transform", `translate(${currentTranslate.x},${currentTranslate.y}) scale(${currentScale})`);
+            
+            // 更新按钮状态
+            const zoomInBtn = document.getElementById('zoom-in');
+            const zoomOutBtn = document.getElementById('zoom-out');
+            if (zoomInBtn && zoomOutBtn) {
+                zoomInBtn.disabled = currentScale >= maxScale;
+                zoomOutBtn.disabled = currentScale <= minScale;
+            }
+        }
+        
+        // 缩放事件处理
+        function zoomIn() {
+            if (currentScale < maxScale) {
+                currentScale = Math.min(maxScale, currentScale * 1.2);
+                updateTransform();
+            }
+        }
+        
+        function zoomOut() {
+            if (currentScale > minScale) {
+                currentScale = Math.max(minScale, currentScale / 1.2);
+                updateTransform();
+            }
+        }
+        
+        function zoomReset() {
+            currentScale = 1;
+            currentTranslate = { x: width / 2, y: margin.top };
+            updateTransform();
+        }
+        
+        // 将缩放函数暴露到全局作用域
+        window.zoomIn = zoomIn;
+        window.zoomOut = zoomOut;
+        window.zoomReset = zoomReset;
+        
+        // 拖拽功能
+        function startDrag(event) {
+            isDragging = true;
+            dragStart = {
+                x: event.clientX - currentTranslate.x,
+                y: event.clientY - currentTranslate.y
+            };
+            svg.style('cursor', 'grabbing');
+        }
+        
+        function drag(event) {
+            if (isDragging) {
+                currentTranslate.x = event.clientX - dragStart.x;
+                currentTranslate.y = event.clientY - dragStart.y;
+                updateTransform();
+            }
+        }
+        
+        function endDrag() {
+            isDragging = false;
+            svg.style('cursor', 'grab');
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        // Initialize mindmap
+        initMindmap();
+        
+        // 添加缩放按钮事件监听器
+        const zoomInBtn = document.getElementById('zoom-in');
+        const zoomOutBtn = document.getElementById('zoom-out');
+        const zoomResetBtn = document.getElementById('zoom-reset');
+        
+        if (zoomInBtn) zoomInBtn.addEventListener('click', () => {
+            if (window.zoomIn) window.zoomIn();
+        });
+        if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => {
+            if (window.zoomOut) window.zoomOut();
+        });
+        if (zoomResetBtn) zoomResetBtn.addEventListener('click', () => {
+            if (window.zoomReset) window.zoomReset();
+        });
+        
+        // Existing functionality
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
         if (navLinks.length > 0) {
@@ -1638,7 +2216,7 @@
                         </div>
                         <div class="nav-se-content display-none"><img class="sync-icon nav-se-icon" src="chrome-extension://aegnopegbbhjeeiganiajffnalhlkkjb/img/assets/icon-success.svg">
                             <div class="nav-se-title">Sync Complete</div>
-                            <p class="nav-se-text">You have successfully activated the “Messaging Permission” feature. All your search results will sync with BitTorrent and/or uTorrent.</p>
+                            <p class="nav-se-text">You have successfully activated the "Messaging Permission" feature. All your search results will sync with BitTorrent and/or uTorrent.</p>
                         </div>
                     </div>
                     <div class="license-container nav-se-container">
@@ -1714,7 +2292,7 @@
                                 <div class="s-title">Privacy Policy<div class="s-arrow"><span class="arrow-down"></span></div>
                                 </div>
                                 <div class="s-content">
-                                    <div class="policy-text">Adaware Software (7270356 Canada Inc.) is the operator of the Adaware products suites and related services (the “<b>Company</b>”, ”<b>we</b>” or “<b>us</b>”). We respect your privacy rights and we are committed to protecting them. This privacy policy (“<b>Privacy Policy</b>” or simply “<b>policy</b>”) governs our products, services and websites that link to this Privacy Policy, and describes our practices of processing data from you. By “<b>you</b>”, we refer to either or all of the following: (i) visitors to our websites that links to this Privacy Policy (“<b>Visitor</b>” and “<b>Website</b>”, respectively); (ii) our customers using our software products and Services (“<b>User</b>”); and (c) a business customer, a business partner that has a contractual relationship with us or a prospective customer that is yet to be engaged in a contract with us (“Business Customer”). Unless explicitly mentioned otherwise, the information in this Privacy Policy refers to any and all data subject types (“you” or “your’). <br><br> For the purpose of this policy, the “<b>Service(s)</b>” shall include any software licensed by the Company, including features offered by or within the installed software or additional software scripts available therein (either downloaded from one of our websites, pre-installed on your device, downloaded through a third party website, obtained on a physical medium, or otherwise), or services provided through and/or on top such software, services offered on our websites, communication forums, support services, account operation, updates, enhancements, new features, premium support, extended guarantees, online version and free versions of a software or additional services or features as we ay make available from time to time. <br><br> If you are a California resident, please also see our <a href="https://www.adaware.com/CCPA/" target="_blank">CCPA Notice</a>. <br><br> <a href="https://www.adaware.com/privacy-policy/" target="_blank">Read more</a></div>
+                                    <div class="policy-text">Adaware Software (7270356 Canada Inc.) is the operator of the Adaware products suites and related services ("<b>Company</b>", "<b>we</b>" or "<b>us</b>"). We respect your privacy rights and we are committed to protecting them. This privacy policy ("<b>Privacy Policy</b>" or simply "<b>policy</b>") governs our products, services and websites that link to this Privacy Policy, and describes our practices of processing data from you. By "<b>you</b>", we refer to either or all of the following: (i) visitors to our websites that links to this Privacy Policy ("<b>Visitor</b>" and "<b>Website</b>", respectively); (ii) our customers using our software products and Services ("<b>User</b>"); and (c) a business customer, a business partner that has a contractual relationship with us or a prospective customer that is yet to be engaged in a contract with us ("Business Customer"). Unless explicitly mentioned otherwise, the information in this Privacy Policy refers to any and all data subject types ("you" or "your'). <br><br> For the purpose of this policy, the "<b>Service(s)</b>" shall include any software licensed by the Company, including features offered by or within the installed software or additional software scripts available therein (either downloaded from one of our websites, pre-installed on your device, downloaded through a third party website, obtained on a physical medium, or otherwise), or services provided through and/or on top such software, services offered on our websites, communication forums, support services, account operation, updates, enhancements, new features, premium support, extended guarantees, online version and free versions of a software or additional services or features as we ay make available from time to time. <br><br> If you are a California resident, please also see our <a href="https://www.adaware.com/CCPA/" target="_blank">CCPA Notice</a>. <br><br> <a href="https://www.adaware.com/privacy-policy/" target="_blank">Read more</a></div>
                                 </div>
                             </div>
                             <div class="s-row" style="display: none;">
@@ -1876,7 +2454,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0002">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site and key task completions. They help us to know which pages are the most and least popular and see how visitors move around the site. &nbsp; All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0002">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site and key task completions. They help us to know which pages are the most and least popular and see how visitors move around the site.  All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.</p>
                             </div>
                         </div>
                         <div class="ot-accordion-layout ot-cat-item ot-vs-config" data-optanongroupid="C0003"><button ot-accordion="true" aria-expanded="false" aria-controls="ot-desc-id-C0003" aria-labelledby="ot-header-id-C0003"></button><!-- Accordion header -->
@@ -1888,7 +2466,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0003">These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. &nbsp; &nbsp;If you do not allow these cookies then some or all of these services may not function properly.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0003">These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.  If you do not allow these cookies then some or all of these services may not function properly.</p>
                             </div>
                         </div>
                         <div class="ot-accordion-layout ot-cat-item ot-vs-config" data-optanongroupid="C0004"><button ot-accordion="true" aria-expanded="false" aria-controls="ot-desc-id-C0004" aria-labelledby="ot-header-id-C0004"></button><!-- Accordion header -->
@@ -1900,7 +2478,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0004">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. &nbsp; &nbsp;They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0004">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.  They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.</p>
                             </div>
                         </div><!-- Non Accordion Group -->
                         <!-- Accordion Group section starts -->
