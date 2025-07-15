@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back to China: Your Career Guide - University of Southampton</title>
-    <!-- This is a self-contained file. You can save it as an HTML file and open it in a web browser to preview. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
     /* General Body & Font Styles */
@@ -245,6 +244,79 @@
         margin-bottom: 8px;
     }
 
+    /* NEW: Visual Timeline */
+    .timeline {
+        position: relative;
+        padding: 20px 0 0 0;
+        list-style: none;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        bottom: 0;
+        width: 4px;
+        background: #eef2f5;
+        border-radius: 2px;
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding-left: 50px;
+    }
+    .timeline-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #d9534f;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        border: 3px solid #f4f7f9;
+    }
+    .timeline-content h4 {
+        margin: 0 0 5px 0;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #004d71;
+    }
+    .timeline-content p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    /* NEW: Employer Spotlight Styles */
+    .employer-logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        padding-top: 20px;
+    }
+    .employer-logo {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+        text-align: center;
+        font-weight: bold;
+        color: #555;
+        width: 120px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     /* Responsive Design */
     @media (max-width: 992px) {
         .main-layout { flex-direction: column-reverse; }
@@ -277,9 +349,11 @@
                     <h3>On this page</h3>
                     <ul class="checklist" id="page-nav">
                         <li><a href="#job-search-china">Job Searching in China</a></li>
+                        <li><a href="#timeline">Returnee's Timeline</a></li>
                         <li><a href="#cv-tips-china">CV & Application Tips</a></li>
                         <li><a href="#recruitment-process">Recruitment Process</a></li>
                         <li><a href="#networking-china">Networking & Alumni</a></li>
+                        <li><a href="#employer-spotlight">Employer Spotlight</a></li>
                         <li><a href="#practical-steps">Practical Next Steps</a></li>
                     </ul>
                 </div>
@@ -297,20 +371,54 @@
             </aside>
             <main class="content-main">
                <section class="info-card" id="job-search-china">
-                 <h2>Step 1: Finding Opportunities in China</h2>
-                 <p>The job market in China has its own key platforms. Familiarise yourself with these to find the best opportunities for returning graduates.</p>
-                 
-                 <h3><i class="fa-solid fa-building"></i> Key Job Platforms</h3>
-                 <ul class="resource-list">
-                   <li><a href="#" target="_blank">LockinU</a> - A specialist platform designed for overseas Chinese students returning to China. A great place to start.</li>
-                   <li><a href="#" target="_blank">Liepin (猎聘)</a> - Excellent for high-end roles and connecting directly with headhunters. Good for those with some experience.</li>
-                   <li><a href="#" target="_blank">Zhaopin (智联招聘)</a> - One of the largest and most established job boards in China, with a huge number of listings.</li>
-                   <li><a href="#" target="_blank">Boss Zhipin (BOSS直聘)</a> - A very popular mobile-first platform that allows you to chat directly with hiring managers.</li>
-                 </ul>
-                 <div class="tip-box">
-                    <p><strong>Don't forget MyCareer!</strong> Multinational companies often post roles for their China offices on our university's MyCareer jobs board.
-                 </div>
+                   <h2>Step 1: Finding Opportunities in China</h2>
+                   <p>The job market in China has its own key platforms. Familiarise yourself with these to find the best opportunities for returning graduates.</p>
+                   
+                   <h3><i class="fa-solid fa-building"></i> Key Job Platforms</h3>
+                   <ul class="resource-list">
+                       <li><a href="#" target="_blank">LockinU</a> - A specialist platform designed for overseas Chinese students returning to China. A great place to start.</li>
+                       <li><a href="#" target="_blank">Liepin (猎聘)</a> - Excellent for high-end roles and connecting directly with headhunters. Good for those with some experience.</li>
+                       <li><a href="#" target="_blank">Zhaopin (智联招聘)</a> - One of the largest and most established job boards in China, with a huge number of listings.</li>
+                       <li><a href="#" target="_blank">Boss Zhipin (BOSS直聘)</a> - A very popular mobile-first platform that allows you to chat directly with hiring managers.</li>
+                   </ul>
+                   <div class="tip-box">
+                       <p><strong>Don't forget MyCareer!</strong> Multinational companies often post roles for their China offices on our university's MyCareer jobs board.
+                   </div>
                </section>
+
+                <section class="info-card" id="timeline">
+                    <h2><i class="fa-solid fa-timeline"></i> Your Returnee's Timeline</h2>
+                    <ul class="timeline">
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="timeline-content">
+                                <h4>Autumn (金九银十)</h4>
+                                <p>Peak campus recruitment season. Apply for graduate schemes starting next year.</p>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                            <div class="timeline-content">
+                                <h4>Spring</h4>
+                                <p>Prepare for written tests (笔试) and interviews (群面). Network with alumni.</p>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="timeline-content">
+                                <h4>Upon Graduation</h4>
+                                <p>Receive your degree certificate and immediately start the CSCSE authentication process.</p>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fa-solid fa-house-user"></i></div>
+                            <div class="timeline-content">
+                                <h4>Post-Arrival</h4>
+                                <p>Finalise any local Hukou (户口) applications and prepare to start your new role.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
 
                 <section class="info-card" id="cv-tips-china">
                     <h2>Step 2: Tailoring Your Application</h2>
@@ -326,9 +434,9 @@
                         </ul>
                     </div>
                     <p>Use our services to ensure your translated and adapted CV is professional and effective.</p>
-                     <ul class="resource-list">
-                        <li><a href="#" target="_blank">Book a CV Support Appointment for feedback.</a></li>
-                    </ul>
+                       <ul class="resource-list">
+                           <li><a href="#" target="_blank">Book a CV Support Appointment for feedback.</a></li>
+                       </ul>
                 </section>
                 
                 <section class="info-card" id="recruitment-process">
@@ -358,6 +466,19 @@
                         <li><a href="#" target="_blank">Join the University of Southampton Alumni Network on LinkedIn</a> to find graduates in your target industry and city.</li>
                         <li>Look out for alumni networking events held in cities like Beijing, Shanghai, and Shenzhen.</li>
                     </ul>
+                </section>
+
+                <section class="info-card" id="employer-spotlight">
+                    <h2><i class="fa-solid fa-handshake"></i> Employer Spotlight</h2>
+                    <p>Many multinational and leading Chinese companies actively recruit returning overseas graduates. Here are a few to watch:</p>
+                    <div class="employer-logos">
+                        <div class="employer-logo">Tencent</div>
+                        <div class="employer-logo">ByteDance</div>
+                        <div class="employer-logo">Alibaba</div>
+                        <div class="employer-logo">HSBC China</div>
+                        <div class="employer-logo">PwC China</div>
+                        <div class="employer-logo">Huawei</div>
+                    </div>
                 </section>
 
                 <section class="info-card" id="practical-steps">

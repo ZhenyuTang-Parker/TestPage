@@ -8,8 +8,8 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
     :root {
-        --primary-red: #d8292f;
-        --primary-blue: #0073e6;
+        --primary-red: #0077B5;
+        --primary-blue: #0077B5;
         --light-grey: #f9f9f9;
         --text-color: #333;
         --border-color: #e1e4e8;
@@ -83,7 +83,7 @@
     }
     
     .zoom-btn {
-        background: #007bff;
+        background: #0077B5;
         color: white;
         border: none;
         border-radius: 4px;
@@ -95,7 +95,7 @@
     }
     
     .zoom-btn:hover {
-        background: #0056b3;
+        background: #005582;
     }
     
     .zoom-btn:disabled {
@@ -135,7 +135,7 @@
     }
     
     .fullscreen-btn {
-        background: #28a745;
+        background: #0077B5;
         color: white;
         border: none;
         border-radius: 4px;
@@ -147,15 +147,15 @@
     }
     
     .fullscreen-btn:hover {
-        background: #218838;
+        background: #005582;
     }
     
     .fullscreen-btn.exit {
-        background: #dc3545;
+        background: #005582;
     }
     
     .fullscreen-btn.exit:hover {
-        background: #c82333;
+        background: #004466;
     }
 
     /* Mindmap node styles */
@@ -176,7 +176,7 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         fill: #e3f2fd; /* 悬停时的背景色 */
-        stroke: #2196f3; /* 悬停时的边框色 */
+        stroke: #0077B5; /* 悬停时的边框色 */
     }
 
     .mindmap-node .node-text {
@@ -200,7 +200,7 @@
     
     /* 展开时的连接线样式 - 蓝色高亮 */
     .mindmap-link.expanded {
-        stroke: #007bff;
+        stroke: #0077B5;
         stroke-width: 2.5px;
         stroke-opacity: 0.8;
     }
@@ -362,14 +362,14 @@
     }
 
     .nav-panel li a:hover {
-        color: var(--primary-blue);
+        color: #0077B5;
         background-color: #f0f8ff;
     }
 
     .nav-panel li a.active {
-        color: var(--primary-red);
+        color: #0077B5;
         font-weight: 700;
-        border-left: 3px solid var(--primary-red);
+        border-left: 3px solid #0077B5;
     }
 
     /* Main Content Area */
@@ -399,7 +399,7 @@
 
     .main-content h2 {
         font-size: 1.8em;
-        color: var(--primary-red);
+        color: #0077B5;
         border-bottom: 2px solid #f0f0f0;
         padding-bottom: 10px;
         white-space: nowrap;
@@ -413,7 +413,7 @@
 
     .main-content h4 {
         font-size: 1.1em;
-        color: var(--primary-blue);
+        color: #0077B5;
         margin-top: 1.5em;
         border-bottom: 1px solid #eef;
         padding-bottom: 5px;
@@ -432,7 +432,20 @@
     }
 
     .cta-button:hover {
-        background-color: #005bb5;
+        background-color: #005582;
+    }
+    
+    .button-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    
+    .button-group .cta-button {
+        flex: 1;
+        min-width: 200px;
+        text-align: center;
     }
 
     .consultant-profile {
@@ -459,7 +472,7 @@
         background: #f0f8ff;
         margin-bottom: 10px;
         padding: 15px;
-        border-left: 4px solid var(--primary-blue);
+        border-left: 4px solid #0077B5;
         border-radius: 4px;
     }
 
@@ -473,9 +486,22 @@
 
     .highlight {
         background-color: #fff3cd;
-        padding: 1em;
+        padding: 0.6em 1em;
         border-radius: 5px;
         border: 1px solid #ffeeba;
+        margin: 1em 0;
+    }
+    
+    .highlight p {
+        margin: 0.3em 0;
+    }
+    
+    .highlight p:first-child {
+        margin-top: 0;
+    }
+    
+    .highlight p:last-child {
+        margin-bottom: 0;
     }
 
     .mermaid {
@@ -519,7 +545,7 @@
 
     .tag.year2 {
         background-color: #e0f0ff;
-        color: #005bb5;
+        color: #0077B5;
     }
 
     .tag.final-year {
@@ -540,7 +566,7 @@
     .journey-card a {
         font-weight: bold;
         text-decoration: none;
-        color: var(--primary-blue);
+        color: #0077B5;
     }
 
     .journey-card a:hover {
@@ -617,9 +643,9 @@
         }
 
         .nav-panel li a.active {
-            background-color: var(--primary-red);
+            background-color: #0077B5;
             color: #fff;
-            border-color: var(--primary-red);
+            border-color: #0077B5;
         }
     }
 
@@ -631,6 +657,15 @@
         .tab-button {
             width: 100%;
             margin-bottom: 5px;
+        }
+        
+        .button-group {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .button-group .cta-button {
+            min-width: auto;
         }
     }
     </style>
@@ -1280,14 +1315,13 @@
                     <li><a href="#journey-planner" class="nav-link">Journey Planner</a></li>
                     <li><a href="#work-while-studying" class="nav-link">Work While You Study</a></li>
                     <li><a href="#post-grad-employment" class="nav-link">After Graduation</a></li>
+                    <li><a href="#business" class="nav-link">Starting a Business?</a></li>
+                    <li><a href="#skill" class="nav-link">Build your skills</a></li>
                     <li><a href="#workshops" class="nav-link">Workshops</a></li>
                     <li><a href="#career-roadmap" class="nav-link">Career Roadmap</a></li>
-                    <li><a href="#research-opportunities" class="nav-link">Research Opportunities</a></li>
-                    <li><a href="#linkedin-community" class="nav-link">LinkedIn Community</a></li>
-                    <li><a href="#skill" class="nav-link">Build your skills</a></li>
-                    <li><a href="#consultant" class="nav-link">Your Consultant</a></li>
                     <li><a href="#mentor" class="nav-link">Want a Mentor?</a></li>
-                    <li><a href="#business" class="nav-link">Starting a Business?</a></li>
+                    <li><a href="#consultant" class="nav-link">Your Consultant</a></li>
+                    <li><a href="#linkedin-community" class="nav-link">LinkedIn Community</a></li>
                     <li><a href="#all-support" class="nav-link">UOS Career Hub</a></li>
                 </ul>
             </nav>
@@ -1338,32 +1372,69 @@
                     <div class="highlight">
                         <p><strong>Important:</strong> You must always comply with the <a href="#">conditions of your visa</a> when taking on any paid work. Please check <a href="#">how many hours you can work on a student visa</a> before you apply for roles.</p>
                     </div>
-                    <h4>Part-time Work Whilst Studying</h4>
-                    <p>You can source part-time work through University platforms and external job sites. Our <a href="#">part-time work webpage</a> provides a great overview, and the <a href="#">MyCareer Jobs Board</a> lists roles with hours designed to fit around your studies. The University also employs students as <a href="#">Student Ambassadors</a> and through <a href="#">UniWorkforce</a>.</p>
-                    <p>Popular external job boards include:</p>
-                    <ul class="job-boards">
-                        <li>Indeed</li>
-                        <li>Jobserve</li>
-                        <li>Totaljobs</li>
-                        <li>Jobsite</li>
-                        <li>LinkedIn</li>
-                    </ul>
-                    <p>If you have previous industry experience, you may be able to find professional-level part-time roles. Use specific keywords in your search and tailor your CV accordingly.</p>
-                    <h4>Work Experience</h4>
-                    <p><strong>Work Experience Schemes through the University</strong><br>The University runs many work experience schemes. Availability may depend on your course and its length. Find full details on our <a href="#">work experience webpages</a>. Programmes include:</p>
-                    <ul>
-                        <li>Salaried Year-in-Industry placements (for undergraduates)</li>
-                        <li>UoS Internships (paid internships in various industries)</li>
-                        <li>Innovation challenges (vacation-based industry projects)</li>
-                    </ul>
-                    <p><strong>External Work Experience Schemes</strong><br>Many UK employers run their own internship schemes, often during university vacation periods. You can find these on graduate job boards such as:</p>
-                    <ul class="job-boards">
-                        <li>MyCareer Jobs Board</li>
-                        <li>Targetjobs</li>
-                        <li>Gradcracker</li>
-                        <li>Brightnetwork</li>
-                    </ul>
-                    <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
+                    <div class="tab-panel" id="workWhileStudyingTabPanel">
+                        <button class="tab-button active" data-target="part-time-work">Part-time Work</button>
+                        <button class="tab-button" data-target="work-experience">Work Experience</button>
+                        <button class="tab-button" data-target="volunteering">Volunteering</button>
+                    </div>
+                    <div id="part-time-work" class="tab-content active">
+                        <h4>Part-time Work Whilst Studying</h4>
+                        <p>You can source part-time work through University platforms and external job sites. Our <a href="#">part-time work webpage</a> provides a great overview, and the <a href="#">MyCareer Jobs Board</a> lists roles with hours designed to fit around your studies. The University also employs students as <a href="#">Student Ambassadors</a> and through <a href="#">UniWorkforce</a>.</p>
+                        <p>Popular external job boards include:</p>
+                        <ul class="job-boards">
+                            <li>Indeed</li>
+                            <li>Jobserve</li>
+                            <li>Totaljobs</li>
+                            <li>Jobsite</li>
+                            <li>LinkedIn</li>
+                        </ul>
+                        <p>If you have previous industry experience, you may be able to find professional-level part-time roles. Use specific keywords in your search and tailor your CV accordingly.</p>
+                        <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
+                    </div>
+                    <div id="work-experience" class="tab-content">
+                        <h4>Work Experience</h4>
+                        <p><strong>Work Experience Schemes through the University</strong><br>The University runs many work experience schemes. Availability may depend on your course and its length. Find full details on our <a href="#">work experience webpages</a>. Programmes include:</p>
+                        <ul>
+                            <li>Salaried Year-in-Industry placements (for undergraduates)</li>
+                            <li>UoS Internships (paid internships in various industries)</li>
+                            <li>Innovation challenges (vacation-based industry projects)</li>
+                        </ul>
+                        <p><strong>External Work Experience Schemes</strong><br>Many UK employers run their own internship schemes, often during university vacation periods. You can find these on graduate job boards such as:</p>
+                        <ul class="job-boards">
+                            <li>MyCareer Jobs Board</li>
+                            <li>Targetjobs</li>
+                            <li>Gradcracker</li>
+                            <li>Brightnetwork</li>
+                        </ul>
+                        <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
+                    </div>
+                    <div id="volunteering" class="tab-content">
+                        <h4>Volunteering Opportunities</h4>
+                        <p>Volunteering is a great way to gain experience, develop skills, and contribute to your community while studying. It can also help you build your CV and network.</p>
+                        <p><strong>University Volunteering Opportunities:</strong></p>
+                        <ul>
+                            <li>Student Union volunteering schemes</li>
+                            <li>University community outreach programmes</li>
+                            <li>Peer mentoring and tutoring roles</li>
+                            <li>Event organisation and support</li>
+                        </ul>
+                        <p><strong>External Volunteering:</strong></p>
+                        <ul class="job-boards">
+                            <li>Local charities and community organisations</li>
+                            <li>Professional associations and societies</li>
+                            <li>Environmental and conservation groups</li>
+                            <li>Healthcare and social care organisations</li>
+                        </ul>
+                        <p><strong>Benefits of Volunteering:</strong></p>
+                        <ul>
+                            <li>Develop transferable skills (communication, teamwork, leadership)</li>
+                            <li>Gain industry-specific experience</li>
+                            <li>Build professional networks</li>
+                            <li>Enhance your CV and employability</li>
+                            <li>Contribute to causes you care about</li>
+                        </ul>
+                        <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
+                    </div>
                 </section>
                 <section id="post-grad-employment">
                     <h2><span role="img" aria-label="graduation-cap">🎓</span> Planning for After Graduation</h2>
@@ -1415,6 +1486,30 @@
                         <p>You will need a National Insurance number to work in the UK. See the <a href="https://www.gov.uk/apply-national-insurance-number" target="_blank" rel="noopener">UK Government website</a> to apply.</p>
                     </div>
                 </section>
+                <section id="business" class="info-section two-column-layout">
+                    <div class="section-text">
+                        <h2><span role="img" aria-label="lightbulb">💡</span> Starting a Business?</h2>
+                        <p>introduce business idea programme </p>
+                        <p>If you plan to start your own business or be self-employed, you must follow specific visa regulations.</p>
+                        <p><strong>For International Students:</strong><br>This <a href="#">UKCISA blog</a> provides detailed information on self-employment while on a Student visa. It is essential that you contact the University's <a href="#">Visa and Immigration Student Advice Service (VISAS)</a> before starting any self-employment.</p>
+                        <p><strong>For International Graduates:</strong><br>After graduation, certain visas may permit self-employment:</p>
+                        <ul>
+                            <li><strong>Innovator Founder visa:</strong> Requires a completely new business idea endorsed by an approved body.</li>
+                            <li><strong>Graduate visa:</strong> Usually allows self-employment for the duration of the visa.</li>
+                        </ul>
+                        <div class="button-group">
+                            <a href="https://www.southampton.ac.uk/careers/students/enterprise/opportunites.page" target="_blank" class="cta-button">Discover Student Enterprise Support</a>
+                            <a href="https://www.southampton.ac.uk/careers/students/enterprise/opportunites.page" target="_blank" class="cta-button">Book an appointment</a>
+                        </div>
+                    </div>
+                    <div class="section-image">
+                        <img src="business.jpg" alt="A group of students collaborating on a startup project.">
+                    </div>
+                </section>
+                <section id="skill">
+                    <h2> Self-improvement</h2>
+                    <p>linkedin learning</p>
+                </section>
                 <section id="workshops">
                     <h2><span role="img" aria-label="workshops">🎓</span> Workshops</h2>
                     <p>We run a series of five workshops continuously throughout the year, available both online and in person. These sessions are your key to unlocking the UK job market.</p>
@@ -1427,16 +1522,10 @@
                     </ul>
                     <p>Ready to get started?</p><a href="https://mycareer.soton.ac.uk/leap/events.html" target="_blank" class="cta-button">Log into MyCareer to Book Your Place</a>
                 </section>
+
                 <section id="career-roadmap">
-                    <h2><span role="img" aria-label="roadmap">🗺️</span> Your Career Roadmap</h2>
-                    <p>Navigating the path from student to professional requires a clear plan. Below is a visual roadmap outlining the key phases of your job search journey in the UK. Click on the interactive nodes for helpful resources.</p>
-                    <div class="mermaid">
-                        graph TD; A[1. Preparation Phase] --&gt; B(Develop Professional CV &amp; Cover Letter); A --&gt; C(Define Career Objectives); A --&gt; D(Research Target Sectors &amp; Companies); B &amp; C &amp; D --&gt; E[2. Application Phase]; E --&gt; F(Source roles on Job Portals &amp; University Platforms); E --&gt; G(Attend Industry &amp; University Career Fairs); E --&gt; H(Conduct Professional Networking); F &amp; G &amp; H --&gt; I{Application Submission}; I --&gt; J[3. Psychometric &amp; Technical Assessments]; J --&gt; K{Assessment Outcome}; K -- Successful --&gt; L[4. Interview Stage]; K -- Unsuccessful --&gt; E; L --&gt; M(Initial Screening / HR Interview); M --&gt; N(Technical / Case Study Interview); N --&gt; O(Final / Director-Level Interview); O --&gt; P{Offer Decision}; P -- Offer Extended --&gt; Q[5. Offer &amp; Visa Stage]; P -- No Offer --&gt; E; Q --&gt; R(Review &amp; Accept Employment Contract); Q --&gt; S(Secure Visa Sponsorship / Apply for Graduate Visa); S --&gt; T[Begin UK Employment]; click B "https://www.prospects.ac.uk/careers-advice/cvs-and-cover-letters" "CV &amp; Cover Letter Writing Guide"; click F "https://www.linkedin.com/jobs/" "Search for jobs on LinkedIn"; click H "https://www.linkedin.com/" "Build your professional network"; click S "https://www.gov.uk/graduate-visa" "Official UK Graduate Visa Information";
-                    </div>
-                </section>
-                <section id="research-opportunities">
-                    <h2><span role="img" aria-label="mindmap">🧠</span> Research Opportunities Outside the UK</h2>
-                    <p>Explore different pathways for research opportunities outside the UK. This interactive mindmap helps you understand the various options and considerations for pursuing research roles internationally.</p>
+                    <h2><span role="img" aria-label="mindmap">🧠</span> Career Roadmap</h2>
+                    <p>Explore different pathways for career opportunities. This interactive mindmap helps you understand the various options and considerations for pursuing career roles.</p>
                     
                     <!-- Mindmap container -->
                     <div id="mindmap-container" style="width: 100%; height: 800px; margin: 20px 0;">
@@ -1445,6 +1534,26 @@
                             <button class="zoom-btn" id="zoom-out">-</button>
                             <button class="zoom-btn" id="zoom-reset">Reset</button>
                             <button class="fullscreen-btn" id="fullscreen-btn">⛶ Fullscreen</button>
+                        </div>
+                    </div>
+                </section>
+                <section id="mentor" class="info-section">
+                    <h2>Want a Mentor?</h2>
+                    <p>Tap into the experience of a global network of professionals through the University's Career Mentoring Programme. An e-mentor can help you gain real-world insight into a career path, build your confidence, and expand your professional network before you even graduate.</p>
+                    <div class="section-image">
+                        <img src="career-mentoring-promo.jpg" alt="ementoringsouthampton">
+                    </div>
+                    <p>Our platform connects you with an experienced professional, often a University of Southampton alum, for a supportive one-to-one mentoring relationship.</p>
+                    <a href="https://www.southampton.ac.uk/careers/students/mentoring.page" target="_blank" class="cta-button">Learn about the E-Mentoring Programme</a>
+                    <a href="https://ementoringsouthampton.com/" target="_blank" class="cta-button">Register on E-Mentoring Platform</a>
+                </section>
+                <section id="consultant">
+                    <h2><span role="img" aria-label="consultant">👩‍💼</span> Meet Your Specialist Careers Consultant</h2>
+                    <div class="consultant-profile">
+                        <img src="https://via.placeholder.com/100" alt="Profile picture of Gemma O'Donoughue">
+                        <div>
+                            <h3>Gemma O'Donoughue</h3>
+                            <p>Gemma leads the development of our enhanced support for international students. She is part of a team of over fifty dedicated staff in Careers, Employability and Student Enterprise, all here to help you succeed.</p>
                         </div>
                     </div>
                 </section>
@@ -1470,48 +1579,6 @@
                         </a>
                     </p>
                 </section>
-                <section id="skill">
-                    <h2> Self-improvement</h2>
-                    <p>linkedin learning</p>
-                </section>
-                <section id="consultant">
-                    <h2><span role="img" aria-label="consultant">👩‍💼</span> Meet Your Specialist Careers Consultant</h2>
-                    <div class="consultant-profile">
-                        <img src="https://via.placeholder.com/100" alt="Profile picture of Gemma O'Donoughue">
-                        <div>
-                            <h3>Gemma O'Donoughue</h3>
-                            <p>Gemma leads the development of our enhanced support for international students. She is part of a team of over fifty dedicated staff in Careers, Employability and Student Enterprise, all here to help you succeed.</p>
-                        </div>
-                    </div>
-                </section>
-                <section id="mentor" class="info-section">
-                    <h2>Want a Mentor?</h2>
-                    <p>Tap into the experience of a global network of professionals through the University's Career Mentoring Programme. An e-mentor can help you gain real-world insight into a career path, build your confidence, and expand your professional network before you even graduate.</p>
-                    <div class="section-image">
-                        <img src="career-mentoring-promo.jpg" alt="ementoringsouthampton">
-                    </div>
-                    <p>Our platform connects you with an experienced professional, often a University of Southampton alum, for a supportive one-to-one mentoring relationship.</p>
-                    <a href="https://www.southampton.ac.uk/careers/students/mentoring.page" target="_blank" class="cta-button">Learn about the E-Mentoring Programme</a>
-                    <a href="https://ementoringsouthampton.com/" target="_blank" class="cta-button">Register on E-Mentoring Platform</a>
-                </section>
-                <section id="business" class="info-section two-column-layout">
-                    <div class="section-text">
-                        <h2><span role="img" aria-label="lightbulb">💡</span> Starting a Business?</h2>
-                        <p>introduce business idea programme </p>
-                        <p>If you plan to start your own business or be self-employed, you must follow specific visa regulations.</p>
-                        <p><strong>For International Students:</strong><br>This <a href="#">UKCISA blog</a> provides detailed information on self-employment while on a Student visa. It is essential that you contact the University's <a href="#">Visa and Immigration Student Advice Service (VISAS)</a> before starting any self-employment.</p>
-                        <p><strong>For International Graduates:</strong><br>After graduation, certain visas may permit self-employment:</p>
-                        <ul>
-                            <li><strong>Innovator Founder visa:</strong> Requires a completely new business idea endorsed by an approved body.</li>
-                            <li><strong>Graduate visa:</strong> Usually allows self-employment for the duration of the visa.</li>
-                        </ul>
-                        <a href="https://www.southampton.ac.uk/careers/students/enterprise/opportunites.page" target="_blank" class="cta-button">Discover Student Enterprise Support</a>
-                        <a href="https://www.southampton.ac.uk/careers/students/enterprise/opportunites.page" target="_blank" class="cta-button">Book an appointment</a>
-                    </div>
-                    <div class="section-image">
-                        <img src="business.jpg" alt="A group of students collaborating on a startup project.">
-                    </div>
-                </section>
                 <section id="all-support">
                     <h2> UOS Career Hub</h2>
                     <p>dont forgot to introduce the building 37 as meet point</p>
@@ -1533,8 +1600,8 @@
     function initMindmap() {
         // Mindmap data
         const treeData = {
-            "name": "Research opportunities outside of the UK",
-            "url": "https://www.google.com/search?q=Research+opportunities+outside+of+the+UK",
+            "name": "Career Development Pathways",
+            "url": "https://www.google.com/search?q=Career+Development+Pathways",
             "children": [
                 {
                     "name": "Applying for permanent roles",
@@ -2150,12 +2217,37 @@
             }
         }
 
-        const tabPanel = document.getElementById('postGradTabPanel');
-        if (tabPanel) {
-            const tabButtons = tabPanel.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.main-content .tab-content');
+        // Handle tab switching for post-grad employment
+        const postGradTabPanel = document.getElementById('postGradTabPanel');
+        if (postGradTabPanel) {
+            const tabButtons = postGradTabPanel.querySelectorAll('.tab-button');
+            const tabContents = postGradTabPanel.parentElement.querySelectorAll('.tab-content');
 
-            tabPanel.addEventListener('click', (e) => {
+            postGradTabPanel.addEventListener('click', (e) => {
+                if (e.target.matches('.tab-button')) {
+                    const targetId = e.target.dataset.target;
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Handle tab switching for work while studying
+        const workWhileStudyingTabPanel = document.getElementById('workWhileStudyingTabPanel');
+        if (workWhileStudyingTabPanel) {
+            const tabButtons = workWhileStudyingTabPanel.querySelectorAll('.tab-button');
+            const tabContents = workWhileStudyingTabPanel.parentElement.querySelectorAll('.tab-content');
+
+            workWhileStudyingTabPanel.addEventListener('click', (e) => {
                 if (e.target.matches('.tab-button')) {
                     const targetId = e.target.dataset.target;
 
