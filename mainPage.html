@@ -15,6 +15,107 @@
         --border-color: #e1e4e8;
     }
 
+    /* Navigation Bar Styles */
+    .module-navbar {
+        position: sticky;
+        top: 0;
+        background: linear-gradient(135deg, #0077B5 0%, #005582 100%);
+        padding: 15px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        border-bottom: 3px solid #004466;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .nav-brand {
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-brand:hover {
+        color: #e3f2fd;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9em;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+        opacity: 0.9;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-links {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .nav-link {
+            padding: 6px 10px;
+            font-size: 0.8em;
+            flex-direction: column;
+            text-align: center;
+            gap: 4px;
+        }
+        
+        .nav-icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
     /* Override body font to not interfere with official styles */
     body {
         font-family: "Solis", sans-serif;
@@ -447,6 +548,61 @@
         min-width: 200px;
         text-align: center;
     }
+    
+    /* Skill Cards Styles */
+    .skill-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 1em;
+    }
+    
+    .skill-card {
+        background-color: #fff;
+        padding: 1.5em;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .skill-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 0.8em;
+    }
+    
+    .skill-header h3 {
+        margin: 0;
+        color: #0077B5;
+        font-size: 1.2em;
+    }
+    
+    .skill-card p {
+        color: #586069;
+        line-height: 1.5;
+        margin-bottom: 1em;
+    }
+    
+    .skill-card .highlight {
+        margin: 1em 0;
+    }
+    
+    .skill-card .highlight p {
+        margin: 0.2em 0;
+    }
+    
+    .skill-card .cta-button {
+        margin-top: 0.8em;
+        width: 100%;
+        text-align: center;
+    }
 
     .consultant-profile {
         display: flex;
@@ -667,6 +823,10 @@
         .button-group .cta-button {
             min-width: auto;
         }
+        
+        .skill-card {
+            padding: 1.2em;
+        }
     }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -834,6 +994,35 @@
         <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PMMZ8Q" style="display:none;visibility:hidden" width="0"> </iframe>
     </noscript>
     <!--ls:begin[body]--><a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-navigation">Skip to main navigation </a> <a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-content"> Skip to main content </a>
+    
+    <!-- Module Navigation Bar -->
+    <nav class="module-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🏠 International Students Career Hub
+            </a>
+            <div class="nav-links">
+                <a href="mainPage.html" class="nav-link active">
+                    🧭 Career Journey Planner
+                </a>
+                <a href="CVPS.html" class="nav-link">
+                    📝 CVs & Interviews
+                </a>
+                <a href="Q&A.html" class="nav-link">
+                    ❓ FAQ
+                </a>
+                <a href="YearsPlanner.html" class="nav-link">
+                    📅 Workshops & Events
+                </a>
+                <a href="back to china.html" class="nav-link">
+                    🇨🇳 Back to China
+                </a>
+                <a href="activites by month.html" class="nav-link">
+                    💼 Work Experience
+                </a>
+            </div>
+        </div>
+    </nav>
     <header class="uos-chrome-header" data-mobile="/assets/generated-list/sitemaps/home.json">
         <a class="uos-brand" href="https://www.southampton.ac.uk/index.page" tabindex="1">
             <span>
@@ -1506,9 +1695,33 @@
                         <img src="business.jpg" alt="A group of students collaborating on a startup project.">
                     </div>
                 </section>
-                <section id="skill">
-                    <h2> Self-improvement</h2>
-                    <p>linkedin learning</p>
+                                <section id="skill">
+                    <h2><span role="img" aria-label="books">📚</span> Build Your Skills</h2>                
+                    <div class="skill-cards">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span role="img" aria-label="linkedin">🔗</span>
+                                <h3>LinkedIn Learning</h3>
+                            </div>
+                            <p>LinkedIn Learning offers a vast library of online courses taught by industry experts. Whether you're looking to develop new technical skills, enhance your soft skills like communication and leadership, or explore creative topics, LinkedIn Learning has something for everyone. It's an excellent resource for boosting your resume and preparing for your future career.</p>
+                            <div class="highlight">
+                                <p><strong>Why it's great:</strong> Personalized courses, skill assessments, and certificates for your LinkedIn profile.</p>
+                            </div>
+                            <a href="https://www.linkedin.com/learning/" target="_blank" class="cta-button">Explore LinkedIn Learning</a>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span role="img" aria-label="career">⭐</span>
+                                <h3>MyCareer - Successful Futures Pathway</h3>
+                            </div>
+                            <p>Our university platform providing tailored career resources, workshops, and guidance for your professional development.</p>
+                            <div class="highlight">
+                                <p><strong>Why it's great:</strong> Personalized career advice, exclusive events, job listings, and professional profile tools.</p>
+                            </div>
+                            <a href="https://mycareer.soton.ac.uk/" target="_blank" class="cta-button">Access MyCareer</a>
+                        </div>
+                    </div>
                 </section>
                 <section id="workshops">
                     <h2><span role="img" aria-label="workshops">🎓</span> Workshops</h2>
