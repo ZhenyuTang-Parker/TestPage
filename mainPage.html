@@ -96,12 +96,12 @@
             flex-direction: column;
             gap: 15px;
         }
-        
+
         .nav-links {
             width: 100%;
             justify-content: space-between;
         }
-        
+
         .nav-link {
             padding: 6px 10px;
             font-size: 0.8em;
@@ -109,7 +109,7 @@
             text-align: center;
             gap: 4px;
         }
-        
+
         .nav-icon {
             width: 14px;
             height: 14px;
@@ -164,15 +164,18 @@
     #mindmap-container {
         background-color: #f4f7f6;
         border-radius: 8px;
-        padding: 20px 10px 40px 10px; /* 增加左右padding，底部padding多一点 */
+        padding: 20px 10px 40px 10px;
+        /* 增加左右padding，底部padding多一点 */
         margin: 20px 0;
-        overflow: auto; /* 改为auto，支持垂直滚动 */
+        overflow: auto;
+        /* 改为auto，支持垂直滚动 */
         box-sizing: border-box;
         max-width: 100%;
-        min-height: 800px; /* 设置最小高度 */
+        min-height: 800px;
+        /* 设置最小高度 */
         position: relative;
     }
-    
+
     /* 缩放控制按钮 */
     .zoom-controls {
         position: absolute;
@@ -182,7 +185,7 @@
         display: flex;
         gap: 5px;
     }
-    
+
     .zoom-btn {
         background: #0077B5;
         color: white;
@@ -194,16 +197,16 @@
         font-weight: bold;
         transition: background-color 0.3s ease;
     }
-    
+
     .zoom-btn:hover {
         background: #005582;
     }
-    
+
     .zoom-btn:disabled {
         background: #6c757d;
         cursor: not-allowed;
     }
-    
+
     /* 拖拽相关样式 */
     #mindmap-container svg {
         user-select: none;
@@ -211,11 +214,11 @@
         -moz-user-select: none;
         -ms-user-select: none;
     }
-    
+
     #mindmap-container svg:active {
         cursor: grabbing !important;
     }
-    
+
     /* 全屏相关样式 */
     #mindmap-container.fullscreen {
         position: fixed;
@@ -229,12 +232,12 @@
         margin: 0;
         border-radius: 0;
     }
-    
+
     #mindmap-container.fullscreen .zoom-controls {
         top: 20px;
         right: 20px;
     }
-    
+
     .fullscreen-btn {
         background: #0077B5;
         color: white;
@@ -246,15 +249,15 @@
         font-weight: bold;
         transition: background-color 0.3s ease;
     }
-    
+
     .fullscreen-btn:hover {
         background: #005582;
     }
-    
+
     .fullscreen-btn.exit {
         background: #005582;
     }
-    
+
     .fullscreen-btn.exit:hover {
         background: #004466;
     }
@@ -276,8 +279,10 @@
     .mindmap-node rect:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        fill: #e3f2fd; /* 悬停时的背景色 */
-        stroke: #0077B5; /* 悬停时的边框色 */
+        fill: #e3f2fd;
+        /* 悬停时的背景色 */
+        stroke: #0077B5;
+        /* 悬停时的边框色 */
     }
 
     .mindmap-node .node-text {
@@ -294,18 +299,18 @@
         stroke-width: 2px;
         transition: stroke-opacity 0.3s ease;
     }
-    
+
     .mindmap-link.overlapped {
         stroke-opacity: 0.3;
     }
-    
+
     /* 展开时的连接线样式 - 蓝色高亮 */
     .mindmap-link.expanded {
         stroke: #0077B5;
         stroke-width: 2.5px;
         stroke-opacity: 0.8;
     }
-    
+
     /* 前一层级的连接线样式 - 灰色淡化 */
     .mindmap-link.previous-level {
         stroke: #d1d9e6;
@@ -317,18 +322,18 @@
     .mindmap-toggle-button {
         cursor: pointer;
     }
-    
+
     .mindmap-toggle-button circle {
         fill: #6c757d;
         stroke: #ffffff;
         stroke-width: 2px;
         transition: fill 0.3s ease;
     }
-    
+
     .mindmap-toggle-button circle:hover {
         fill: #495057;
     }
-    
+
     .mindmap-toggle-button text {
         font-size: 20px;
         font-weight: 500;
@@ -395,47 +400,6 @@
         flex-shrink: 0;
     }
 
-    /* New layout for sections with an image */
-    .two-column-layout {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        /* Adjust the space between text and image */
-    }
-
-    .two-column-layout .section-text {
-        flex: 3;
-        /* Allows the text to take up more space */
-    }
-
-    .two-column-layout .section-image {
-        flex: 2;
-        /* Allows the image to take up less space */
-        max-width: 350px;
-    }
-
-    .two-column-layout .section-image img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        /* Rounded corners for the image */
-        display: block;
-    }
-
-    /* Responsive behaviour for smaller screens */
-    @media (max-width: 768px) {
-        .two-column-layout {
-            flex-direction: column;
-            /* Stacks the image below the text on mobile */
-            text-align: center;
-        }
-
-        .two-column-layout .section-image {
-            margin-top: 20px;
-            max-width: 100%;
-        }
-    }
-
     .nav-panel {
         position: sticky;
         top: 40px;
@@ -480,12 +444,14 @@
 
     .main-content section {
         background-color: #fff;
-        padding: 2em 3em; /* 左右增加padding */
+        padding: 2em 3em;
+        /* 左右增加padding */
         margin-bottom: 2em;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         scroll-margin-top: 40px;
-        max-width: 1100px; /* 限制最大宽度 */
+        max-width: 1100px;
+        /* 限制最大宽度 */
         margin-left: auto;
         margin-right: auto;
         box-sizing: border-box;
@@ -535,20 +501,20 @@
     .cta-button:hover {
         background-color: #005582;
     }
-    
+
     .button-group {
         display: flex;
         gap: 15px;
         flex-wrap: wrap;
         margin-top: 20px;
     }
-    
+
     .button-group .cta-button {
         flex: 1;
         min-width: 200px;
         text-align: center;
     }
-    
+
     /* Skill Cards Styles */
     .skill-cards {
         display: flex;
@@ -556,7 +522,7 @@
         gap: 1em;
         margin-top: 1em;
     }
-    
+
     .skill-card {
         background-color: #fff;
         padding: 1.5em;
@@ -565,39 +531,39 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .skill-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
-    
+
     .skill-header {
         display: flex;
         align-items: center;
         gap: 8px;
         margin-bottom: 0.8em;
     }
-    
+
     .skill-header h3 {
         margin: 0;
         color: #0077B5;
         font-size: 1.2em;
     }
-    
+
     .skill-card p {
         color: #586069;
         line-height: 1.5;
         margin-bottom: 1em;
     }
-    
+
     .skill-card .highlight {
         margin: 1em 0;
     }
-    
+
     .skill-card .highlight p {
         margin: 0.2em 0;
     }
-    
+
     .skill-card .cta-button {
         margin-top: 0.8em;
         width: 100%;
@@ -647,15 +613,15 @@
         border: 1px solid #ffeeba;
         margin: 1em 0;
     }
-    
+
     .highlight p {
         margin: 0.3em 0;
     }
-    
+
     .highlight p:first-child {
         margin-top: 0;
     }
-    
+
     .highlight p:last-child {
         margin-bottom: 0;
     }
@@ -814,16 +780,16 @@
             width: 100%;
             margin-bottom: 5px;
         }
-        
+
         .button-group {
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .button-group .cta-button {
             min-width: auto;
         }
-        
+
         .skill-card {
             padding: 1.2em;
         }
@@ -994,7 +960,6 @@
         <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PMMZ8Q" style="display:none;visibility:hidden" width="0"> </iframe>
     </noscript>
     <!--ls:begin[body]--><a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-navigation">Skip to main navigation </a> <a class="uos-sr" href="https://www.southampton.ac.uk/careers/international/index.page#main-content"> Skip to main content </a>
-    
     <!-- Module Navigation Bar -->
     <nav class="module-navbar">
         <div class="nav-container">
@@ -1504,11 +1469,12 @@
                     <li><a href="#journey-planner" class="nav-link">Journey Planner</a></li>
                     <li><a href="#work-while-studying" class="nav-link">Work While You Study</a></li>
                     <li><a href="#post-grad-employment" class="nav-link">After Graduation</a></li>
+                    <li><a href="#visas-resources" class="nav-link">Visas & Resources</a></li>
                     <li><a href="#business" class="nav-link">Starting a Business?</a></li>
                     <li><a href="#skill" class="nav-link">Build your skills</a></li>
-                    <li><a href="#workshops" class="nav-link">Workshops</a></li>
-                    <li><a href="#career-roadmap" class="nav-link">Career Roadmap</a></li>
-                    <li><a href="#mentor" class="nav-link">Want a Mentor?</a></li>
+                    <li><a href="#workshops" class="nav-link">International Student Workshop" </a></li>
+                    <li><a href="#career-roadmap" class="nav-link">Troubleshooting Mindmap</a></li>
+                    <li><a href="#mentor" class="nav-link">Need a Mentor?</a></li>
                     <li><a href="#consultant" class="nav-link">Your Consultant</a></li>
                     <li><a href="#linkedin-community" class="nav-link">LinkedIn Community</a></li>
                     <li><a href="#all-support" class="nav-link">UOS Career Hub</a></li>
@@ -1519,7 +1485,7 @@
             <main>
                 <section id="programme-info">
                     <h2>International Student Careers Programme</h2>
-                    <p>As an international student at the University of Southampton, you can sign up for an enhanced programme of careers support, tailored to meet your needs. This includes five workshops, a dedicated LinkedIn group, plus personalised appointments and support from our Specialist Careers Consultant.</p>
+                    <p>As an international student at the University of Southampton, you can sign up for an enhanced programme of careers support, tailored to meet your needs. This includes five workshops which can be attended live or watched as recordings, a dedicated LinkedIn group, personalised appointments, regular international alumni careers panels, networking events and support from our Specialist Careers Consultant. For students planning to work in China after graduation, there will also be regular webinars from employers, delivered in Mandarin. </p>
                     <div class="highlight">
                         <p><strong>Note:</strong> This programme is specially designed for postgraduate students with some industry experience. We focus on building personalised and agile career strategies, like harnessing the temporary contractor market and using the right recruitment agencies.</p>
                         <p>If you're an undergraduate or don't have industry experience, this content is still highly relevant, and you are very welcome to join! You can also access the full range of support from Careers, Employability and Student Enterprise.</p>
@@ -1559,30 +1525,16 @@
                     <h2><span role="img" aria-label="briefcase">💼</span> Work While You Study</h2>
                     <p>Part-time work and work experience can help you financially, build relevant experience, grow your network, and improve your professional English skills. Whether you're a postgraduate with existing industry experience or an undergraduate building your profile, there are many opportunities available.</p>
                     <div class="highlight">
-                        <p><strong>Important:</strong> You must always comply with the <a href="#">conditions of your visa</a> when taking on any paid work. Please check <a href="#">how many hours you can work on a student visa</a> before you apply for roles.</p>
+                        <p><strong>Important:</strong> You must always comply with the <a href="https://www.southampton.ac.uk/studentservices/visa-and-immigration/index.page" target="_blank">conditions of your visa</a> when taking on any paid work. Please check how many hours you can work on a students visa before you apply for roles.For more information, please use the <a href="https://www.southampton.ac.uk/studentservices/visa-and-immigration/contact-us/index.page" target="_blank">visa team service.</a></p>
                     </div>
                     <div class="tab-panel" id="workWhileStudyingTabPanel">
-                        <button class="tab-button active" data-target="part-time-work">Part-time Work</button>
-                        <button class="tab-button" data-target="work-experience">Work Experience</button>
+                        <button class="tab-button active" data-target="work-experience">Work Experience</button>
+                        <button class="tab-button" data-target="part-time-work">Part-time Work</button>
                         <button class="tab-button" data-target="volunteering">Volunteering</button>
                     </div>
-                    <div id="part-time-work" class="tab-content active">
-                        <h4>Part-time Work Whilst Studying</h4>
-                        <p>You can source part-time work through University platforms and external job sites. Our <a href="#">part-time work webpage</a> provides a great overview, and the <a href="#">MyCareer Jobs Board</a> lists roles with hours designed to fit around your studies. The University also employs students as <a href="#">Student Ambassadors</a> and through <a href="#">UniWorkforce</a>.</p>
-                        <p>Popular external job boards include:</p>
-                        <ul class="job-boards">
-                            <li>Indeed</li>
-                            <li>Jobserve</li>
-                            <li>Totaljobs</li>
-                            <li>Jobsite</li>
-                            <li>LinkedIn</li>
-                        </ul>
-                        <p>If you have previous industry experience, you may be able to find professional-level part-time roles. Use specific keywords in your search and tailor your CV accordingly.</p>
-                        <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
-                    </div>
-                    <div id="work-experience" class="tab-content">
+                    <div id="work-experience" class="tab-content active">
                         <h4>Work Experience</h4>
-                        <p><strong>Work Experience Schemes through the University</strong><br>The University runs many work experience schemes. Availability may depend on your course and its length. Find full details on our <a href="#">work experience webpages</a>. Programmes include:</p>
+                        <p><strong>Work Experience Schemes through the University</strong><br>The University runs many work experience schemes. Availability may depend on your course and its length. Find full details on our <a href="https://www.southampton.ac.uk/careers/students/work-experience/index.page?utm_medium=cpc&utm_source=google&utm_content=&utm_value=&gad_source=1&gad_campaignid=22755492375&gbraid=0AAAAADRoHrqhH49hW-O4VpDzcQVQBbwmb&gclid=CjwKCAjwp_LDBhBCEiwAK7Fnkhac7TR4qkVRgRuYOz6TKGjkV2BS3s3t2D-Oabqa5rVeRurLfzpaZBoCQUIQAvD_BwE" target="_blank">work experience webpages</a>. Programmes include:</p>
                         <ul>
                             <li>Salaried Year-in-Industry placements (for undergraduates)</li>
                             <li>UoS Internships (paid internships in various industries)</li>
@@ -1597,22 +1549,36 @@
                         </ul>
                         <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
                     </div>
+                    <div id="part-time-work" class="tab-content">
+                        <h4>Part-time Work Whilst Studying</h4>
+                        <p>You can source part-time work through University platforms and external job sites. Our <a href="#">part-time work webpage</a> provides a great overview, and the <a href="#">MyCareer Jobs Board</a> lists roles with hours designed to fit around your studies. The University also employs students as <a href="#">Student Ambassadors</a> and through <a href="#">UniWorkforce</a>.</p>
+                        <p>Popular external job boards include:</p>
+                        <ul class="job-boards">
+                            <li>Indeed</li>
+                            <li>Jobserve</li>
+                            <li>Totaljobs</li>
+                            <li>Jobsite</li>
+                            <li>LinkedIn</li>
+                        </ul>
+                        <p>If you have previous industry experience, you may be able to find professional-level part-time roles. Use specific keywords in your search and tailor your CV accordingly.</p>
+                        <a href="CVPS.html" class="cta-button">Explore Job search,CV and cover letter</a>
+                    </div>
                     <div id="volunteering" class="tab-content">
                         <h4>Volunteering Opportunities</h4>
                         <p>Volunteering is a great way to gain experience, develop skills, and contribute to your community while studying. It can also help you build your CV and network.</p>
                         <p><strong>University Volunteering Opportunities:</strong></p>
-                        <ul>
-                            <li>Student Union volunteering schemes</li>
-                            <li>University community outreach programmes</li>
-                            <li>Peer mentoring and tutoring roles</li>
-                            <li>Event organisation and support</li>
+                        <ul class="job-boards">
+                            <li><a href="https://mycareer.soton.ac.uk/leap/jobs.html?filters=dynamicstringslc_scheme_id:22" target="_blank">Volunteering Bank on My Career</a></li>
+                            <li><a href="https://www.susu.org/activities/volunteering/ " target="_blank">Student Union Volunteering</a></li>
                         </ul>
                         <p><strong>External Volunteering:</strong></p>
                         <ul class="job-boards">
+                            <li><a href="https://southamptonvs.org.uk/volunteering/" target="_blank">Southampton volunteering Service</a></li>
+                            <li><a href="https://solinked.org.uk/" target="_blank">SO:Linked helps you to connect with services and groups in Southampton</a></li>
+                            <li><a href="https://www.doit.life/volunteer" target="_blank">We're Doit - and we're on a mission to help people feel good by doing good</a></li>
+                            <li><a href=" https://www.southampton.gov.uk/jobs/getting-into-work/volunteering/" target="_blank">Volunteering with Southampton City Council</a></li>
                             <li>Local charities and community organisations</li>
                             <li>Professional associations and societies</li>
-                            <li>Environmental and conservation groups</li>
-                            <li>Healthcare and social care organisations</li>
                         </ul>
                         <p><strong>Benefits of Volunteering:</strong></p>
                         <ul>
@@ -1627,11 +1593,11 @@
                 </section>
                 <section id="post-grad-employment">
                     <h2><span role="img" aria-label="graduation-cap">🎓</span> Planning for After Graduation</h2>
-                    <p>It is likely that your main goal will be to find professional employment in your chosen field after graduation. Whether this is in the UK, back home or in a new country, you will need to be planning your career strategy alongside your studies. There are different types of employment that you could secure as a graduate, depending on your experience, sector, and skills.</p>
+                    <p>It is likely that your main goal will be to find professional employment in your chosen field after graduation. Whether this is in the UK, back home or in a new country, you will need to be planning your career strategy alongside your studies. There are different types of employment that you could secure as a graduate, depending on your experience, sector, and skills.check our back to China page for advice</p>
                     <div class="tab-panel" id="postGradTabPanel">
                         <button class="tab-button active" data-target="graduate-schemes">Graduate Schemes</button>
+                        <button class="tab-button" data-target="other-graduate-roles">Other Graduate Level Roles</button>
                         <button class="tab-button" data-target="experienced-jobs">Experienced Professional Jobs</button>
-                        <button class="tab-button" data-target="visas-resources">Visas and additional resources</button>
                     </div>
                     <div id="graduate-schemes" class="tab-content active">
                         <p>In the UK, many large companies recruit graduates onto schemes with an integrated training period (usually 1–2 years). These are attractive opportunities but are extremely competitive.</p>
@@ -1650,11 +1616,11 @@
                         </ul>
                         <div class="highlight">
                             <p><strong>Remember:</strong> You need to start applying at the beginning of your final year. For Master's students, this means as soon as you arrive. This can be overwhelming, so access our support services early!</p>
-                            <p>As soon as you have your university profile, you can <a href="#">book an appointment</a> or sign up for the <a href="#">International Student Careers Programme</a> on MyCareer. If unsure, email <strong>careers@southampton.ac.uk</strong>.</p>
+                            <p>As soon as you have your university profile, you can <a href="https://mycareer.soton.ac.uk/leap/appointments.html" target="_blank">book an appointment</a> or <a href="https://mycareer.soton.ac.uk/leap/events.html?filters=dynamicstringslc_eventtype%3ainternational+student+careers+series&clearStoredSelections=true&service=Careers%20Service" target="_blank">access the international student careers programme</a> on MyCareer. If unsure, email <strong>careers@southampton.ac.uk</strong>.</p>
                         </div>
                     </div>
                     <div id="experienced-jobs" class="tab-content">
-                        <p>Many students, especially those on Master's courses, already have significant work experience. The experienced hire market may be more suitable, offering roles and salaries that match your existing skill set. The <a href="#programme-info">International Student Careers Programme</a> is designed to focus on this job market.</p>
+                        <p>Many students, especially those on Postgraduate courses, already have significant work experience. The experienced hire market may be more suitable, offering roles and salaries that match your existing skill set. The <a href="#programme-info">International Student Careers Programme</a> is designed to focus on this job market.</p>
                         <p><strong>How to Prepare Before You Arrive:</strong></p>
                         <ul>
                             <li><strong>Research the Market:</strong> Use the 'Jobs' section on <a href="https://www.indeed.co.uk/" target="_blank" rel="noopener">Indeed</a> and <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener">LinkedIn</a> to see what jobs exist that match your skills and what the typical salaries are.</li>
@@ -1662,25 +1628,29 @@
                             <li><strong>Create Your LinkedIn Profile:</strong> If you don't have one, create it now. It is a valuable networking tool, research platform, and jobs board.</li>
                             <li><strong>Use LinkedIn for Research:</strong> Look at people with similar qualifications. See where they work and the career path that got them there.</li>
                         </ul>
-                        <p>Plenty of support for CVs, applications, and interviews is available once you start your studies.</p>
+                        <p>Plenty of support for CVs, applications, and interviews is available once you start your studies. <span style="color: red;">Register for International Student Careers Programme events and workshops here: <a href="https://mycareer.soton.ac.uk/leap/events.html?filters=dynamicstringslc_eventtype%3ainternational+student+careers+series&clearStoredSelections=true&service=Careers%20Service" target="_blank" style="color: red;">s</a></span></p>
                     </div>
-                    <div id="visas-resources" class="tab-content">
-                        <h4>Visas and Working in the UK</h4>
-                        <p>Find general information on the <a href="#">Student Hub website</a>. You can contact the <strong>Visa and Immigration Student Advice Service (VISAS)</strong> by email, live chat, and through visa advice appointments.</p>
-                        <h4>Self-Employment</h4>
-                        <p>International students must comply with visa regulations for self-employment. Please see the Enterprise section on our <a href="#work-while-studying">Work while you are studying page</a> for more information.</p>
-                        <h4>English Language Support</h4>
-                        <p>The University provides <a href="#">term-time courses</a> which cover presentation skills, everyday English, and academic writing.</p>
-                        <h4>National Insurance (NI) Number</h4>
-                        <p>You will need a National Insurance number to work in the UK. See the <a href="https://www.gov.uk/apply-national-insurance-number" target="_blank" rel="noopener">UK Government website</a> to apply.</p>
+                    <div id="other-graduate-roles" class="tab-content">
+                        <p>Structured Graduate Schemes actually make up the minority of the job market, there are many more opportunities for graduate level roles that are hired on an ad hoc basis, as employers need to hire. These roles don't need be to applied for eary and are usually looking for somone who is available witin 1 to 3 months. You can find roles like these on the same job websites as experienced hire jobs and graduate schemes. Unlike graduate schemes, they do not always have the word "graduate" in the title, you can find out more about this in the international careers workshop on job search, you can watch the recording here: <a href="https://youtu.be/Q3cub4x3e9c" target="_blank">https://youtu.be/Q3cub4x3e9c</a></p>
                     </div>
+                </section>
+                <section id="visas-resources">
+                    <h2><span role="img" aria-label="visa">📋</span> Visas and Working in the UK</h2>
+                    <h4>Visas and Working in the UK</h4>
+                    <p>Find general information on the <a href="#">Student Hub website</a>. You can contact the <strong>Visa and Immigration Student Advice Service (VISAS)</strong> by email, live chat, and through visa advice appointments.</p>
+                    <h4>Self-Employment</h4>
+                    <p>International students must comply with visa regulations for self-employment. Please see the Enterprise section on our <a href="#work-while-studying">Work while you are studying page</a> for more information.</p>
+                    <h4>English Language Support</h4>
+                    <p>The University provides <a href="#">term-time courses</a> which cover presentation skills, everyday English, and academic writing.</p>
+                    <h4>National Insurance (NI) Number</h4>
+                    <p>You will need a National Insurance number to work in the UK. See the <a href="https://www.gov.uk/apply-national-insurance-number" target="_blank" rel="noopener">UK Government website</a> to apply.</p>
                 </section>
                 <section id="business" class="info-section two-column-layout">
                     <div class="section-text">
                         <h2><span role="img" aria-label="lightbulb">💡</span> Starting a Business?</h2>
                         <p>introduce business idea programme </p>
                         <p>If you plan to start your own business or be self-employed, you must follow specific visa regulations.</p>
-                        <p><strong>For International Students:</strong><br>This <a href="#">UKCISA blog</a> provides detailed information on self-employment while on a Student visa. It is essential that you contact the University's <a href="#">Visa and Immigration Student Advice Service (VISAS)</a> before starting any self-employment.</p>
+                        <p><strong>For International Students:</strong><br>This <a href="https://www.ukcisa.org.uk/news/navigating-work-and-study-with-a-student-visa/" target="_blank">UKCISA blog</a> provides detailed information on self-employment while on a Student visa. It is essential that you contact the University's <a href="#">Visa and Immigration Student Advice Service (VISAS)</a> before starting any self-employment.</p>
                         <p><strong>For International Graduates:</strong><br>After graduation, certain visas may permit self-employment:</p>
                         <ul>
                             <li><strong>Innovator Founder visa:</strong> Requires a completely new business idea endorsed by an approved body.</li>
@@ -1695,8 +1665,8 @@
                         <img src="business.jpg" alt="A group of students collaborating on a startup project.">
                     </div>
                 </section>
-                                <section id="skill">
-                    <h2><span role="img" aria-label="books">📚</span> Build Your Skills</h2>                
+                <section id="skill">
+                    <h2><span role="img" aria-label="books">📚</span> Build Your Skills</h2>
                     <div class="skill-cards">
                         <div class="skill-card">
                             <div class="skill-header">
@@ -1705,27 +1675,26 @@
                             </div>
                             <p>LinkedIn Learning offers a vast library of online courses taught by industry experts. Whether you're looking to develop new technical skills, enhance your soft skills like communication and leadership, or explore creative topics, LinkedIn Learning has something for everyone. It's an excellent resource for boosting your resume and preparing for your future career.</p>
                             <div class="highlight">
-                                <p><strong>Why it's great:</strong> Personalized courses, skill assessments, and certificates for your LinkedIn profile.</p>
+                                <p><strong>Why it's great:</strong> LinkedIn Learning is well known amongst employers in the UK, so if a job description lists something you haven't got yet, they will be impressed when you say youare upskilling with this tool".</p>
                             </div>
                             <a href="https://www.linkedin.com/learning/" target="_blank" class="cta-button">Explore LinkedIn Learning</a>
                         </div>
-                        
                         <div class="skill-card">
                             <div class="skill-header">
                                 <span role="img" aria-label="career">⭐</span>
                                 <h3>MyCareer - Successful Futures Pathway</h3>
                             </div>
-                            <p>Our university platform providing tailored career resources, workshops, and guidance for your professional development.</p>
+                            <p>Successful Futures is a pathway designed support students in identifying, articulating and developing skills that employers want, based on the Southampton Skills Model</p>
                             <div class="highlight">
-                                <p><strong>Why it's great:</strong> Personalized career advice, exclusive events, job listings, and professional profile tools.</p>
+                                <p><strong>Why it's great:</strong> Skills mapped against your programme of study, AI chat bot to give career tips, comprehensive list of opportunities to develop the skills you want through activities at UoS"</p>
                             </div>
                             <a href="https://mycareer.soton.ac.uk/" target="_blank" class="cta-button">Access MyCareer</a>
                         </div>
                     </div>
                 </section>
                 <section id="workshops">
-                    <h2><span role="img" aria-label="workshops">🎓</span> Workshops</h2>
-                    <p>We run a series of five workshops continuously throughout the year, available both online and in person. These sessions are your key to unlocking the UK job market.</p>
+                    <h2><span aria-label="workshops"></span>International Student Careers Programme Workshops</h2>
+                    <p>We run a series of five workshops continuously throughout the year, available both online and in person. <span style="color: red;">These sessions are tailored for international students.</span></p>
                     <ul class="workshop-list">
                         <li><strong>Workshop 1:</strong> Accessing the UK Job Market</li>
                         <li><strong>Workshop 2:</strong> Job Search Strategies for Visa Holders</li>
@@ -1733,13 +1702,13 @@
                         <li><strong>Workshop 4:</strong> Tailoring CVs for UK Employers</li>
                         <li><strong>Workshop 5:</strong> UK Applications, Personal Statements and Covering Letters</li>
                     </ul>
-                    <p>Ready to get started?</p><a href="https://mycareer.soton.ac.uk/leap/events.html" target="_blank" class="cta-button">Log into MyCareer to Book Your Place</a>
+                    <p>Ready to get started?</p>
+                    <a href="https://mycareer.soton.ac.uk/leap/events.html" target="_blank" class="cta-button">Log into MyCareer to Book Your Place</a>
+                    <a href="https://www.youtube.com/playlist?list=PL4a16ibRe-1jvc-BX8zGG921uOm5a-WS6" target="_blank" class="cta-button" style="background-color: #008CBA; color: white;">Or watch recordings here</a>
                 </section>
-
                 <section id="career-roadmap">
-                    <h2><span role="img" aria-label="mindmap">🧠</span> Career Roadmap</h2>
-                    <p>Explore different pathways for career opportunities. This interactive mindmap helps you understand the various options and considerations for pursuing career roles.</p>
-                    
+                    <h2><span role="img" aria-label="mindmap">🔧</span> Troubleshooting Mindmap</h2>
+                    <p>Having trouble with your job search? This interactive troubleshooting mindmap helps you identify why you might not be getting responses and provides specific actions to take.</p>
                     <!-- Mindmap container -->
                     <div id="mindmap-container" style="width: 100%; height: 800px; margin: 20px 0;">
                         <div class="zoom-controls">
@@ -1751,7 +1720,7 @@
                     </div>
                 </section>
                 <section id="mentor" class="info-section">
-                    <h2>Want a Mentor?</h2>
+                    <h2>Need a Mentor?</h2>
                     <p>Tap into the experience of a global network of professionals through the University's Career Mentoring Programme. An e-mentor can help you gain real-world insight into a career path, build your confidence, and expand your professional network before you even graduate.</p>
                     <div class="section-image">
                         <img src="career-mentoring-promo.jpg" alt="ementoringsouthampton">
@@ -1761,7 +1730,7 @@
                     <a href="https://ementoringsouthampton.com/" target="_blank" class="cta-button">Register on E-Mentoring Platform</a>
                 </section>
                 <section id="consultant">
-                    <h2><span role="img" aria-label="consultant">👩‍💼</span> Meet Your Specialist Careers Consultant</h2>
+                    <h2>Meet Your Specialist Careers Consultant</h2>
                     <div class="consultant-profile">
                         <img src="https://via.placeholder.com/100" alt="Profile picture of Gemma O'Donoughue">
                         <div>
@@ -1771,7 +1740,7 @@
                     </div>
                 </section>
                 <section id="linkedin-community">
-                    <h2><span role="img" aria-label="linkedin">🔗</span> International Talent Community</h2>
+                    <h2> International Talent Community</h2>
                     <p>International job seekers at the University can stay in touch via our <strong>University of Southampton International Talent Community LinkedIn group</strong>. This is a platform for sharing opportunities, tips, and connections.</p>
                     <h3>Find Opportunities</h3>
                     <ul>
@@ -1785,7 +1754,6 @@
                         <li>Offering tips on job searching and interviews.</li>
                         <li>Building connections with employers and alumni.</li>
                     </ul>
-                    
                     <p>
                         <a href="https://www.linkedin.com/groups/13009479" target="_blank" title="Join our LinkedIn community" class="linkedin-community-btn">
                             Join Our LinkedIn Community
@@ -1813,46 +1781,102 @@
     function initMindmap() {
         // Mindmap data
         const treeData = {
-            "name": "Career Development Pathways",
-            "url": "https://www.google.com/search?q=Career+Development+Pathways",
-            "children": [
-                {
-                    "name": "Applying for permanent roles",
-                    "url": "https://www.google.com/search?q=Applying+for+permanent+roles",
-                    "children": [
-                        {
-                            "name": "Salary between £40,000 to £100,000 based on discipline/salary scales.",
-                            "url": "https://www.google.com/search?q=academic+salary+scales",
+            "name": "International student, been applying for multiple jobs with no success",
+            "url": "#",
+            "children": [{
+                    "name": "Applying for permanent jobs",
+                    "url": "#",
+                    "children": [{
+                            "name": "Salary £38700 (or higher if required)",
+                            "url": "#",
                             "children": [
-                                {
-                                    "name": "No guaranteed government salary increase for the first 4 years",
-                                    "url": "https://www.google.com/search?q=academic+salary+progression",
-                                    "children": [
-                                        { "name": "Does this timeframe suit you? (e.g. any family/personal commitments)", "url": "#" },
-                                        { "name": "Action: Investigate permanent roles further to prevent this from happening & also look at protection under local law for similar scenarios.", "url": "#" }
-                                    ]
-                                }
+                                { "name": "Advertised/guaranteed salary increase to relevant threshold within 4 years", "url": "#" }
                             ]
                         },
-                        { "name": "Advertised guaranteed salary increase to £100,000 (or relevant threshold) within 4 years.", "url": "https://www.google.com/search?q=fast+track+academic+roles" }
+                        {
+                            "name": "Salary below threshold (usually £38700)",
+                            "url": "#",
+                            "children": [{
+                                "name": "No advertised / guaranteed salary increase to required amount within 4 years",
+                                "url": "#",
+                                "children": [{
+                                    "name": "[Conclusion] Does not meet salary threshold for visa sponsorship. This could be why you get no response / rejected.",
+                                    "url": "#",
+                                    "children": [
+                                        { "name": "[Action] Target permanent jobs with salaries above visa sponsorship threshold in UK and consider other countries.", "url": "#" }
+                                    ]
+                                }]
+                            }]
+                        }
                     ]
                 },
                 {
-                    "name": "Applying for contract / temporary roles (less than 4 years)",
-                    "url": "https://www.google.com/search?q=Applying+for+contract+roles",
-                    "children": [
-                        { "name": "No visa/work permit delivered?", "url": "#" },
-                        { "name": "Experience similar issues with a previous role. Not willing to go through the experience again?", "url": "#" },
-                        { "name": "Started looking elsewhere and still open to hearing about interesting opportunities", "url": "#" },
-                        { "name": "Action: Have a list of go-to figures/contacts in target countries", "url": "#" },
-                        { "name": "Action: Access IOE's application support", "url": "#" },
-                        { "name": "Action: Check if IOE have submitted a new application for you (contacted)", "url": "#" },
-                        { "name": "Unable to check except if/when it has been rejected", "url": "#" }
+                    "name": "Applying for Contract / Temporary (less than 2 years)",
+                    "url": "#",
+                    "children": [{
+                        "name": "Is the CV / application tailored well?",
+                        "url": "#",
+                        "children": [{
+                                "name": "No",
+                                "url": "#",
+                                "children": [
+                                    { "name": "[Action] Access CV / application support.", "url": "#" },
+                                    {
+                                        "name": "Unable to show example of CV that has been rejected",
+                                        "url": "#",
+                                        "children": [
+                                            { "name": "[Action] Consult CESE before submitting next application (Ask a Consultant).", "url": "#" }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Yes",
+                                "url": "#",
+                                "children": [{
+                                    "name": "Is experience level / skills aligned with jobs you are applying for?",
+                                    "url": "#",
+                                    "children": [
+                                        { "name": "No", "url": "#", "children": [{ "name": "[Action] Review skills against demand in target countries.", "url": "#" }] },
+                                        { "name": "Yes", "url": "#", "children": [{ "name": "[Outcome] Student is getting through to the interview stage.", "url": "#" }] }
+                                    ]
+                                }]
+                            }
+                        ]
+                    }]
+                },
+                {
+                    "name": "Research opportunities outside of the UK",
+                    "url": "#",
+                    "children": [{
+                            "name": "What languages does the student speak?",
+                            "url": "#",
+                            "children": [
+                                { "name": "Which countries use these languages for business?", "url": "#" }
+                            ]
+                        },
+                        {
+                            "name": "Identify skills / experience / relevant sector",
+                            "url": "#",
+                            "children": [{
+                                "name": "Which countries have a shortage of these skills / experience / sectors?",
+                                "url": "#",
+                                "children": [
+                                    { "name": "Which of these countries will sponsor visas for international candidates?", "url": "#" }
+                                ]
+                            }]
+                        },
+                        { "name": "What countries do you have the right to work in, consider dual nationalities etc.?", "url": "#" }
                     ]
                 },
-                { "name": "Action: Include contract / temp job search", "url": "#" },
-                { "name": "Action: Start to look for contract opportunities", "url": "#" },
-                { "name": "Exploring agency-led opportunities", "url": "#" }
+                {
+                    "name": "Common Problem: Securing interviews but not job offers",
+                    "url": "#",
+                    "children": [
+                        { "name": "[Action] Access interview support.", "url": "#" },
+                        { "name": "[Action] Explore using recruitment agencies.", "url": "#" }
+                    ]
+                }
             ]
         };
 
@@ -1862,11 +1886,11 @@
         const duration = 750;
 
         // Setup
-        const margin = {top: 50, right: 20, bottom: 50, left: 20};
+        const margin = { top: 50, right: 20, bottom: 50, left: 20 };
         const container = document.getElementById('mindmap-container');
         const width = container.offsetWidth - margin.left - margin.right;
         let height = 800 - margin.top - margin.bottom;
-        
+
         // 缩放变量
         let currentScale = 1;
         const minScale = 0.3;
@@ -1889,7 +1913,7 @@
                 currentScale = Math.max(minScale, Math.min(maxScale, currentScale * delta));
                 updateTransform();
             });
-            
+
         const g = svg.append("g")
             .attr("transform", `translate(${width / 2},${margin.top}) scale(${currentScale})`);
 
@@ -1904,12 +1928,12 @@
                 if (!levels[d.depth]) levels[d.depth] = [];
                 levels[d.depth].push(d);
             });
-            
+
             // 重新分配x/y - 水平展开同一层级
             levels.forEach((nodes, depth) => {
                 const levelWidth = nodes.length * (boxWidth + 60); // 节点间距
                 const startX = -levelWidth / 2;
-                
+
                 nodes.forEach((d, idx) => {
                     d.x = startX + idx * (boxWidth + 60);
                     d.y = depth * (boxHeight + 100); // 层级间距
@@ -1944,7 +1968,7 @@
             // 动态调整高度
             const maxY = Math.max(...nodes.map(d => d.y)) + boxHeight + margin.bottom;
             const newHeight = Math.max(800, maxY);
-            
+
             if (newHeight !== height) {
                 height = newHeight;
                 d3.select("#mindmap-container svg")
@@ -1988,10 +2012,10 @@
                 .attr("transform", d => `translate(${d.x},${d.y})`)
                 .attr('fill-opacity', 1)
                 .attr('stroke-opacity', 1);
-            
+
             nodeUpdate.select('.mindmap-toggle-button')
                 .style('display', d => d._children || d.children ? null : 'none');
-            
+
             nodeUpdate.select('.mindmap-toggle-button text')
                 .text(d => d.children ? '−' : '+');
 
@@ -2002,13 +2026,13 @@
 
             const link = g.selectAll('path.mindmap-link')
                 .data(links, d => d.target.id);
-            
+
             const linkEnter = link.enter().append('path')
                 .attr('class', 'mindmap-link')
                 .lower()
                 .attr('d', d => {
-                    const o = {x: source.x0, y: source.y0};
-                    return diagonal({source: o, target: o});
+                    const o = { x: source.x0, y: source.y0 };
+                    return diagonal({ source: o, target: o });
                 });
 
             link.merge(linkEnter).transition(d3.transition().duration(duration))
@@ -2018,23 +2042,23 @@
                     const linkElement = d3.select(this);
                     const isOverlapped = checkLinkOverlap(d, links);
                     const isExpanded = d.source.children && d.source.children.length > 0;
-                    
+
                     // 检查是否为前一层级的连接线
                     const isPreviousLevel = isPreviousLevelLink(d, links);
-                    
+
                     if (isOverlapped) {
                         linkElement.classed('overlapped', true);
                     } else {
                         linkElement.classed('overlapped', false);
                     }
-                    
+
                     // 为展开节点的连接线添加expanded类（蓝色高亮）
                     if (isExpanded) {
                         linkElement.classed('expanded', true);
                     } else {
                         linkElement.classed('expanded', false);
                     }
-                    
+
                     // 为前一层级的连接线添加previous-level类（灰色淡化）
                     if (isPreviousLevel) {
                         linkElement.classed('previous-level', true);
@@ -2045,15 +2069,15 @@
 
             link.exit().transition(d3.transition().duration(duration)).remove()
                 .attr('d', d => {
-                    const o = {x: source.x, y: source.y};
-                    return diagonal({source: o, target: o});
+                    const o = { x: source.x, y: source.y };
+                    return diagonal({ source: o, target: o });
                 });
 
             root.eachBefore(d => {
                 d.x0 = d.x;
                 d.y0 = d.y;
             });
-            
+
             // 如果是初始加载，居中显示思维导图
             if (!event) {
                 setTimeout(() => {
@@ -2061,19 +2085,19 @@
                 }, 100);
             }
         }
-        
+
         // 检测线条重叠的函数
         function checkLinkOverlap(currentLink, allLinks) {
             const tolerance = 5; // 重叠检测的容差
             let overlapCount = 0;
-            
+
             allLinks.forEach(link => {
                 if (link === currentLink) return;
-                
+
                 // 检查两条线是否在同一层级且位置相近
                 if (Math.abs(link.source.y - currentLink.source.y) < tolerance &&
                     Math.abs(link.target.y - currentLink.target.y) < tolerance) {
-                    
+
                     // 检查x坐标是否重叠
                     const currentXRange = [
                         Math.min(currentLink.source.x, currentLink.target.x),
@@ -2083,17 +2107,17 @@
                         Math.min(link.source.x, link.target.x),
                         Math.max(link.source.x, link.target.x)
                     ];
-                    
+
                     // 如果x范围有重叠，认为线条重叠
                     if (currentXRange[0] <= linkXRange[1] && currentXRange[1] >= linkXRange[0]) {
                         overlapCount++;
                     }
                 }
             });
-            
+
             return overlapCount > 0;
         }
-        
+
         // 检测是否为前一层级的连接线
         function isPreviousLevelLink(currentLink, allLinks) {
             // 找到当前最深展开的层级（Y坐标最大的展开层级）
@@ -2103,11 +2127,11 @@
                     deepestExpandedLevel = Math.max(deepestExpandedLevel, link.source.y);
                 }
             });
-            
+
             // 如果当前连接线的源节点Y坐标小于最深展开层级，则为前一层级
             return currentLink.source.y < deepestExpandedLevel;
         }
-        
+
         function toggleChildren(event, d) {
             event.stopPropagation();
             if (d.children) {
@@ -2137,7 +2161,7 @@
                     lineHeight = 1.1,
                     fontSize = 12,
                     tspan = text.text(null).append("tspan").attr("x", 0);
-                
+
                 while (word = words.pop()) {
                     line.push(word);
                     tspan.text(line.join(" "));
@@ -2155,16 +2179,16 @@
                 text.attr("y", yOffset);
             });
         }
-        
+
         // 拖拽和缩放变量
         let isDragging = false;
         let dragStart = { x: 0, y: 0 };
         let currentTranslate = { x: width / 2, y: margin.top };
-        
+
         // 缩放函数
         function updateTransform() {
             g.attr("transform", `translate(${currentTranslate.x},${currentTranslate.y}) scale(${currentScale})`);
-            
+
             // 更新按钮状态
             const zoomInBtn = document.getElementById('zoom-in');
             const zoomOutBtn = document.getElementById('zoom-out');
@@ -2173,7 +2197,7 @@
                 zoomOutBtn.disabled = currentScale <= minScale;
             }
         }
-        
+
         // 缩放事件处理
         function zoomIn() {
             if (currentScale < maxScale) {
@@ -2181,32 +2205,32 @@
                 updateTransform();
             }
         }
-        
+
         function zoomOut() {
             if (currentScale > minScale) {
                 currentScale = Math.max(minScale, currentScale / 1.2);
                 updateTransform();
             }
         }
-        
+
         function zoomReset() {
             currentScale = 1;
             centerMindmap();
         }
-        
+
         // 将缩放函数暴露到全局作用域
         window.zoomIn = zoomIn;
         window.zoomOut = zoomOut;
         window.zoomReset = zoomReset;
-        
+
         // 全屏功能
         let isFullscreen = false;
         let originalContainerStyle = {};
-        
+
         function toggleFullscreen() {
             const container = document.getElementById('mindmap-container');
             const fullscreenBtn = document.getElementById('fullscreen-btn');
-            
+
             if (!isFullscreen) {
                 // 进入全屏
                 enterFullscreen(container, fullscreenBtn);
@@ -2215,7 +2239,7 @@
                 exitFullscreen(container, fullscreenBtn);
             }
         }
-        
+
         function enterFullscreen(container, fullscreenBtn) {
             // 保存原始样式
             originalContainerStyle = {
@@ -2230,134 +2254,136 @@
                 margin: container.style.margin,
                 borderRadius: container.style.borderRadius
             };
-            
+
             // 应用全屏样式
             container.classList.add('fullscreen');
             fullscreenBtn.textContent = '⛶ Exit Fullscreen';
             fullscreenBtn.classList.add('exit');
-            
+
             isFullscreen = true;
-            
+
             // 重新计算SVG尺寸并居中显示
             setTimeout(() => {
                 resizeSVG();
                 centerMindmap();
             }, 150);
         }
-        
+
         function exitFullscreen(container, fullscreenBtn) {
             // 移除全屏样式
             container.classList.remove('fullscreen');
             fullscreenBtn.textContent = '⛶ Fullscreen';
             fullscreenBtn.classList.remove('exit');
-            
+
             isFullscreen = false;
-            
+
             // 重新计算SVG尺寸并居中显示
             setTimeout(() => {
                 resizeSVG();
                 centerMindmap();
             }, 150);
         }
-        
+
         function resizeSVG() {
             const container = document.getElementById('mindmap-container');
             const containerWidth = container.offsetWidth;
             const containerHeight = container.offsetHeight;
-            
+
             // 更新SVG尺寸
             svg.attr("width", containerWidth)
-               .attr("height", containerHeight);
-            
+                .attr("height", containerHeight);
+
             // 重新计算布局并居中显示
             if (root) {
                 // 重新计算树布局
                 const newHeight = containerHeight - margin.top - margin.bottom;
                 const newWidth = containerWidth - margin.left - margin.right;
-                
+
                 // 更新自定义布局
                 customTreeLayout(root);
-                
+
                 // 计算树的边界
                 const bounds = getTreeBounds(root);
                 const treeWidth = bounds.maxX - bounds.minX;
                 const treeHeight = bounds.maxY - bounds.minY;
-                
+
                 // 计算居中位置
                 const centerX = newWidth / 2;
                 const centerY = margin.top + newHeight / 2;
-                
+
                 // 重置变换
                 currentTranslate.x = centerX - (bounds.minX + bounds.maxX) / 2;
                 currentTranslate.y = centerY - (bounds.minY + bounds.maxY) / 2;
                 currentScale = 1;
-                
+
                 // 应用变换
                 updateTransform();
-                
+
                 // 更新节点和连接线
                 update(null, root);
             }
         }
-        
+
         // 获取树的边界
         function getTreeBounds(root) {
-            let minX = Infinity, maxX = -Infinity;
-            let minY = Infinity, maxY = -Infinity;
-            
+            let minX = Infinity,
+                maxX = -Infinity;
+            let minY = Infinity,
+                maxY = -Infinity;
+
             root.each(function(d) {
                 minX = Math.min(minX, d.x);
                 maxX = Math.max(maxX, d.x);
                 minY = Math.min(minY, d.y);
                 maxY = Math.max(maxY, d.y);
             });
-            
+
             return { minX, maxX, minY, maxY };
         }
-        
+
         // 居中显示思维导图
         function centerMindmap() {
             if (!root) return;
-            
+
             const container = document.getElementById('mindmap-container');
             const containerWidth = container.offsetWidth;
             const containerHeight = container.offsetHeight;
-            
+
             // 计算可用空间
             const availableWidth = containerWidth - margin.left - margin.right;
             const availableHeight = containerHeight - margin.top - margin.bottom;
-            
+
             // 获取树的边界
             const bounds = getTreeBounds(root);
             const treeWidth = bounds.maxX - bounds.minX;
             const treeHeight = bounds.maxY - bounds.minY;
-            
+
             // 计算居中位置
             const centerX = availableWidth / 2;
             const centerY = margin.top + availableHeight / 2;
-            
+
             // 计算树的中心点
             const treeCenterX = (bounds.minX + bounds.maxX) / 2;
             const treeCenterY = (bounds.minY + bounds.maxY) / 2;
-            
+
             // 设置变换以居中显示
             currentTranslate.x = centerX - treeCenterX;
             currentTranslate.y = centerY - treeCenterY;
-            
+
             // 应用变换
             updateTransform();
         }
-        
+
         // 监听ESC键退出全屏
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && isFullscreen) {
                 toggleFullscreen();
             }
         });
-        
+
         // 将全屏函数暴露到全局作用域
         window.toggleFullscreen = toggleFullscreen;
-        
+
         // 拖拽功能
         function startDrag(event) {
             isDragging = true;
@@ -2367,7 +2393,7 @@
             };
             svg.style('cursor', 'grabbing');
         }
-        
+
         function drag(event) {
             if (isDragging) {
                 currentTranslate.x = event.clientX - dragStart.x;
@@ -2375,7 +2401,7 @@
                 updateTransform();
             }
         }
-        
+
         function endDrag() {
             isDragging = false;
             svg.style('cursor', 'grab');
@@ -2385,12 +2411,12 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Initialize mindmap
         initMindmap();
-        
+
         // 添加缩放按钮事件监听器
         const zoomInBtn = document.getElementById('zoom-in');
         const zoomOutBtn = document.getElementById('zoom-out');
         const zoomResetBtn = document.getElementById('zoom-reset');
-        
+
         if (zoomInBtn) zoomInBtn.addEventListener('click', () => {
             if (window.zoomIn) window.zoomIn();
         });
@@ -2400,13 +2426,13 @@
         if (zoomResetBtn) zoomResetBtn.addEventListener('click', () => {
             if (window.zoomReset) window.zoomReset();
         });
-        
+
         // 添加全屏按钮事件监听器
         const fullscreenBtn = document.getElementById('fullscreen-btn');
         if (fullscreenBtn) fullscreenBtn.addEventListener('click', () => {
             if (window.toggleFullscreen) window.toggleFullscreen();
         });
-        
+
         // Existing functionality
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -2974,7 +3000,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0002">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site and key task completions. They help us to know which pages are the most and least popular and see how visitors move around the site.  All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0002">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site and key task completions. They help us to know which pages are the most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.</p>
                             </div>
                         </div>
                         <div class="ot-accordion-layout ot-cat-item ot-vs-config" data-optanongroupid="C0003"><button ot-accordion="true" aria-expanded="false" aria-controls="ot-desc-id-C0003" aria-labelledby="ot-header-id-C0003"></button><!-- Accordion header -->
@@ -2986,7 +3012,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0003">These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.  If you do not allow these cookies then some or all of these services may not function properly.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0003">These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly.</p>
                             </div>
                         </div>
                         <div class="ot-accordion-layout ot-cat-item ot-vs-config" data-optanongroupid="C0004"><button ot-accordion="true" aria-expanded="false" aria-controls="ot-desc-id-C0004" aria-labelledby="ot-header-id-C0004"></button><!-- Accordion header -->
@@ -2998,7 +3024,7 @@
                                     </svg></div>
                             </div><!-- accordion detail -->
                             <div class="ot-acc-grpcntr ot-acc-txt">
-                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0004">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.  They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.</p>
+                                <p class="ot-acc-grpdesc ot-category-desc" id="ot-desc-id-C0004">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.</p>
                             </div>
                         </div><!-- Non Accordion Group -->
                         <!-- Accordion Group section starts -->
