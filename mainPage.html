@@ -449,7 +449,7 @@
         margin-bottom: 2em;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        scroll-margin-top: 40px;
+        scroll-margin-top: 80px;
         max-width: 1100px;
         /* 限制最大宽度 */
         margin-left: auto;
@@ -631,69 +631,7 @@
         margin-top: 2em;
     }
 
-    .journey-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2em;
-        margin-top: 1.5em;
-    }
 
-    .journey-card {
-        background-color: #f8f9fa;
-        padding: 1.5em;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .journey-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .journey-card .tag {
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 0.85em;
-        font-weight: 500;
-        margin-bottom: 1em;
-    }
-
-    .tag.year1 {
-        background-color: #e0f8f0;
-        color: #1a7d5a;
-    }
-
-    .tag.year2 {
-        background-color: #e0f0ff;
-        color: #0077B5;
-    }
-
-    .tag.final-year {
-        background-color: #fff3cd;
-        color: #856404;
-    }
-
-    .tag.masters {
-        background-color: #f3e8fd;
-        color: #6f42c1;
-    }
-
-    .journey-card p {
-        font-size: 0.95em;
-        color: #586069;
-    }
-
-    .journey-card a {
-        font-weight: bold;
-        text-decoration: none;
-        color: #0077B5;
-    }
-
-    .journey-card a:hover {
-        text-decoration: underline;
-    }
 
     /* Tabbed Panel Styles */
     .tab-panel {
@@ -772,9 +710,6 @@
     }
 
     @media (max-width: 768px) {
-        .journey-container {
-            grid-template-columns: 1fr;
-        }
 
         .tab-button {
             width: 100%;
@@ -792,6 +727,182 @@
 
         .skill-card {
             padding: 1.2em;
+        }
+    }
+
+    /* Years Planner Mind Map Styles */
+    .years-planner-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 2px solid var(--border-color);
+        margin-bottom: 2em;
+    }
+
+    .years-tab-btn {
+        background: none;
+        border: none;
+        padding: 1rem 1.5rem;
+        font-size: 1.1em;
+        font-weight: 500;
+        color: #586069;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .years-tab-btn:hover {
+        color: #0077B5;
+        border-bottom-color: #0077B5;
+    }
+
+    .years-tab-btn.active {
+        color: #0077B5;
+        border-bottom-color: #0077B5;
+        font-weight: 600;
+    }
+
+    .years-tab-content {
+        display: none;
+    }
+
+    .years-tab-content.active {
+        display: block;
+    }
+
+    .mind-map-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        flex-direction: column;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .central-topic {
+        color: #0077B5;
+        padding: 1rem 0;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        border-bottom: 3px solid #0077B5;
+        position: relative;
+    }
+
+    .central-topic::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #0077B5;
+    }
+
+    .branches {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .branch {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .branch:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .branch-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #0077B5;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #e9ecef;
+        position: relative;
+    }
+
+    .branch-title::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: #0077B5;
+    }
+
+    .branch-item {
+        background-color: white;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        text-align: left;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        border-left: 4px solid #0077B5;
+        position: relative;
+    }
+
+    .branch-item:hover {
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        background-color: #f8f9fa;
+    }
+
+    .branch-item::before {
+        content: '•';
+        color: #0077B5;
+        font-weight: bold;
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+        .branches {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .branch {
+            width: 100%;
+            margin-bottom: 0;
+            padding: 1.5rem;
+        }
+        .central-topic {
+            font-size: 1.5rem;
+            padding: 0.75rem 0;
+        }
+        .years-planner-tabs {
+            flex-direction: column;
+        }
+        .years-tab-btn {
+            width: 100%;
+            text-align: left;
+        }
+        .mind-map-container {
+            padding: 0.5rem;
         }
     }
     </style>
@@ -1466,13 +1577,12 @@
             <nav class="nav-panel">
                 <ul>
                     <li><a href="#programme-info" class="nav-link active">Programme Info</a></li>
-                    <li><a href="#journey-planner" class="nav-link">Journey Planner</a></li>
+                    <li><a href="#years-planner-detailed" class="nav-link">Detailed Journey Planner</a></li>
                     <li><a href="#work-while-studying" class="nav-link">Work While You Study</a></li>
                     <li><a href="#post-grad-employment" class="nav-link">After Graduation</a></li>
-                    <li><a href="#visas-resources" class="nav-link">Visas & Resources</a></li>
                     <li><a href="#business" class="nav-link">Starting a Business?</a></li>
                     <li><a href="#skill" class="nav-link">Build your skills</a></li>
-                    <li><a href="#workshops" class="nav-link">International Student Workshop" </a></li>
+                    <li><a href="#workshops" class="nav-link">International Student Workshop</a></li>
                     <li><a href="#career-roadmap" class="nav-link">Troubleshooting Mindmap</a></li>
                     <li><a href="#mentor" class="nav-link">Need a Mentor?</a></li>
                     <li><a href="#consultant" class="nav-link">Your Consultant</a></li>
@@ -1491,33 +1601,161 @@
                         <p>If you're an undergraduate or don't have industry experience, this content is still highly relevant, and you are very welcome to join! You can also access the full range of support from Careers, Employability and Student Enterprise.</p>
                     </div>
                 </section>
-                <section id="journey-planner">
-                    <h2><span role="img" aria-label="compass">🧭</span> Your Career Plans by Year</h2>
-                    <p>No matter what stage you're at, we have a tailored plan for you. Find your year group below to see your goals and get started with a dedicated action plan.</p>
-                    <div class="journey-container">
-                        <div class="journey-card">
-                            <span class="tag year1">Year 1 Undergrad</span>
-                            <h3>The Explorer</h3>
-                            <p>Your goal: Explore your options and build a solid foundation of skills and experiences.</p>
-                            <a href="YearsPlanner.html#year1" target="_blank">View Action Plan →</a>
+
+                <section id="years-planner-detailed">
+                    <h2><span role="img" aria-label="calendar">📅</span> Detailed Career Journey Planner</h2>
+                    <p>Explore detailed action plans and services for each stage of your academic journey. Click on your year to see specific guidance and resources tailored to your needs.</p>
+                    
+                    <div class="years-planner-tabs">
+                        <button class="years-tab-btn active" data-target="year1">Undergraduate Year 1</button>
+                        <button class="years-tab-btn" data-target="year2">Undergraduate Year 2</button>
+                        <button class="years-tab-btn" data-target="year3">Final Year Undergrad</button>
+                        <button class="years-tab-btn" data-target="masters">Master's Student</button>
+                        <button class="years-tab-btn" data-target="phd">PhD</button>
+                        <button class="years-tab-btn" data-target="alumni">Alumni</button>
+                    </div>
+
+                    <div id="year1" class="years-tab-content active">
+                        <div class="mind-map-container">
+                            <div class="central-topic">Year 1: The Explorer</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Explore Degree Options & Modules</div>
+                                    <div class="branch-item">Join University Societies & Clubs</div>
+                                    <div class="branch-item">Start Building Your CV (Skills Focus)</div>
+                                    <div class="branch-item">Attend Fresher's and Welcome Events</div>
+                                    <div class="branch-item">Attend Intro Career Workshops</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Introductory Career Workshops & Webinars</div>
+                                    <div class="branch-item">CV & Cover Letter Basics Guidance</div>
+                                    <div class="branch-item">Access to Career Fairs & Employer Presentations</div>
+                                    <div class="branch-item">First Steps One-to-One Advisor Meetings</div>
+                                    <div class="branch-item">Volunteering & Part-time Job Opportunities</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="journey-card">
-                            <span class="tag year2">Year 2 Undergrad</span>
-                            <h3>The Specialist</h3>
-                            <p>Your goal: Secure professional experience through internships or placements. This is your key year.</p>
-                            <a href="YearsPlanner.html#year2" target="_blank">View Action Plan →</a>
+                    </div>
+
+                    <div id="year2" class="years-tab-content">
+                        <div class="mind-map-container">
+                            <div class="central-topic">Year 2: The Specialist</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Seek Internships & Summer Placements</div>
+                                    <div class="branch-item">Network with Professionals & Alumni</div>
+                                    <div class="branch-item">Take on Leadership in a Society</div>
+                                    <div class="branch-item">Refine Your CV and LinkedIn Profile</div>
+                                    <div class="branch-item">Attend Skills-Specific Workshops</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Interview Preparation & Mock Interviews</div>
+                                    <div class="branch-item">Assessment Centre Simulations</div>
+                                    <div class="branch-item">Placement Year & Study Abroad Support</div>
+                                    <div class="branch-item">Employer-led Skills Sessions & Bootcamps</div>
+                                    <div class="branch-item">Careers Fairs Focused on Internships</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="journey-card">
-                            <span class="tag final-year">Final Year Undergrad</span>
-                            <h3>The Executor</h3>
-                            <p>Your goal: Execute your job search strategy and convert your degree into a graduate role.</p>
-                            <a href="YearsPlanner.html#year3" target="_blank">View Action Plan →</a>
+                    </div>
+
+                    <div id="year3" class="years-tab-content">
+                        <div class="mind-map-container">
+                            <div class="central-topic">Final Year Undergrad: The Executor</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Apply for Graduate Schemes & Jobs</div>
+                                    <div class="branch-item">Prepare for Final Exams & Dissertations</div>
+                                    <div class="branch-item">Secure Professional References from Tutors</div>
+                                    <div class="branch-item">Attend Finalist Careers Fairs & Recruitment Events</div>
+                                    <div class="branch-item">Practice Application & Interview Techniques</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Graduate Job & Application Support</div>
+                                    <div class="branch-item">Salary Negotiation & Offer Advice</div>
+                                    <div class="branch-item">Postgraduate Study & UCAS Guidance</div>
+                                    <div class="branch-item">Finalist Career Check-ins & Coaching</div>
+                                    <div class="branch-item">Networking with Graduate Employers</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="journey-card">
-                            <span class="tag masters">Master's Student</span>
-                            <h3>The Accelerator</h3>
-                            <p>Your goal: Fast-track your career with a highly focused and immediate job search.</p>
-                            <a href="YearsPlanner.html#masters" target="_blank">View Action Plan →</a>
+                    </div>
+
+                    <div id="masters" class="years-tab-content">
+                        <div class="mind-map-container">
+                            <div class="central-topic">Master's Student: The Accelerator</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Leverage your Specialised Knowledge</div>
+                                    <div class="branch-item">Network with Alumni in your Specific Field</div>
+                                    <div class="branch-item">Showcase your Dissertation/Project Work</div>
+                                    <div class="branch-item">Target Specialist & Graduate-level Roles</div>
+                                    <div class="branch-item">Attend Industry-Specific Events</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Specialised Career Fairs (e.g., STEM, Arts, Business)</div>
+                                    <div class="branch-item">PhD Application Support & Guidance</div>
+                                    <div class="branch-item">Advanced CV, Interview & Networking Workshops</div>
+                                    <div class="branch-item">Global Job Market & Visa Advice</div>
+                                    <div class="branch-item">Tailored 1-to-1 Career Coaching</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="phd" class="years-tab-content">
+                        <div class="mind-map-container">
+                            <div class="central-topic">PhD: The Innovator</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Attend Academic Conferences & Present Research</div>
+                                    <div class="branch-item">Build Your Extensive Research Portfolio</div>
+                                    <div class="branch-item">Explore Careers Outside Academia (Industry, Policy)</div>
+                                    <div class="branch-item">Mentor Junior Students & Collaborate</div>
+                                    <div class="branch-item">Develop Teaching & Communication Skills</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Academic (Postdoc) & Research Job Application Help</div>
+                                    <div class="branch-item">Industry Transition & Commercialisation Workshops</div>
+                                    <div class="branch-item">Grant and Fellowship Writing Support</div>
+                                    <div class="branch-item">Entrepreneurship & Spin-out Guidance</div>
+                                    <div class="branch-item">Specialised Networking with Industry Leaders</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="alumni" class="years-tab-content">
+                        <div class="mind-map-container">
+                            <div class="central-topic">Alumni: The Leader</div>
+                            <div class="branches">
+                                <div class="branch">
+                                    <h3 class="branch-title">Actions You Can Take</h3>
+                                    <div class="branch-item">Become an Alumni Mentor</div>
+                                    <div class="branch-item">Share Job & Internship Opportunities</div>
+                                    <div class="branch-item">Attend Alumni Networking & Social Events</div>
+                                    <div class="branch-item">Continue Professional Development & Upskilling</div>
+                                    <div class="branch-item">Stay Connected with the University Network</div>
+                                </div>
+                                <div class="branch">
+                                    <h3 class="branch-title">Services We Provide</h3>
+                                    <div class="branch-item">Lifelong Career Support (e.g., up to 3 years post-graduation)</div>
+                                    <div class="branch-item">Exclusive Access to Alumni Job Board</div>
+                                    <div class="branch-item">Professional Networking Events & Receptions</div>
+                                    <div class="branch-item">Executive & Mid-Career Coaching</div>
+                                    <div class="branch-item">Access to University Resources & Discounts</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1633,17 +1871,6 @@
                     <div id="other-graduate-roles" class="tab-content">
                         <p>Structured Graduate Schemes actually make up the minority of the job market, there are many more opportunities for graduate level roles that are hired on an ad hoc basis, as employers need to hire. These roles don't need be to applied for eary and are usually looking for somone who is available witin 1 to 3 months. You can find roles like these on the same job websites as experienced hire jobs and graduate schemes. Unlike graduate schemes, they do not always have the word "graduate" in the title, you can find out more about this in the international careers workshop on job search, you can watch the recording here: <a href="https://youtu.be/Q3cub4x3e9c" target="_blank">https://youtu.be/Q3cub4x3e9c</a></p>
                     </div>
-                </section>
-                <section id="visas-resources">
-                    <h2><span role="img" aria-label="visa">📋</span> Visas and Working in the UK</h2>
-                    <h4>Visas and Working in the UK</h4>
-                    <p>Find general information on the <a href="#">Student Hub website</a>. You can contact the <strong>Visa and Immigration Student Advice Service (VISAS)</strong> by email, live chat, and through visa advice appointments.</p>
-                    <h4>Self-Employment</h4>
-                    <p>International students must comply with visa regulations for self-employment. Please see the Enterprise section on our <a href="#work-while-studying">Work while you are studying page</a> for more information.</p>
-                    <h4>English Language Support</h4>
-                    <p>The University provides <a href="#">term-time courses</a> which cover presentation skills, everyday English, and academic writing.</p>
-                    <h4>National Insurance (NI) Number</h4>
-                    <p>You will need a National Insurance number to work in the UK. See the <a href="https://www.gov.uk/apply-national-insurance-number" target="_blank" rel="noopener">UK Government website</a> to apply.</p>
                 </section>
                 <section id="business" class="info-section two-column-layout">
                     <div class="section-text">
@@ -2448,7 +2675,7 @@
                         });
                     }
                 });
-            }, { rootMargin: '-40% 0px -60% 0px' });
+            }, { rootMargin: '-20% 0px -80% 0px' });
             sections.forEach(section => observer.observe(section));
             if (window.scrollY < 200) {
                 navLinks.forEach(link => link.classList.remove('active'));
@@ -2494,6 +2721,30 @@
                     e.target.classList.add('active');
 
                     tabContents.forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Handle Years Planner tab switching
+        const yearsPlannerTabs = document.querySelector('.years-planner-tabs');
+        if (yearsPlannerTabs) {
+            const yearsTabButtons = yearsPlannerTabs.querySelectorAll('.years-tab-btn');
+            const yearsTabContents = document.querySelectorAll('.years-tab-content');
+
+            yearsPlannerTabs.addEventListener('click', (e) => {
+                if (e.target.matches('.years-tab-btn')) {
+                    const targetId = e.target.dataset.target;
+
+                    yearsTabButtons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    yearsTabContents.forEach(content => {
                         if (content.id === targetId) {
                             content.classList.add('active');
                         } else {
